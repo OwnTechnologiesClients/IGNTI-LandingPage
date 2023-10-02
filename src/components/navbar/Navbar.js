@@ -1,13 +1,11 @@
 import React from 'react'
 import "./navbar.css"
-import { Button, Grid, Link, Typography, } from '@mui/material'
 import { NavLink } from "react-router-dom"
 
 
 const Navbar = () => {
     return (
         <>
-
 
             <nav className='main-nav'>
 
@@ -41,6 +39,8 @@ const Navbar = () => {
                     </ul>
                 </div>
 
+
+                {/* --------------- Social media section ---------------------- */}
 
                 <div className='social-media-parent'>
                     <div className='social-media-circle'>

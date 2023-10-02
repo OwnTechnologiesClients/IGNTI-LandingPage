@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import Navbar from './components/navbar/Navbar';
 import Header from './components/header/Header';
+import Banner from './components/banner/Banner';
 
 class App extends React.Component{
   
@@ -12,6 +13,8 @@ class App extends React.Component{
       
         <Header/>
         <Navbar/>
+        <Banner/>
+        
       </div>
     )
   }

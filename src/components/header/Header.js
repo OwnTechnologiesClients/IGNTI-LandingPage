@@ -9,6 +9,8 @@ const Header = () => {
     return (
         <>
 
+            {/* --------------- header image ---------------------- */}
+            
             <div className='header_img'>
                 <img src="/img/head-logo.jpg" alt="header-logo" />
             </div>
