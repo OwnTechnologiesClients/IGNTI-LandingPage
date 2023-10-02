@@ -10,7 +10,7 @@ const Header = () => {
         <>
 
             {/* --------------- header image ---------------------- */}
-            
+
             <div className='header_img'>
                 <img src="/img/head-logo.jpg" alt="header-logo" />
             </div>

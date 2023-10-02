@@ -147,7 +147,52 @@ const Home = () => {
 
       </div>
 
-    </div>
+
+
+
+
+      <div className='support-service-parent'>
+        <div className='flex-container'>
+          <div className='support-service'>
+            <h2>SUPPORT</h2>
+            <h1>SERVICE</h1>
+          </div>
+
+
+          <div className='right-section'>
+            <div className='right-section-child'>
+
+              <div className='right-section-flex'>
+                <img src="/icon/customer-service.png" />
+                <p>xyz@gmail.com</p>
+              </div>
+
+              <div className='right-section-flex'>
+                <img src="/icon/call.png" />
+                <p>+91-9999555588</p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+
+      <div className='gov-section'>
+        <img src="/img/gov-1.png" />
+        <img src="/img/gov-2.png" />
+        <img src="/img/gov-3.png" />
+        <img src="/img/gov-4.png" />
+        <img src="/img/gov-5.png" />
+        <img src="/img/gov-6.png" />
+      </div>
+
+    </div >
 
   )
 }
