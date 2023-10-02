@@ -1,10 +1,19 @@
 import React from 'react'
+import Banner from '../../components/banner/Banner';
+import Footer from '../../components/footer/Footer';
+import Header from '../../components/header/Header';
+import Navbar from '../../components/navbar/Navbar';
 import './Home.css';
 
 
 const Home = () => {
   return (
     <div>
+      <Header />
+      <Navbar />
+      <Banner />
+
+
       <div className='parent'>
 
 
@@ -188,6 +197,8 @@ const Home = () => {
         <img src="/img/gov-5.png" />
         <img src="/img/gov-6.png" />
       </div>
+      
+      <Footer />
 
     </div >
 
