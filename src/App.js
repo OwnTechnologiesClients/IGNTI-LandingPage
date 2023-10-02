@@ -5,6 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import Header from './components/header/Header';
 import Banner from './components/banner/Banner';
 import Home from './pages/home/Home';
+import Footer from './components/footer/Footer';
 
 class App extends React.Component{
   
@@ -16,6 +17,7 @@ class App extends React.Component{
         <Navbar/>
         <Banner/>
         <Home/>
+        <Footer/>
         
       </div>
     )
