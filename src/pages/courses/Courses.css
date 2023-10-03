@@ -1,0 +1,44 @@
+.app {
+    font-family: sans-serif;
+    height: 70vh;
+    display: flex;
+    gap: 20px;
+}
+
+.filter-container {
+    margin-left: 2vw;
+    margin-top: 4vw;
+    gap: 10px;
+}
+.filter-container h3{
+    font-size: 1.5vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+.filter-container p{
+    font-size: 0.8vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+
+}
+
+.dropdown{
+    margin-top: 0.5vw;
+}
+.dropdown select{
+    font-size: 0.9vw;
+    font-weight: 400;
+}
+#category-list {
+    padding-right: 4vw;
+    padding-left: 0.6vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+}
+
+.sport-list {
+    margin-top: 3vw;
+    margin-left: 4vw;
+    width: 50%;
+    gap: 20px;
+}
