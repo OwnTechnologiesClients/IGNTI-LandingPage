@@ -1,6 +1,7 @@
 import React from 'react'
 import Banner from '../../components/banner/Banner';
 import Footer from '../../components/footer/Footer';
+import Goverment from '../../components/goverment/Goverment';
 import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import './Home.css';
@@ -189,15 +190,8 @@ const Home = () => {
       </div>
 
 
-      <div className='gov-section'>
-        <img src="/img/gov-1.png" />
-        <img src="/img/gov-2.png" />
-        <img src="/img/gov-3.png" />
-        <img src="/img/gov-4.png" />
-        <img src="/img/gov-5.png" />
-        <img src="/img/gov-6.png" />
-      </div>
-      
+      <Goverment />
+
       <Footer />
 
     </div >

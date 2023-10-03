@@ -11,6 +11,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Courses from './pages/courses/Courses';
 import Franchise from './pages/franchise/Franchise';
+import ContactUs from './pages/contactus/ContactUs';
 
 
 class App extends React.Component {
@@ -26,6 +27,7 @@ class App extends React.Component {
           <Route path='/home' element={<Home />} />
           <Route path='/courses' element={<Courses />} />
           <Route path='/franchise' element={<Franchise />} />
+          <Route path='/contactus' element={<ContactUs />} />
 
 
         </Routes>
