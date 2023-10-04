@@ -1,6 +1,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
-import Item from "../../../components/item/Item";
+import TestSubjects from "../testsubject/TestSubjects";
+import { Link, useNavigate } from "react-router-dom"
 import './SelectCourse.css';
 
 //Filter list by category in React JS
@@ -28,6 +29,12 @@ function SelectCourse() {
     function handleCategoryChange(event) {
         setSelectedCategory(event.target.value);
     }
+
+    const navigate = useNavigate();
+
+    const navigateToContacts = () => {
+        navigate('/test-subjects');
+    };
 
     return (
 
@@ -85,10 +92,13 @@ function SelectCourse() {
 
 
                             <div>
+
+
                                 <div className='course-button-parent'>
-                                    <button class="button">Continue</button>
+                                    <button class="button" onClick={navigateToContacts}>Continue</button>
 
                                 </div>
+
                             </div>
 
                         </div>

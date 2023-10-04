@@ -12,12 +12,12 @@ import { NavLink, Link, useNavigate } from "react-router-dom"
 
 
 const StudentZone = () => {
-      const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const navigateToContacts = () => {
         // 👇️ navigate to /contacts
         navigate('/select-course');
-      };
+    };
 
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
