@@ -14,6 +14,7 @@ import Franchise from './pages/franchise/Franchise';
 import ContactUs from './pages/contactus/ContactUs';
 import AboutUs from './pages/aboutus/AboutUs';
 import Gallery from './pages/gallery/Gallery';
+import StudentZone from './pages/studentzone/StudentZone';
 
 
 class App extends React.Component {
@@ -32,6 +33,7 @@ class App extends React.Component {
           <Route path='/contactus' element={<ContactUs />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/aboutus' element={<AboutUs />} />
+          <Route path='/student' element={<StudentZone />} />
 
 
         </Routes>
