@@ -15,6 +15,7 @@ import ContactUs from './pages/contactus/ContactUs';
 import AboutUs from './pages/aboutus/AboutUs';
 import Gallery from './pages/gallery/Gallery';
 import StudentZone from './pages/studentzone/StudentZone';
+import SelectCourse from './pages/studentzone/selectcourse/SelectCourse';
 
 
 class App extends React.Component {
@@ -34,6 +35,7 @@ class App extends React.Component {
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/student' element={<StudentZone />} />
+          <Route path='/select-course' element={<SelectCourse/>} />
 
 
         </Routes>

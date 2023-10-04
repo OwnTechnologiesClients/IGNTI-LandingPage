@@ -97,7 +97,6 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     margin-left: 7vw;
-    font-size: 0.9vw;
 
 }
 
@@ -109,4 +108,27 @@ input::placeholder {
 .userid-section p{
     width: 10%;
     margin-top: 2vw;
+}
+
+
+.dropdown{
+    margin-top: 1.2vw;
+    margin-left: 1vw;
+
+}
+.dropdown select{
+    font-size: 0.9vw;
+    font-weight: 400;
+}
+
+.course-button-parent button {
+    display: flex;
+    width: 10vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5.5vw;
+    font-weight: 900;
+    font-size: 0.9vw;
+
 }

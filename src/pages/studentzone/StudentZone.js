@@ -6,9 +6,18 @@ import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import { useState } from "react";
 import './StudentZone.css';
+import { NavLink, Link, useNavigate } from "react-router-dom"
+
+
 
 
 const StudentZone = () => {
+      const navigate = useNavigate();
+
+    const navigateToContacts = () => {
+        // 👇️ navigate to /contacts
+        navigate('/select-course');
+      };
 
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
@@ -52,7 +61,7 @@ const StudentZone = () => {
 
                         <div>
                             <div className='student-button-parent'>
-                                <button class="button">LOGIN</button>
+                                <button class="button" onClick={navigateToContacts}> Login</button>
 
                             </div>
                         </div>
@@ -62,7 +71,7 @@ const StudentZone = () => {
 
 
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }
