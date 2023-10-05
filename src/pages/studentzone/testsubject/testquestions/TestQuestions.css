@@ -1,0 +1,67 @@
+.test-subject-section{
+    width: 100%;
+    height: 5vw;
+    background: #F46A6F;
+    position: relative;
+}
+.test-subject-parent{
+    display: flex;
+    justify-content: space-between;
+}
+
+.quesion-section{
+    display: flex;
+    
+}
+
+.quesions-numbers{
+    height: 90vh;
+    width: 10%;
+    background-color: #E5E7EB;
+    margin-top: 0.8vw;
+    position: absolute;
+}
+
+.quesions-numbers p {
+    font-size: 1.2vw;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 900;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 2vw;
+
+}
+
+.mutiple-choice-quesions{
+    width: 100%;
+    height: 90vh;
+
+    margin-top: 1vw;
+    margin-left: 9vw;
+    padding-left: 10px;
+}
+
+.mutiple-choice-quesions p {
+    font-size: 1.5vw;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 900;
+    margin-left: 5vw;
+    margin-top: 2vw;
+
+}
+
+.radio-button-form{
+    margin-left: 4vw;
+    
+}
+
+.radio-button-form span{
+    display:inline-block;
+    margin-left: 1vw;
+    margin-top: 1.5vw;
+  }
+
+.radio-button-form label{
+    font-size: 1.2vw;
+}

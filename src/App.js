@@ -17,6 +17,7 @@ import Gallery from './pages/gallery/Gallery';
 import StudentZone from './pages/studentzone/StudentZone';
 import SelectCourse from './pages/studentzone/selectcourse/SelectCourse';
 import TestSubjects from './pages/studentzone/testsubject/TestSubjects';
+import TestQuestions from './pages/studentzone/testsubject/testquestions/TestQuestions';
 
 
 class App extends React.Component {
@@ -38,7 +39,9 @@ class App extends React.Component {
           <Route path='/student' element={<StudentZone />} />
           <Route path='/select-course' element={<SelectCourse/>} />
           <Route path='/test-subjects' element={<TestSubjects/>} />
-          {/* <Route path={`/exam-subjects/${0000}`} element={<SelectCourse/>} /> */}
+          <Route path='/test-subjects/quesions' element={<TestQuestions/>} />
+          <Route path='/test-subjects/submit' element={<TestQuestions/>} />
+          
 
 
         </Routes>

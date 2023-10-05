@@ -1,8 +1,19 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom"
+
 import './TestSubjects.css';
 
 
-const TestSubjects = () => {
+//Filter list by category in React JS
+function TestSubjects() {
+  // Default Value
+
+  
+  const navigate = useNavigate();
+
+  const navigateToQuestions = () => {
+      navigate('/test-subjects/quesions');
+  };
   return (
     <div className='test-subject-section'>
       <div className='test-subject-parent'>
@@ -31,7 +42,7 @@ const TestSubjects = () => {
 
         <p>Multiple Choice</p>
 
-        <button class="button">Solve</button>
+        <button class="button" onClick={navigateToQuestions}>Solve</button>
 
 
       </div>
