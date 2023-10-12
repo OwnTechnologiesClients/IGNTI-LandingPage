@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 
 
-function TestQuestions  ()  {
+function TestQuestions() {
   const [selectedOption, setSelectedOption] = useState("Male")
 
   // Function to handle the change in radio button selection
@@ -13,7 +13,7 @@ function TestQuestions  ()  {
     setSelectedOption(event.target.value)
   }
 
-  
+
   // Function to handle the form submission
   function formSubmit(event) {
     // Preventing the default form submission behaviour
@@ -31,7 +31,7 @@ function TestQuestions  ()  {
   const navigate = useNavigate();
 
   const navigateToContacts = () => {
-      navigate('/test-subjects-submit');
+    navigate('/test-subjects-submit');
   };
   return (
     <div className='test-subject-section'>
@@ -107,7 +107,6 @@ function TestQuestions  ()  {
 
           <div className='course-button-parent'>
             <button class="button" onClick={navigateToContacts}>Continue</button>
-
           </div>
 
         </div>
