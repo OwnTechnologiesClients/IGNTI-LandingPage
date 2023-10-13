@@ -20,7 +20,7 @@ li {
 }
 
 
-.main-nav {
+/* .main-nav {
     width: 100%;
     height: 5vw;
     margin-top: 2vw;
@@ -66,8 +66,115 @@ li {
     color: rgba(0, 0, 3, 1);
     text-decoration: none;
     transition: 0.5s;
+} */
+
+.menu-parent {
+    width: 100%;
+    height: 5vw;
+    background-color: #F46A6F;
+    display: flex;
+
 }
 
+.menu {
+    width: 70%;
+    position: absolute;
+    margin-top: 1.5vw;
+    border: 1px solid #F46A6F;
+    margin-left: 5vw;
+}
+
+.menu ul {
+    width: 100%;
+    background-color: #F46A6F;
+    display: flex;
+    justify-content: space-evenly;
+
+
+
+}
+
+.menu ul {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    float: left;
+
+}
+
+.menu ul a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 32px;
+    padding: 0 15px;
+    display: block;
+    color: black;
+
+}
+
+.menu ul li {
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+
+.menu ul li:hover {
+    background: white;
+    transform-origin: left;
+    color: rgba(0, 0, 3, 1);
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 3vw;
+
+
+}
+
+.menu ul ul {
+    width: 10vw;
+    position: absolute;
+    background: #263342;
+    top: 100%;
+    left: 0;
+    display: none;
+    padding: 1vw;
+}
+
+.menu li ul li a {
+    width: 10vw;
+    color: white;
+}
+
+.menu li ul li:hover>a {
+    color: #263342;
+
+}
+
+.menu ul ul li {
+    float: none;
+    width: 20vw;
+    border-left: 3px solid #27ae60;
+    width: 10vw;
+
+}
+
+.menu ul ul li:hover {
+    border-left: 3px solid #2c3e50;
+}
+
+.menu ul li:hover ul {
+    display: block;
+    background-color: #27ae60;
+    z-index: 9;
+    background: #263342;
+
+}
 
 .social-media {
     grid-column: 4/5;
@@ -89,8 +196,10 @@ li {
 }
 
 .social-media-parent {
+    width: 100%;
     display: flex;
-    margin-left: 5vw;
+    justify-content: flex-end;
+    margin-right: 5vw;
 }
 
 .social-media-circle {
