@@ -31,7 +31,7 @@ function TestQuestions() {
   const navigate = useNavigate();
 
   const navigateToContacts = () => {
-    navigate('/test-subjects-submit');
+    navigate('/test-subjects');
   };
   return (
     <div className='test-subject-section'>

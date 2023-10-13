@@ -19,6 +19,7 @@ import SelectCourse from './pages/studentzone/selectcourse/SelectCourse';
 import TestSubjects from './pages/studentzone/testsubject/TestSubjects';
 import TestQuestions from './pages/studentzone/testsubject/testquestions/TestQuestions';
 import Result from './pages/studentzone/result/Result';
+import ExamSubmitSuccess from './pages/studentzone/examPublishSuccess/ExamSubmitSuccess';
 
 
 class App extends React.Component {
@@ -43,6 +44,7 @@ class App extends React.Component {
           <Route path='/test-subjects/quesions' element={<TestQuestions/>} />
           <Route path='/test-subjects/submit' element={<TestQuestions/>} />
           <Route path='/result' element={<Result/>} />
+          <Route path='/exam-submited' element={<ExamSubmitSuccess/>} />
             
 
 

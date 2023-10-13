@@ -11,9 +11,9 @@ import Header from '../../../components/header/Header';
 const Result = () => {
     const navigate = useNavigate();
 
-    const navigateToContacts = () => {
+    const logout = () => {
         // 👇️ navigate to /contacts
-        navigate('/select-course');
+        navigate('/student');
     };
 
     const [userId, setUserId] = useState("");
@@ -213,8 +213,8 @@ const Result = () => {
 
             <div className='logout-section'>
 
-                <div className='logout-button'>
-                    <p>Print As PDF</p>
+                <div className='logout-button' onClick={logout}>
+                    <p>LOGOUT</p>
                 </div>
 
             </div>

@@ -21,6 +21,11 @@ const images = [
   "/img/banner-2.png",
   "/img/banner-3.png",
   "https://picsum.photos/1500/2000",
+  "https://picsum.photos/1400/2000",
+  "https://picsum.photos/1600/2000",
+  "https://picsum.photos/1600/2000",
+  "https://picsum.photos/1700/2000",
+  "https://picsum.photos/1800/2000",
 ]
 
 const Gallery = () => {
