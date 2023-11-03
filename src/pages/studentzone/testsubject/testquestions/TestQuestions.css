@@ -29,6 +29,11 @@
   left: 4px;
 }
 
+.quesions-numbers .color-green {
+  background: green;
+  width: 20px;
+}
+
 .quesions-numbers a {
   font-size: 1.2vw;
   font-family: "Poppins", sans-serif;

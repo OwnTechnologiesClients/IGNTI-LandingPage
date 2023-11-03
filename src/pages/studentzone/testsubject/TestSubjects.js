@@ -15,11 +15,17 @@ function TestSubjects() {
   const [subjects, setSubjects] = useState([]);
 
   const navigateToQuestions = (name) => {
-    dispatch(SetLoading(true));
-    setTimeout(() => {
-      dispatch(SetLoading(false));
-      navigate(`/test-subjects/quesions/${courseName}/${semesterNumber}/${name}`);
-    }, 600);
+    if (localStorage.getItem("courseName") !== name) {
+      message.error(`First submit the ${localStorage.getItem("courseName")} subject exam!`);
+    } else {
+      dispatch(SetLoading(true));
+      setTimeout(() => {
+        dispatch(SetLoading(false));
+        navigate(
+          `/test-subjects/quesions/${courseName}/${semesterNumber}/${name}`
+        );
+      }, 600);
+    }
   };
 
   const getAllCoursesName = async () => {
@@ -75,7 +81,10 @@ function TestSubjects() {
 
             <p>Multiple Choice</p>
 
-            <button class="button" onClick={() => navigateToQuestions(subject.subjectName)}>
+            <button
+              class="button"
+              onClick={() => navigateToQuestions(subject.subjectName)}
+            >
               Solve
             </button>
           </div>

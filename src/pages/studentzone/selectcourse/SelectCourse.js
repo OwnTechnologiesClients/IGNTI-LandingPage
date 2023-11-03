@@ -12,6 +12,8 @@ function SelectCourse() {
   const [courses, setCourses] = useState([]);
   const [arr, setArr] = useState([]);
   const [num, setNum] = useState("");
+  const [enrollment, setEnrollment] = useState("");
+  const [pass, setPass] = useState("");
   const [sportList, setSportList] = useState([]);
 
   const [selectedCategory, setSelectedCategory] = useState();
@@ -23,7 +25,7 @@ function SelectCourse() {
     return sportList.filter((item) => item.category === selectedCategory);
   }
 
-//   var filteredList = useMemo(getFilteredList, [selectedCategory, sportList]);
+  //   var filteredList = useMemo(getFilteredList, [selectedCategory, sportList]);
 
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
@@ -96,12 +98,11 @@ function SelectCourse() {
 
   return (
     <div>
-
       <div className="app">
         <div className="student-section">
           <div className="student-square">
             <div className="square-header">
-              <h2>Select Course & Semester</h2>
+              <h2>Login</h2>
             </div>
             <div className="student-card-parent">
               <div className="userid-section">
@@ -141,10 +142,26 @@ function SelectCourse() {
                 </div>
               </div>
 
+              <div className="userid-section">
+                <p>Enrollment No.</p>
+
+                <div className="dropdown">
+                  <input type="number" value={enrollment} onChange={(e) => setEnrollment(e.target.value)} ></input>
+                </div>
+              </div>
+
+              <div className="userid-section">
+                <p>Exam Password</p>
+
+                <div className="dropdown">
+                  <input type="text" value={pass} onChange={(e) => setPass(e.target.value)}></input>
+                </div>
+              </div>
+
               <div>
                 <div className="course-button-parent">
                   <button class="button" onClick={navigateToContacts}>
-                    Continue
+                    Login
                   </button>
                 </div>
               </div>
@@ -152,7 +169,6 @@ function SelectCourse() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
