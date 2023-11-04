@@ -18,7 +18,6 @@ function TestQuestions() {
     const elapsedTime = (Date.now() - storedTime1) / 1000;
     const integerNumber = parseInt(elapsedTime);
     const remainingTime = localStorage.getItem("remainingTime");
-    // console.log(remainingTime-integerNumber)
     if (isNaN(remainingTime - integerNumber)) {
       return 3600;
     }
@@ -108,21 +107,6 @@ function TestQuestions() {
 
   useEffect(() => {
     localStorage.setItem("currentTime", Date.now());
-
-    // const storedTime = parseInt(localStorage.getItem("currentTime"));
-    // // console.log(storedTime)
-    // if (!isNaN(storedTime)) {
-    //   const elapsedTime = (Date.now() - storedTime) / 1000;
-    //   const newRemainingTime = remainingTime - elapsedTime;
-    //   if (newRemainingTime > 0) {
-    //     // setRemainingTime(newRemainingTime);
-    //     console.log(remainingTime)
-    //     console.log(elapsedTime);
-    //   } else {
-    //     // navigate("/test-subjects");
-    //     console.log("hello")
-    //   }
-    // }
   }, [remainingTime]);
 
   useEffect(() => {
@@ -155,7 +139,6 @@ function TestQuestions() {
         document.documentElement.msRequestFullscreen();
       }
     } else {
-      // Exit full-screen
       if (document.exitFullscreen) {
         document.exitFullscreen();
       } else if (document.mozCancelFullScreen) {
@@ -169,7 +152,6 @@ function TestQuestions() {
   };
 
   useEffect(() => {
-    // toggleFullScreen();
 
     const handleFullScreenChange = () => {
       setIsFullScreen(!!document.fullscreenElement);

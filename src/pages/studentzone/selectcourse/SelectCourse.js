@@ -37,12 +37,47 @@ function SelectCourse() {
 
   const navigate = useNavigate();
 
-  const navigateToContacts = () => {
-    dispatch(SetLoading(true));
-    setTimeout(() => {
-      dispatch(SetLoading(false));
-      navigate(`/test-subjects/${selectedCategory}/${num}`);
-    }, 600);
+  const navigateToContacts = async () => {
+    if (enrollment === "" || pass === "") {
+      return message.error("Please fill all details!");
+    } else {
+      try {
+        dispatch(SetLoading(true));
+        const response = await axios({
+          method: "post",
+          url: "http://localhost:9000/api/students/verify-student",
+          data: {
+            courseName: selectedCategory,
+            enrollNo: enrollment,
+          },
+        });
+        dispatch(SetLoading(false));
+        if (response.data.success) {
+          const result = await axios({
+            method: "post",
+            url: "http://localhost:9000/api/courses/verify-password",
+            data: {
+              courseName: selectedCategory,
+              password: pass,
+            },
+          });
+          if (result.data.success) {
+            dispatch(SetLoading(true));
+            setTimeout(() => {
+              dispatch(SetLoading(false));
+              navigate(`/test-subjects/${selectedCategory}/${num}`);
+            }, 600);
+          } else {
+            throw new Error(result.data.message);
+          }
+        } else {
+          throw new Error(response.data.message);
+        }
+      } catch (error) {
+        dispatch(SetLoading(false));
+        message.error(error.message);
+      }
+    }
   };
 
   const getAllCoursesName = async () => {
@@ -146,7 +181,11 @@ function SelectCourse() {
                 <p>Enrollment No.</p>
 
                 <div className="dropdown">
-                  <input type="number" value={enrollment} onChange={(e) => setEnrollment(e.target.value)} ></input>
+                  <input
+                    type="number"
+                    value={enrollment}
+                    onChange={(e) => setEnrollment(e.target.value)}
+                  ></input>
                 </div>
               </div>
 
@@ -154,7 +193,11 @@ function SelectCourse() {
                 <p>Exam Password</p>
 
                 <div className="dropdown">
-                  <input type="text" value={pass} onChange={(e) => setPass(e.target.value)}></input>
+                  <input
+                    type="text"
+                    value={pass}
+                    onChange={(e) => setPass(e.target.value)}
+                  ></input>
                 </div>
               </div>
 

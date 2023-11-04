@@ -14,8 +14,21 @@ function TestSubjects() {
   const navigate = useNavigate();
   const [subjects, setSubjects] = useState([]);
 
+  const [remainingTime, setRemainingTime] = useState(() => {
+    const storedTime1 = parseInt(localStorage.getItem("currentTime"));
+    const elapsedTime = (Date.now() - storedTime1) / 1000;
+    const integerNumber = parseInt(elapsedTime);
+    const remainingTime = localStorage.getItem("remainingTime");
+    if (isNaN(remainingTime - integerNumber)) {
+      return 3600;
+    }
+    localStorage.setItem("remainingTime", remainingTime - integerNumber);
+    const storedTime = localStorage.getItem("remainingTime");
+    return storedTime ? parseInt(storedTime, 10) : 3600;
+  });
+
   const navigateToQuestions = (name) => {
-    if (localStorage.getItem("courseName") !== name) {
+    if (localStorage.getItem("courseName") && localStorage.getItem("courseName") !== name) {
       message.error(`First submit the ${localStorage.getItem("courseName")} subject exam!`);
     } else {
       dispatch(SetLoading(true));
@@ -53,8 +66,30 @@ function TestSubjects() {
   };
 
   useEffect(() => {
+    const timer = setInterval(() => {
+      setRemainingTime((prevTime) => prevTime - 1);
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+
+  useEffect(() => {
+    localStorage.setItem("remainingTime", remainingTime);
+  }, [remainingTime]);
+
+  useEffect(() => {
+    localStorage.setItem("currentTime", Date.now());
+  }, [remainingTime]);
+
+  useEffect(() => {
     getAllCoursesName();
   }, []);
+
+  const formattedTime = `${Math.floor(remainingTime / 60)} mins ${
+    remainingTime % 60
+  } secs`;
 
   return (
     <div className="test-subject-section">
@@ -64,7 +99,7 @@ function TestSubjects() {
         </div>
         <div className="question-time-profile">
           <p>Question 200</p>
-          <p>60 mins</p>
+          <p>{formattedTime}</p>
         </div>
       </div>
 
