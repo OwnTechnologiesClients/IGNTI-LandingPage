@@ -7,7 +7,7 @@ import { message } from "antd";
 import axios from "axios";
 
 function TestQuestions() {
-  const { courseName, semesterNumber, subjectName } = useParams();
+  const { courseName, semesterNumber, subjectName, enrollment } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedOption, setSelectedOption] = useState([]);
@@ -32,21 +32,58 @@ function TestQuestions() {
     setSelectedOption(updatedSelectedOptions);
   }
 
-  const navigateToContacts = () => {
+  const navigateToContacts = async () => {
     let resultSet = [];
-    for(let i=0; i<questions.length; i++) {
+    for (let i = 0; i < questions.length; i++) {
       let resultJson = {
         question: questions[i].questionText,
-        selectedOption: selectedOption[i]
+        selectedOption: selectedOption[i],
+      };
+      if (resultJson.selectedOption == null) {
+        resultJson.selectedOption = 0;
       }
-      if(resultJson.selectedOption == null) {
-        resultJson.selectedOption = 0
-      }
-      resultSet.push(resultJson)
+      resultSet.push(resultJson);
     }
     // console.log(resultSet)
     toggleFullScreen();
-    navigate(`/test-subjects/${courseName}/${semesterNumber}`);
+
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/students/get-student-id-enroll",
+        data: {
+          enroll: enrollment,
+        },
+      });
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        dispatch(SetLoading(true));
+        const result = await axios({
+          method: "post",
+          url: "http://localhost:9000/api/resultSets/add-result-set",
+          data: {
+            courseName: courseName,
+            semesterNumber: semesterNumber,
+            subjectName: subjectName,
+            resultSet: resultSet,
+            studentId: response.data.data._id,
+          },
+        });
+        dispatch(SetLoading(false));
+        if (result.data.success) {
+          navigate(`/test-subjects/${courseName}/${semesterNumber}/${enrollment}`);
+        } else {
+          navigate(`/test-subjects/${courseName}/${semesterNumber}/${enrollment}`);
+          throw new Error(result.data.message);
+        }
+      } else {
+        throw new Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
   };
 
   const getAllQuestions = async () => {
@@ -82,7 +119,7 @@ function TestQuestions() {
   }
 
   useEffect(() => {
-    localStorage.setItem("courseName", subjectName);
+    // localStorage.setItem("courseName", subjectName);
     const timer = setInterval(() => {
       setRemainingTime((prevTime) => prevTime - 1);
     }, 1000);
@@ -96,8 +133,11 @@ function TestQuestions() {
   } secs`;
 
   useEffect(() => {
-    if (remainingTime === 0) {
-      navigate("/test-subjects");
+    if (remainingTime <= 1) {
+      if (isFullScreen) {
+        toggleFullScreen();
+      }
+      navigate(`/test-subjects/${courseName}/${semesterNumber}/${enrollment}`);
     }
   }, [remainingTime]);
 
@@ -111,7 +151,7 @@ function TestQuestions() {
 
   useEffect(() => {
     const savedSelectedOption = JSON.parse(
-      localStorage.getItem("selectedOption")
+      localStorage.getItem(`selectedOption${subjectName}`)
     );
     if (savedSelectedOption) {
       setSelectedOption(savedSelectedOption);
@@ -122,7 +162,10 @@ function TestQuestions() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("selectedOption", JSON.stringify(selectedOption));
+    localStorage.setItem(
+      `selectedOption${subjectName}`,
+      JSON.stringify(selectedOption)
+    );
   }, [selectedOption]);
 
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -152,7 +195,6 @@ function TestQuestions() {
   };
 
   useEffect(() => {
-
     const handleFullScreenChange = () => {
       setIsFullScreen(!!document.fullscreenElement);
     };

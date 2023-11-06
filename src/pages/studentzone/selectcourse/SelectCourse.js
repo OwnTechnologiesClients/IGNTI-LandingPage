@@ -65,7 +65,7 @@ function SelectCourse() {
             dispatch(SetLoading(true));
             setTimeout(() => {
               dispatch(SetLoading(false));
-              navigate(`/test-subjects/${selectedCategory}/${num}`);
+              navigate(`/declaration/${selectedCategory}/${num}/${enrollment}`);
             }, 600);
           } else {
             throw new Error(result.data.message);
@@ -128,6 +128,8 @@ function SelectCourse() {
   }, [selectedCategory]);
 
   useEffect(() => {
+    localStorage.removeItem("remainingTime");
+    localStorage.removeItem("currentTime");
     getAllCoursesName();
   }, []);
 
