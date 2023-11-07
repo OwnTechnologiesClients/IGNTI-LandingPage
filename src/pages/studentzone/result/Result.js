@@ -1,225 +1,287 @@
-import React from 'react'
+import React from "react";
 
-import { useState } from "react";
-import './Result.css';
-import { NavLink, Link, useNavigate } from "react-router-dom"
-import Header from '../../../components/header/Header';
-
-
-
+import { useState, useEffect } from "react";
+import "./Result.css";
+import { useNavigate, useParams } from "react-router-dom";
+import Header from "../../../components/header/Header";
+import { useDispatch } from "react-redux";
+import { SetLoading } from "../../../redux/loaderSlice";
+import axios from "axios";
+import { message } from "antd";
 
 const Result = () => {
-    const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { selectedCategory, num, enrollment } = useParams();
+  const navigate = useNavigate();
 
-    const logout = () => {
-        // 👇️ navigate to /contacts
-        navigate('/student');
+  const logout = () => {
+    // 👇️ navigate to /contacts
+    navigate("/student");
+  };
+
+  let [user, setUser] = useState();
+  if (!user) {
+    user = {
+      courseName: "",
+      studentName: "",
+      dateOfBirth: "",
+      fatherName: "",
     };
-
-    const [userId, setUserId] = useState("");
-    const [password, setPassword] = useState("");
-
-
-
-    return (
-        <div>
-
-            <Header />
-
-            <div className='result-section'>
-
-                <div className='result-square'>
-                    <div className='square-header'>
-                        <h2>STUDENT DETAILS</h2>
-                    </div>
-                    <div className='result-card-parent'>
-                        {/* <h2>BECOME A MEMBER</h2> */}
-                        <div className='border-1'></div>
-                        <div className='result-user-information-section'>
-                            <p>Diploma in Computer Application (DCA)</p>
-                        </div>
-
-
-                        <div className='student-information-section'>
-
-                            <div className='section-one'>
-                                <div className='student-info'>
-                                    <p1>Name: </p1>
-                                    <p2>Gaurav Sharma</p2>
-                                </div>
-
-                                <div className='student-info'>
-                                    <p1>Father Name: </p1>
-                                    <p2>VISHWAJEET SHARMA</p2>
-                                </div>
-
-
-                                <div className='student-info'>
-                                    <p1>Date Of Birth: </p1>
-                                    <p2>12-05-2014</p2>
-                                </div>
-
-                                <div className='student-info'>
-                                    <p1>Enroll No:</p1>
-                                    <p2>01-08-2014-005</p2>
-                                </div>
-
-                            </div>
-
-                            <div className='section-two'>
-                                <img src="/img/dummyimg.png" />
-                            </div>
-
-
-                        </div>
-
-
-
-                    </div>
-                    <div className='square-dashboard'>
-
-
-
-                        <h2>DASHBOARD</h2>
-
-
-                        <div className='result-fields'>
-                            <div className='sno-examname'>
-                                <p1>SNo.</p1>
-                                <p1>Exam Name</p1>
-                            </div>
-
-                            <div className='other-result-fields'>
-                                <p1>Maximum Marks</p1>
-                                <p1>Obtained Marks</p1>
-                                <p1>Grade</p1>
-
-                            </div>
-
-
-                        </div>
-                        <div className='result-border'></div>
-
-
-
-
-                        <div className='result-fields-2'>
-                            <div className='marking'>
-                                <p1>1</p1>
-                                <p1>COMPUTER FUNDAMENTALS</p1>
-                            </div>
-
-                            <div className='other-result-fields-2'>
-                                <p1>200</p1>
-
-                                <p1>79</p1>
-
-
-                                <p1>A</p1>
-
-                            </div>
-
-
-                        </div>
-                        <div className='result-border-2'></div>
-
-
-
-                        <div className='result-fields-2'>
-                            <div className='marking'>
-                                <p1>1</p1>
-                                <p1>COMPUTER FUNDAMENTALS</p1>
-                            </div>
-
-                            <div className='other-result-fields-2'>
-                                <p1>200</p1>
-
-                                <p1>79</p1>
-
-
-                                <p1>A</p1>
-
-                            </div>
-
-
-                        </div>
-                        <div className='result-border-2'></div>
-
-
-
-                        <div className='result-fields-2'>
-                            <div className='marking'>
-                                <p1>1</p1>
-                                <p1>COMPUTER FUNDAMENTALS</p1>
-                            </div>
-
-                            <div className='other-result-fields-2'>
-                                <p1>200</p1>
-
-                                <p1>79</p1>
-
-
-                                <p1>A</p1>
-
-                            </div>
-
-
-                        </div>
-                        <div className='result-border-2'></div>
-
-
-                        <div className='result-fields-2'>
-                            <div className='marking'>
-                                <p1>1</p1>
-                                <p1>COMPUTER FUNDAMENTALS</p1>
-                            </div>
-
-                            <div className='other-result-fields-2'>
-                                <p1>200</p1>
-
-                                <p1>79</p1>
-
-
-                                <p1>A</p1>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-
-
-
-
-                </div>
-
-                <div className='percentage-square-dashboard'>
-                    <p1>Percentage : 78</p1>
-
-                    <p1>Grade : A</p1>
-
-                    <p1>Result : Pass</p1>
-                </div>
+  }
+
+  let [result, setResult] = useState([]);
+  if (result.length === 0) {
+    result = [
+      {
+        subjectResults: [
+          {
+            subjectName: "",
+            totalNumQuestions: "",
+            numCorrectAnswers: "",
+          },
+        ],
+        isDeclared: true
+      },
+    ];
+  }
+
+  const getUser = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/students/get-student-id-enroll",
+        data: {
+          enroll: enrollment,
+        },
+      });
+      //   console.log(response.data);
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        message.success(response.data.message);
+        setUser(response.data.data);
+        // setCourses(response.data.data);
+        // setSelectedCategory(response.data.data[0]);
+      } else {
+        throw new Error(response.data.message);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+  };
+
+  const getResult = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/resultSets/get-result-set-id",
+        data: {
+          studentId: user._id,
+          semesterNumber: num,
+          courseName: selectedCategory,
+        },
+      });
+      // console.log(response.data);
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        // message.success(response.data.message);
+        setResult(response.data.data);
+        // setUser(response.data.data);
+        // setCourses(response.data.data);
+        // setSelectedCategory(response.data.data[0]);
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getResult();
+  }, [user]);
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  let totalCorrectAnswers = 0;
+  let totalTotalNumQuestions = 0;
+
+  result[0].subjectResults.forEach((subjectResult) => {
+    totalCorrectAnswers =
+      totalCorrectAnswers + +subjectResult.numCorrectAnswers;
+    totalTotalNumQuestions =
+      totalTotalNumQuestions + subjectResult.totalNumQuestions;
+  });
+
+  const roundedNumber = (totalCorrectAnswers / totalTotalNumQuestions) * 100;
+  const overallPercentage = roundedNumber.toFixed(2);
+
+  return (
+    <div>
+      <Header />
+
+      <div className="result-section">
+        <div className="result-square">
+          <div className="square-header">
+            <h2>STUDENT DETAILS</h2>
+          </div>
+          <div className="result-card-parent">
+            {/* <h2>BECOME A MEMBER</h2> */}
+            <div className="border-1"></div>
+            <div className="result-user-information-section">
+              <p>{user.courseName}</p>
             </div>
 
-            <div className='print-section'>
-
-                <div className='print-button'>
-                    <p>Print As PDF</p>
+            <div className="student-information-section">
+              <div className="section-one">
+                <div className="student-info">
+                  <p1>Name: </p1>
+                  <p2>{user.studentName}</p2>
                 </div>
 
-            </div>
-
-            <div className='logout-section'>
-
-                <div className='logout-button' onClick={logout}>
-                    <p>LOGOUT</p>
+                <div className="student-info">
+                  <p1>Father Name: </p1>
+                  <p2>{user.fatherName}</p2>
                 </div>
 
+                <div className="student-info">
+                  <p1>Date Of Birth: </p1>
+                  <p2>{user.dateOfBirth}</p2>
+                </div>
+
+                <div className="student-info">
+                  <p1>Enroll No:</p1>
+                  <p2>{user.enrollNo}</p2>
+                </div>
+              </div>
+
+              <div className="section-two">
+                <img src={`http://localhost:9000/public/${user.imageFile}`} />
+              </div>
             </div>
+          </div>
+
+          {result[0].isDeclared ? (
+            <div className="square-dashboard">
+              <h2>DASHBOARD</h2>
+
+              <div className="result-fields">
+                <div className="sno-examname">
+                  <p1>SNo.</p1>
+                  <p1>Exam Name</p1>
+                </div>
+
+                <div className="other-result-fields">
+                  <p1>Maximum Marks</p1>
+                  <p1>Obtained Marks</p1>
+                  <p1>Grade</p1>
+                </div>
+              </div>
+
+              {result[0].subjectResults.map((subjectResult, subIndex) => {
+                return (
+                  <div>
+                    <div className="result-border"></div>
+
+                    <div className="result-fields-2">
+                      <div className="marking">
+                        <p1>{subIndex + 1}</p1>
+                        <p1>{subjectResult.subjectName}</p1>
+                      </div>
+
+                      <div className="other-result-fields-2">
+                        <p1>{subjectResult.totalNumQuestions}</p1>
+
+                        <p1>{subjectResult.numCorrectAnswers}</p1>
+
+                        {/* <p1>A</p1> */}
+
+                        {(subjectResult.numCorrectAnswers /
+                          subjectResult.totalNumQuestions) *
+                          100 <=
+                        30 ? (
+                          <p1>D</p1>
+                        ) : (subjectResult.numCorrectAnswers /
+                            subjectResult.totalNumQuestions) *
+                            100 <=
+                          50 ? (
+                          <p1>C</p1>
+                        ) : (subjectResult.numCorrectAnswers /
+                            subjectResult.totalNumQuestions) *
+                            100 <=
+                          80 ? (
+                          <p1>B</p1>
+                        ) : (
+                          <p1>A</p1>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              <div className="result-border"></div>
+            </div>
+          ) : (
+            <div>
+              <div className="result-border"></div>
+              <div className="not-declared">
+                <h1>Result not declared yet!</h1>
+              </div>
+            </div>
+          )}
         </div>
-    )
-}
 
-export default Result
+        {/* <div className="percentage-square-dashboard">
+          <p1>Percentage : {roundedNumber}</p1>
+
+          <p1>Grade : A</p1>
+
+          <p1>Result : Pass</p1>
+        </div> */}
+
+        {overallPercentage <= 30 ? (
+          <div className="percentage-square-dashboard-fail">
+            <p1>Percentage : {overallPercentage}%</p1>
+
+            <p1>Grade : D</p1>
+
+            <p1>Result : Fail</p1>
+          </div>
+        ) : (
+          <div className="percentage-square-dashboard">
+            <p1>Percentage : {overallPercentage}%</p1>
+
+            {overallPercentage <= 30 ? (
+              <p1>Grade : D</p1>
+            ) : overallPercentage <= 50 ? (
+              <p1>Grade : C</p1>
+            ) : overallPercentage <= 80 ? (
+              <p1>Grade : B</p1>
+            ) : (
+              <p1>Grade : A</p1>
+            )}
+
+            <p1>Result : Pass</p1>
+          </div>
+        )}
+      </div>
+
+      <div className="print-section">
+        <div className="print-button">
+          <p>Print As PDF</p>
+        </div>
+      </div>
+
+      <div className="logout-section">
+        <div className="logout-button" onClick={logout}>
+          <p>LOGOUT</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Result;

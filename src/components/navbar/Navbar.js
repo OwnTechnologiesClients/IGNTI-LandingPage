@@ -66,7 +66,7 @@ const Navbar = () => {
                                         <NavLink to='/select-course'>For Exam</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to='/result'>Check Result</NavLink>
+                                        <NavLink to='/enrollment-number'>Check Result</NavLink>
                                     </li>
                                 </ul>
                             </li>

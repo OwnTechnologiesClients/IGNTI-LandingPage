@@ -15,6 +15,7 @@ import TestQuestions from "./pages/studentzone/testsubject/testquestions/TestQue
 import Result from "./pages/studentzone/result/Result";
 import ExamSubmitSuccess from "./pages/studentzone/examPublishSuccess/ExamSubmitSuccess";
 import Declaration from "./pages/studentzone/selectcourse/Declaration";
+import EnrollmentNumber from "./pages/studentzone/selectcourse/EnrollmentNumber";
 import Spinner from "./load/Spinner";
 import { useSelector } from "react-redux";
 
@@ -38,7 +39,8 @@ const App = () => {
         <Route path="/test-subjects/:courseName/:semesterNumber/:enrollment" element={<TestSubjects />} />
         <Route path="/test-subjects/quesions/:courseName/:semesterNumber/:subjectName/:enrollment" element={<TestQuestions />} />
         <Route path="/test-subjects/submit" element={<TestQuestions />} />
-        <Route path="/result" element={<Result />} />
+        <Route path="/result/:selectedCategory/:num/:enrollment" element={<Result />} />
+        <Route path="/enrollment-number" element={<EnrollmentNumber />} />
         <Route path="/exam-submited" element={<ExamSubmitSuccess />} />
       </Routes>
     </div>
