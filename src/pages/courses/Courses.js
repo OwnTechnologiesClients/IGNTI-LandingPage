@@ -127,6 +127,7 @@ export default function Courses() {
       <Banner />
 
       <div className="app">
+
         <div className="filter-container">
           <h3>Filters</h3>
           <p>Course Name</p>
@@ -160,7 +161,10 @@ export default function Courses() {
             </select>
           </div>
         </div>
+
+
         <div className="sport-list">
+
           {data.map((element, index) => (
             <Item {...element} key={index} />
           ))}

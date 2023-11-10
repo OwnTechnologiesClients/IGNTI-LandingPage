@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../redux/loaderSlice";
 import axios from "axios";
 import { message } from "antd";
+import Header from "../../../components/header/Header";
+import Navbar from "../../../components/navbar/Navbar";
 
 function SelectCourse() {
   const dispatch = useDispatch();
@@ -138,6 +140,8 @@ function SelectCourse() {
 
   return (
     <div>
+      <Header/>
+      <Navbar/>
       <div className="app">
         <div className="student-section">
           <div className="student-square">

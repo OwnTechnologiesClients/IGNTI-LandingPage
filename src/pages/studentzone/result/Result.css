@@ -272,6 +272,7 @@
   background-color: #2f4e71;
   border-radius: 10vw;
   margin-top: 8vw;
+  cursor: pointer;
 }
 
 .print-button p {

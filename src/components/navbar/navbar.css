@@ -5,7 +5,7 @@ html {
 }
 
 .active {
-    background: white;
+    background: black;
     color: white;
     border-radius: 2rem;
     display: inline-block;
@@ -61,7 +61,7 @@ li {
     line-height: 2.2vw;
     padding: 0 1vw;
     display: block;
-    color: black;
+    color: white;
 
 }
 
@@ -76,7 +76,7 @@ li {
 
 
 .menu ul li:hover {
-    background: white;
+    background: black;
     transform-origin: left;
     color: rgba(0, 0, 3, 1);
     text-decoration: none;
@@ -87,7 +87,7 @@ li {
 }
 
 .menu ul ul {
-    width: 10vw;
+    width: 12vw;
     position: absolute;
     background: #263342;
     top: 100%;
@@ -120,7 +120,6 @@ li {
 
 .menu ul li:hover ul {
     display: block;
-    background-color: #27ae60;
     z-index: 9;
     background: #263342;
 
