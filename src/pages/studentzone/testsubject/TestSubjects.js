@@ -91,6 +91,69 @@ function TestSubjects() {
       message.error(error.message);
     }
   };
+  var find = 0;
+
+  //--------------------------
+  const submitExamAuto = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:9000/api/students/get-student-id-enroll",
+        data: {
+          enroll: enrollment,
+        },
+      });
+      dispatch(SetLoading(false));
+      if (response.data.success) {
+        
+        const promises = subjects.map(async (subject) => {
+          dispatch(SetLoading(true));
+          const result = await axios({
+            method: "post",
+            url: "http://localhost:9000/api/resultSets/get-result-set",
+            data: {
+              courseName: courseName,
+              semesterNumber: semesterNumber,
+              subjectName: subject.subjectName.subjectName,
+            },
+          });
+          dispatch(SetLoading(false));
+          if (result.data.success) {
+            result.data.data.map((ids) => {
+              if (ids === response.data.data._id) {
+                find = find + 1;
+              }
+            });
+          }
+        });
+
+        await Promise.all(promises);
+
+        // console.log(find);
+        if(subjects.length !== 0) {
+          // console.log(find);
+          // console.log(subjects.length);
+          if (find === subjects.length) {
+            dispatch(SetLoading(true));
+            message.success("you submit all section");
+            message.success("Your test submit auto in few sec");
+            setTimeout(() => {
+              dispatch(SetLoading(false));
+              navigate(`/select-course`);
+            }, 10000);
+          }
+        }
+      }
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    submitExamAuto();
+  }, [subjects]);
 
   const getAllCoursesName = async () => {
     try {

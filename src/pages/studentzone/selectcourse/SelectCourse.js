@@ -130,6 +130,7 @@ function SelectCourse() {
   useEffect(() => {
     localStorage.removeItem("remainingTime");
     localStorage.removeItem("currentTime");
+    localStorage.clear();
     getAllCoursesName();
   }, []);
 
