@@ -35,11 +35,23 @@ const App = () => {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/student" element={<StudentZone />} />
         <Route path="/select-course" element={<SelectCourse />} />
-        <Route path="/declaration/:courseName/:semesterNumber/:enrollment" element={<Declaration />} />
-        <Route path="/test-subjects/:courseName/:semesterNumber/:enrollment" element={<TestSubjects />} />
-        <Route path="/test-subjects/quesions/:courseName/:semesterNumber/:subjectName/:enrollment" element={<TestQuestions />} />
+        <Route
+          path="/declaration/:courseName/:semesterNumber/:enrollment"
+          element={<Declaration />}
+        />
+        <Route
+          path="/test-subjects/:courseName/:semesterNumber/:enrollment"
+          element={<TestSubjects />}
+        />
+        <Route
+          path="/test-subjects/quesions/:courseName/:semesterNumber/:subjectName/:enrollment"
+          element={<TestQuestions />}
+        />
         <Route path="/test-subjects/submit" element={<TestQuestions />} />
-        <Route path="/result/:selectedCategory/:num/:enrollment" element={<Result />} />
+        <Route
+          path="/result/:selectedCategory/:num/:enrollment"
+          element={<Result />}
+        />
         <Route path="/enrollment-number" element={<EnrollmentNumber />} />
         <Route path="/exam-submited" element={<ExamSubmitSuccess />} />
       </Routes>

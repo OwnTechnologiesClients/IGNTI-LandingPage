@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../redux/loaderSlice";
 import axios from "axios";
 import { message } from "antd";
+import html2pdf from 'html2pdf.js';
 
 const Result = () => {
   const dispatch = useDispatch();
@@ -119,8 +120,26 @@ const Result = () => {
   const roundedNumber = (totalCorrectAnswers / totalTotalNumQuestions) * 100;
   const overallPercentage = roundedNumber.toFixed(2);
 
+//   const saveAsPdf = () => {
+//     const content = document.getElementById('content-to-pdf');
+    
+//     if (content) {
+//       const pdfOptions = {
+//         margin: 10,
+//         filename: 'document.pdf',
+//         image: { type: 'jpg'|| 'jpeg' || 'png', quality: 0.98 },
+//         html2canvas: { scale: 2 },
+//         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+//       };
+
+//       html2pdf().from(content).set(pdfOptions).save();
+//     }
+//   };
+
   return (
     <div>
+        {/* <button onClick={saveAsPdf}>Save as PDF</button> */}
+    <div id="content-to-pdf">
       <Header />
 
       <div className="result-section">
@@ -242,7 +261,37 @@ const Result = () => {
           <p1>Result : Pass</p1>
         </div> */}
 
-        {overallPercentage <= 30 ? (
+{result[0].isDeclared ? (
+            overallPercentage <= 30 ? (
+                <div className="percentage-square-dashboard-fail">
+                  <p1>Percentage : {overallPercentage}%</p1>
+      
+                  <p1>Grade : D</p1>
+      
+                  <p1>Result : Fail</p1>
+                </div>
+              ) : (
+                <div className="percentage-square-dashboard">
+                  <p1>Percentage : {overallPercentage}%</p1>
+      
+                  {overallPercentage <= 30 ? (
+                    <p1>Grade : D</p1>
+                  ) : overallPercentage <= 50 ? (
+                    <p1>Grade : C</p1>
+                  ) : overallPercentage <= 80 ? (
+                    <p1>Grade : B</p1>
+                  ) : (
+                    <p1>Grade : A</p1>
+                  )}
+      
+                  <p1>Result : Pass</p1>
+                </div>
+              )
+          ) : (
+            null
+          )}
+
+        {/* {overallPercentage <= 30 ? (
           <div className="percentage-square-dashboard-fail">
             <p1>Percentage : {overallPercentage}%</p1>
 
@@ -266,12 +315,13 @@ const Result = () => {
 
             <p1>Result : Pass</p1>
           </div>
-        )}
+        )} */}
       </div>
 
       <div className="print-section">
         <div className="print-button">
           <p>Print As PDF</p>
+          {/* <button onClick={saveAsPdf}>Save as PDF</button> */}
         </div>
       </div>
 
@@ -280,6 +330,7 @@ const Result = () => {
           <p>LOGOUT</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };
