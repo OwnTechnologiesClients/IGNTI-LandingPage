@@ -89,7 +89,7 @@ function SelectCourse() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setCourses(response.data.data);
         setSelectedCategory(response.data.data[0]);
       } else {

@@ -77,7 +77,7 @@ export default function Courses() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setCourses(response.data.data);
         setSelectedCategory(response.data.data[0]);
       } else {
@@ -108,7 +108,7 @@ export default function Courses() {
       }
     } catch (error) {
       dispatch(SetLoading(false));
-      message.error(error.message);
+      // message.error(error.message);
     }
   };
 
