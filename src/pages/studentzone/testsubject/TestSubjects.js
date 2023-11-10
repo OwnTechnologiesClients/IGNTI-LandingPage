@@ -73,7 +73,15 @@ function TestSubjects() {
             }, 600);
           }
         } else {
-          throw new Error(result.data.message);
+          // console.log("hello");
+          dispatch(SetLoading(true));
+          setTimeout(() => {
+            dispatch(SetLoading(false));
+            navigate(
+              `/test-subjects/quesions/${courseName}/${semesterNumber}/${name}/${enrollment}`
+            );
+          }, 600);
+          // throw new Error(result.data.message);
         }
       } else {
         throw new Error(response.data.message);
@@ -112,7 +120,9 @@ function TestSubjects() {
   useEffect(() => {
     if (remainingTime <= 0) {
       subjects.map((subject) => {
-        localStorage.removeItem(`selectedOption${subject.subjectName.subjectName}`);
+        localStorage.removeItem(
+          `selectedOption${subject.subjectName.subjectName}`
+        );
       });
       navigate("/select-course");
     }
@@ -145,8 +155,8 @@ function TestSubjects() {
 
   let total = 0;
   subjects.map((subject) => {
-    total = total + (+subject.questionLength);
-  })
+    total = total + +subject.questionLength;
+  });
 
   return (
     <div className="test-subject-section">
@@ -177,7 +187,9 @@ function TestSubjects() {
 
             <button
               class="button"
-              onClick={() => navigateToQuestions(subject.subjectName.subjectName)}
+              onClick={() =>
+                navigateToQuestions(subject.subjectName.subjectName)
+              }
             >
               Solve
             </button>
