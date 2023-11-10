@@ -51,13 +51,30 @@ function SelectCourse() {
             enrollNo: enrollment,
           },
         });
+        // console.log(response.data)
         dispatch(SetLoading(false));
         if (response.data.success) {
+          dispatch(SetLoading(true));
+          const result = await axios({
+            method: "post",
+            url: "http://localhost:9000/api/resultSets/get-result-set-id",
+            data: {
+              studentId: response.data.data[0]._id,
+              semesterNumber: num,
+              courseName: selectedCategory,
+            },
+          });
+        //   console.log(result)
+          dispatch(SetLoading(false));
+          if (result.data.success) {
             dispatch(SetLoading(true));
             setTimeout(() => {
               dispatch(SetLoading(false));
               navigate(`/result/${selectedCategory}/${num}/${enrollment}`);
             }, 600);
+          } else {
+            throw new Error("First give the test in this semester!");
+          }
         } else {
           throw new Error(response.data.message);
         }
