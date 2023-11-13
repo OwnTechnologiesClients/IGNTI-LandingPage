@@ -23,7 +23,8 @@ const App = () => {
   const { loading } = useSelector((state) => state.loaders);
   return (
     <div>
-      <div id="google_translate_element"></div>
+      {/* <div id="google_translate_element"></div> */}
+      
       {loading && <Spinner />}
 
       <Routes>

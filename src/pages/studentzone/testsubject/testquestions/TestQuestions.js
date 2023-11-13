@@ -128,9 +128,12 @@ function TestQuestions() {
     };
   }, []);
 
-  const formattedTime = `${Math.floor(remainingTime / 60)} mins ${
+  const formattedTime = `${Math.floor(remainingTime / 60)} : ${
     remainingTime % 60
-  } secs`;
+  } `;
+
+  // const a = Math.floor(remainingTime / 60);
+  // const b = remainingTime % 60;
 
   useEffect(() => {
     if (remainingTime <= 1) {
@@ -222,6 +225,7 @@ function TestQuestions() {
   }, []);
 
   return (
+    
     <div className="test-subject-section">
       <div className="test-subject-parent">
         <div className="test-subject-square">
@@ -233,6 +237,7 @@ function TestQuestions() {
         </div>
       </div>
 
+      <div id="google_translate_element"></div>
       <div className="quesion-section">
         <div className="quesions-numbers">
           {questions.map((q, qIndex) => {

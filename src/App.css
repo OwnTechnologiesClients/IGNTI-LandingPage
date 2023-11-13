@@ -36,3 +36,57 @@
     transform: rotate(360deg);
   }
 }
+
+#google_translate_element {
+  display: flex;
+  justify-content: flex-end;
+  /* height: 100px; */
+  /* border: 10px solid red; */
+  /* margin-left: 100px; */
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+#google_translate_element select {
+  background-color: #f6edfd;
+  color: #383ffa;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 8px;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+}
+
+
+
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+} */
+
+.goog-tooltip {
+  display: none !important;
+}
+.goog-tooltip:hover {
+  display: none !important;
+} 
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none;
+  border: 10px solid red;
+  height: 0px;
+}
+
+.VIpgJd-ZVi9od-l4eHX-hSRGPd {
+  display: none;
+}
