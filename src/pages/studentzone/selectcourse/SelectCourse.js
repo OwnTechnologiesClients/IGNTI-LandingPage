@@ -39,6 +39,8 @@ function SelectCourse() {
 
   const navigate = useNavigate();
 
+  let find = 0;
+
   const navigateToContacts = async () => {
     if (enrollment === "" || pass === "") {
       return message.error("Please fill all details!");
@@ -65,10 +67,79 @@ function SelectCourse() {
           });
           if (result.data.success) {
             dispatch(SetLoading(true));
-            setTimeout(() => {
+            const response1 = await axios({
+              method: "post",
+              url: "http://localhost:9000/api/subjects/get-subject",
+              data: {
+                courseName: selectedCategory,
+                semesterNumber: num,
+              },
+            });
+            dispatch(SetLoading(false));
+            if (response1.data.success) {
+              // setSubjects(response.data.data1);
+              dispatch(SetLoading(true));
+              const response2 = await axios({
+                method: "post",
+                url: "http://localhost:9000/api/students/get-student-id-enroll",
+                data: {
+                  enroll: enrollment,
+                },
+              });
               dispatch(SetLoading(false));
-              navigate(`/declaration/${selectedCategory}/${num}/${enrollment}`);
-            }, 600);
+              if (response2.data.success) {
+                // console.log(response2.data);
+                const promises = response1.data.data1.map(async (subject) => {
+                  dispatch(SetLoading(true));
+                  const result1 = await axios({
+                    method: "post",
+                    url: "http://localhost:9000/api/resultSets/get-result-set",
+                    data: {
+                      courseName: selectedCategory,
+                      semesterNumber: num,
+                      subjectName: subject.subjectName.subjectName,
+                    },
+                  });
+                  dispatch(SetLoading(false));
+                  if (result1.data.success) {
+                    result1.data.data.map((ids) => {
+                      if (ids === response2.data.data._id) {
+                        find = find + 1;
+                      }
+                    });
+                  }
+                });
+
+                await Promise.all(promises);
+                // console.log(find);
+
+                // // console.log(find);
+                if (find !== 0) {
+                  message.error("you submit the test already!");
+                  // console.log(find);
+                  // console.log(subjects.length);
+                  // if (find === response1.data.data1.length.length) {
+                  //   dispatch(SetLoading(true));
+                  //   message.success("you submit all section");
+                  //   message.success("Your test submit auto in few sec");
+                  //   setTimeout(() => {
+                  //     dispatch(SetLoading(false));
+                  //     navigate(`/select-course`);
+                  //   }, 10000);
+                  // }
+                } else {
+                  dispatch(SetLoading(true));
+                  setTimeout(() => {
+                    dispatch(SetLoading(false));
+                    navigate(
+                      `/declaration/${selectedCategory}/${num}/${enrollment}`
+                    );
+                  }, 600);
+                }
+              }
+            } else {
+              throw new Error(response.data.message);
+            }
           } else {
             throw new Error(result.data.message);
           }
@@ -134,12 +205,21 @@ function SelectCourse() {
     localStorage.removeItem("currentTime");
     localStorage.clear();
     getAllCoursesName();
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.pushState(null, null, window.location.href);
+    };
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.onpopstate = null;
+    };
   }, []);
 
   return (
     <div>
-      <Header/>
-      <Navbar/>
+      <Header />
+      <Navbar />
       <div className="app">
         <div className="student-section">
           <div className="student-square">

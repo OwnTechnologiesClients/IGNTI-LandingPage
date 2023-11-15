@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import "./Result.css";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,9 +7,7 @@ import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../redux/loaderSlice";
 import axios from "axios";
 import { message } from "antd";
-import html2pdf from 'html2pdf.js';
-
-
+import html2pdf from "html2pdf.js";
 
 const Result = () => {
   const dispatch = useDispatch();
@@ -18,11 +15,8 @@ const Result = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    // 👇️ navigate to /contacts
     navigate("/student");
   };
-
-
 
   let [user, setUser] = useState();
   if (!user) {
@@ -45,7 +39,7 @@ const Result = () => {
             numCorrectAnswers: "",
           },
         ],
-        isDeclared: true
+        isDeclared: true,
       },
     ];
   }
@@ -60,13 +54,10 @@ const Result = () => {
           enroll: enrollment,
         },
       });
-      //   console.log(response.data);
       dispatch(SetLoading(false));
       if (response.data.success) {
         message.success(response.data.message);
         setUser(response.data.data);
-        // setCourses(response.data.data);
-        // setSelectedCategory(response.data.data[0]);
       } else {
         throw new Error(response.data.message);
       }
@@ -88,14 +79,9 @@ const Result = () => {
           courseName: selectedCategory,
         },
       });
-      // console.log(response.data);
       dispatch(SetLoading(false));
       if (response.data.success) {
-        // message.success(response.data.message);
         setResult(response.data.data);
-        // setUser(response.data.data);
-        // setCourses(response.data.data);
-        // setSelectedCategory(response.data.data[0]);
       }
     } catch (error) {
       dispatch(SetLoading(false));
@@ -124,25 +110,29 @@ const Result = () => {
   const roundedNumber = (totalCorrectAnswers / totalTotalNumQuestions) * 100;
   const overallPercentage = roundedNumber.toFixed(2);
 
-  //   const saveAsPdf = () => {
-  //     const content = document.getElementById('content-to-pdf');
+  const resultSectionRef = useRef(null);
 
-  //     if (content) {
-  //       const pdfOptions = {
-  //         margin: 10,
-  //         filename: 'document.pdf',
-  //         image: { type: 'jpg'|| 'jpeg' || 'png', quality: 0.98 },
-  //         html2canvas: { scale: 2 },
-  //         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-  //       };
+  const printAsPDF = () => {
+    if (resultSectionRef.current) {
+      dispatch(SetLoading(true));
 
-  //       html2pdf().from(content).set(pdfOptions).save();
-  //     }
-  //   };
+      const element = resultSectionRef.current;
+      const pdfOptions = {
+        margin: 10,
+        filename: "result.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      };
+
+      html2pdf(element, pdfOptions).then(() => {
+        dispatch(SetLoading(false));
+      });
+    }
+  };
 
   return (
-    <div>
-      {/* <button onClick={saveAsPdf}>Save as PDF</button> */}
+    <div ref={resultSectionRef}>
       <div id="content-to-pdf">
         <Header />
 
@@ -152,7 +142,6 @@ const Result = () => {
               <h2>STUDENT DETAILS</h2>
             </div>
             <div className="result-card-parent">
-              {/* <h2>BECOME A MEMBER</h2> */}
               <div className="border-1"></div>
               <div className="result-user-information-section">
                 <p>{user.courseName}</p>
@@ -182,7 +171,9 @@ const Result = () => {
                 </div>
 
                 <div className="section-two">
-                  <img src={`http://localhost:9000/public/${user.imageFile}`} />
+                  <img
+                    src={`http://localhost:9000/public/${user.imageFile}`}
+                  />
                 </div>
               </div>
             </div>
@@ -220,21 +211,19 @@ const Result = () => {
 
                           <p1>{subjectResult.numCorrectAnswers}</p1>
 
-                          {/* <p1>A</p1> */}
-
                           {(subjectResult.numCorrectAnswers /
                             subjectResult.totalNumQuestions) *
                             100 <=
-                            30 ? (
+                          30 ? (
                             <p1>D</p1>
                           ) : (subjectResult.numCorrectAnswers /
-                            subjectResult.totalNumQuestions) *
-                            100 <=
+                              subjectResult.totalNumQuestions) *
+                              100 <=
                             50 ? (
                             <p1>C</p1>
                           ) : (subjectResult.numCorrectAnswers /
-                            subjectResult.totalNumQuestions) *
-                            100 <=
+                              subjectResult.totalNumQuestions) *
+                              100 <=
                             80 ? (
                             <p1>B</p1>
                           ) : (
@@ -256,14 +245,6 @@ const Result = () => {
               </div>
             )}
           </div>
-
-          {/* <div className="percentage-square-dashboard">
-          <p1>Percentage : {roundedNumber}</p1>
-
-          <p1>Grade : A</p1>
-
-          <p1>Result : Pass</p1>
-        </div> */}
 
           {result[0].isDeclared ? (
             overallPercentage <= 30 ? (
@@ -291,42 +272,14 @@ const Result = () => {
                 <p1>Result : Pass</p1>
               </div>
             )
-          ) : (
-            null
-          )}
-
-          {/* {overallPercentage <= 30 ? (
-          <div className="percentage-square-dashboard-fail">
-            <p1>Percentage : {overallPercentage}%</p1>
-
-            <p1>Grade : D</p1>
-
-            <p1>Result : Fail</p1>
-          </div>
-        ) : (
-          <div className="percentage-square-dashboard">
-            <p1>Percentage : {overallPercentage}%</p1>
-
-            {overallPercentage <= 30 ? (
-              <p1>Grade : D</p1>
-            ) : overallPercentage <= 50 ? (
-              <p1>Grade : C</p1>
-            ) : overallPercentage <= 80 ? (
-              <p1>Grade : B</p1>
-            ) : (
-              <p1>Grade : A</p1>
-            )}
-
-            <p1>Result : Pass</p1>
-          </div>
-        )} */}
+          ) : null}
         </div>
 
         <div className="print-section">
-
-          <div className="print-button">
+          <div className="print-button" onClick={() => {
+            window.print();
+          }}>
             <p>Print As PDF</p>
-            {/* <button onClick={saveAsPdf}>Save as PDF</button> */}
           </div>
         </div>
 

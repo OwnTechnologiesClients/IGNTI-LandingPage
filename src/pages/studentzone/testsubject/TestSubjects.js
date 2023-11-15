@@ -13,6 +13,7 @@ function TestSubjects() {
 
   const navigate = useNavigate();
   const [subjects, setSubjects] = useState([]);
+  const [submittedSubjects, setSubmittedSubjects] = useState([]);
 
   const [remainingTime, setRemainingTime] = useState(() => {
     const storedTime1 = parseInt(localStorage.getItem("currentTime"));
@@ -28,9 +29,6 @@ function TestSubjects() {
   });
 
   const navigateToQuestions = async (name) => {
-    // if (localStorage.getItem("courseName") && localStorage.getItem("courseName") !== name) {
-    //   message.error(`First submit the ${localStorage.getItem("courseName")} subject exam!`);
-    // } else {
 
     try {
       dispatch(SetLoading(true));
@@ -73,7 +71,6 @@ function TestSubjects() {
             }, 600);
           }
         } else {
-          // console.log("hello");
           dispatch(SetLoading(true));
           setTimeout(() => {
             dispatch(SetLoading(false));
@@ -106,7 +103,6 @@ function TestSubjects() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        
         const promises = subjects.map(async (subject) => {
           dispatch(SetLoading(true));
           const result = await axios({
@@ -123,6 +119,10 @@ function TestSubjects() {
             result.data.data.map((ids) => {
               if (ids === response.data.data._id) {
                 find = find + 1;
+                setSubmittedSubjects((prevSubmittedSubjects) => [
+                  ...prevSubmittedSubjects,
+                  subject.subjectName.subjectName,
+                ]);
               }
             });
           }
@@ -130,10 +130,7 @@ function TestSubjects() {
 
         await Promise.all(promises);
 
-        // console.log(find);
-        if(subjects.length !== 0) {
-          // console.log(find);
-          // console.log(subjects.length);
+        if (subjects.length !== 0) {
           if (find === subjects.length) {
             dispatch(SetLoading(true));
             message.success("you submit all section");
@@ -210,6 +207,15 @@ function TestSubjects() {
 
   useEffect(() => {
     getAllCoursesName();
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.pushState(null, null, window.location.href);
+    };
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.onpopstate = null;
+    };
   }, []);
 
   const formattedTime = `${Math.floor(remainingTime / 60)} mins ${
@@ -220,6 +226,16 @@ function TestSubjects() {
   subjects.map((subject) => {
     total = total + +subject.questionLength;
   });
+
+  const [showWarning, setShowWarning] = useState(false);
+
+  const toggleWarning = () => {
+    setShowWarning(!showWarning);
+  };
+
+  const handleConfirmSubmit = () => {
+    navigate("/select-course");
+  };
 
   return (
     <div className="test-subject-section">
@@ -240,6 +256,7 @@ function TestSubjects() {
       </div>
 
       {subjects.map((subject) => {
+        const isSubjectSubmitted = submittedSubjects.includes(subject.subjectName.subjectName);
         return (
           <div className="subject-section">
             <h3>{subject.subjectName.subjectName}</h3>
@@ -249,7 +266,7 @@ function TestSubjects() {
             <h3>Question {subject.questionLength}</h3>
 
             <button
-              class="button"
+              className={`button ${isSubjectSubmitted ? "green-button" : ""}`}
               onClick={() =>
                 navigateToQuestions(subject.subjectName.subjectName)
               }
@@ -259,6 +276,23 @@ function TestSubjects() {
           </div>
         );
       })}
+
+      <div className="submit-button">
+        <button className="button" onClick={toggleWarning}>
+          Submit Exam
+        </button>
+        {showWarning && (
+          <div className="warning-modal">
+            <p>Are you sure you want to submit the exam?</p>
+            <button className="confirm-button" onClick={handleConfirmSubmit}>
+              Yes, Submit
+            </button>
+            <button className="cancel-button" onClick={toggleWarning}>
+              Cancel
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
