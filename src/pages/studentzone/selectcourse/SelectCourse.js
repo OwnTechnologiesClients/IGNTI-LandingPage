@@ -88,53 +88,44 @@ function SelectCourse() {
               });
               dispatch(SetLoading(false));
               if (response2.data.success) {
-                // console.log(response2.data);
-                const promises = response1.data.data1.map(async (subject) => {
-                  dispatch(SetLoading(true));
-                  const result1 = await axios({
-                    method: "post",
-                    url: "http://localhost:9000/api/resultSets/get-result-set",
-                    data: {
-                      courseName: selectedCategory,
-                      semesterNumber: num,
-                      subjectName: subject.subjectName.subjectName,
-                    },
-                  });
-                  dispatch(SetLoading(false));
-                  if (result1.data.success) {
-                    result1.data.data.map((ids) => {
-                      if (ids === response2.data.data._id) {
-                        find = find + 1;
-                      }
+                // console.log(response2.data.data);
+                if (response2.data.data.authorized) {
+                  const promises = response1.data.data1.map(async (subject) => {
+                    dispatch(SetLoading(true));
+                    const result1 = await axios({
+                      method: "post",
+                      url: "http://localhost:9000/api/resultSets/get-result-set",
+                      data: {
+                        courseName: selectedCategory,
+                        semesterNumber: num,
+                        subjectName: subject.subjectName.subjectName,
+                      },
                     });
-                  }
-                });
-
-                await Promise.all(promises);
-                // console.log(find);
-
-                // // console.log(find);
-                if (find !== 0) {
-                  message.error("you submit the test already!");
-                  // console.log(find);
-                  // console.log(subjects.length);
-                  // if (find === response1.data.data1.length.length) {
-                  //   dispatch(SetLoading(true));
-                  //   message.success("you submit all section");
-                  //   message.success("Your test submit auto in few sec");
-                  //   setTimeout(() => {
-                  //     dispatch(SetLoading(false));
-                  //     navigate(`/select-course`);
-                  //   }, 10000);
-                  // }
-                } else {
-                  dispatch(SetLoading(true));
-                  setTimeout(() => {
                     dispatch(SetLoading(false));
-                    navigate(
-                      `/declaration/${selectedCategory}/${num}/${enrollment}`
-                    );
-                  }, 600);
+                    if (result1.data.success) {
+                      result1.data.data.map((ids) => {
+                        if (ids === response2.data.data._id) {
+                          find = find + 1;
+                        }
+                      });
+                    }
+                  });
+
+                  await Promise.all(promises);
+
+                  if (find !== 0) {
+                    message.error("you submit the test already!");
+                  } else {
+                    dispatch(SetLoading(true));
+                    setTimeout(() => {
+                      dispatch(SetLoading(false));
+                      navigate(
+                        `/declaration/${selectedCategory}/${num}/${enrollment}`
+                      );
+                    }, 600);
+                  }
+                } else {
+                  throw new Error("You are not authorized!");
                 }
               }
             } else {

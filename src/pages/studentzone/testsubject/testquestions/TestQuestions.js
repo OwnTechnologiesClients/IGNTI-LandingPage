@@ -237,6 +237,20 @@ function TestQuestions() {
     };
   }, []);
 
+  useEffect(() => {
+    const specificElement = document.getElementById("google_translate_element");
+    if (specificElement) {
+      const selectElement = specificElement.querySelector("select");
+      console.log(selectElement);
+      const reloadStatus = localStorage.getItem("reloadStatus");
+
+      if (!selectElement && !reloadStatus) {
+        window.location.reload();
+        localStorage.setItem("reloadStatus", "reloaded");
+      }
+    }
+  }, []);
+
   return (
     <div className="test-subject-section">
       <div className="test-subject-parent">
