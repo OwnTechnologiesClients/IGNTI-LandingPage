@@ -51,7 +51,7 @@ function TestQuestions() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/students/get-student-id-enroll",
+        url: "https://igti-backend.onrender.com/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -61,7 +61,7 @@ function TestQuestions() {
         dispatch(SetLoading(true));
         const result = await axios({
           method: "post",
-          url: "http://localhost:9000/api/resultSets/add-result-set",
+          url: "https://igti-backend.onrender.com/api/resultSets/add-result-set",
           data: {
             courseName: courseName,
             semesterNumber: semesterNumber,
@@ -72,9 +72,13 @@ function TestQuestions() {
         });
         dispatch(SetLoading(false));
         if (result.data.success) {
-          navigate(`/test-subjects/${courseName}/${semesterNumber}/${enrollment}`);
+          navigate(
+            `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
+          );
         } else {
-          navigate(`/test-subjects/${courseName}/${semesterNumber}/${enrollment}`);
+          navigate(
+            `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
+          );
           throw new Error(result.data.message);
         }
       } else {
@@ -91,7 +95,7 @@ function TestQuestions() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/examSets/get-exams-set",
+        url: "https://igti-backend.onrender.com/api/examSets/get-exams-set",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,
@@ -162,6 +166,15 @@ function TestQuestions() {
       setSelectedOption(new Array(questions.length).fill(null));
     }
     getAllQuestions();
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.pushState(null, null, window.location.href);
+    };
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.onpopstate = null;
+    };
   }, []);
 
   useEffect(() => {
@@ -224,8 +237,21 @@ function TestQuestions() {
     };
   }, []);
 
+  useEffect(() => {
+    const specificElement = document.getElementById("google_translate_element");
+    if (specificElement) {
+      const selectElement = specificElement.querySelector("select");
+      console.log(selectElement);
+      const reloadStatus = localStorage.getItem("reloadStatus");
+
+      if (!selectElement && !reloadStatus) {
+        window.location.reload();
+        localStorage.setItem("reloadStatus", "reloaded");
+      }
+    }
+  }, []);
+
   return (
-    
     <div className="test-subject-section">
       <div className="test-subject-parent">
         <div className="test-subject-square">
@@ -238,6 +264,7 @@ function TestQuestions() {
       </div>
 
       <div id="google_translate_element"></div>
+
       <div className="quesion-section">
         <div className="quesions-numbers">
           {questions.map((q, qIndex) => {
@@ -317,6 +344,37 @@ function TestQuestions() {
             <div className="course-button-parent">
               <button class="button" onClick={navigateToContacts}>
                 Submit
+              </button>
+            </div>
+          )}
+
+          {!isFullScreen && (
+            <div className="course-button-parent">
+              <button
+                class="button"
+                onClick={() => {
+                  navigate(
+                    `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
+                  );
+                }}
+              >
+                Back
+              </button>
+            </div>
+          )}
+
+          {isFullScreen && (
+            <div className="course-button-parent">
+              <button
+                class="button"
+                onClick={() => {
+                  navigate(
+                    `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
+                  );
+                  toggleFullScreen();
+                }}
+              >
+                Back
               </button>
             </div>
           )}
