@@ -207,9 +207,9 @@ const Result = () => {
                         </div>
 
                         <div className="other-result-fields-2">
-                          <p1>{subjectResult.totalNumQuestions}</p1>
+                          <p1>{subjectResult.totalNumQuestions*2}</p1>
 
-                          <p1>{subjectResult.numCorrectAnswers}</p1>
+                          <p1>{subjectResult.numCorrectAnswers*2}</p1>
 
                           {(subjectResult.numCorrectAnswers /
                             subjectResult.totalNumQuestions) *
