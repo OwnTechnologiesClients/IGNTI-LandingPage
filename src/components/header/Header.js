@@ -12,7 +12,7 @@ const Header = () => {
             {/* --------------- header image ---------------------- */}
 
             <div className='header_img'>
-                <img src="/img/head-logo.jpg" alt="header-logo" />
+                <img src="/img/WEBSITE LOGO.jpg" alt="header-logo" />
             </div>
 
         </>

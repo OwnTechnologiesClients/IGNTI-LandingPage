@@ -1,0 +1,13 @@
+.tabs-container {
+  width: 20%;
+}
+
+.tab {
+  padding: 0.8vw;
+  color: #fff;
+  display: flex;
+  font-size: 1.2vw;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #7b96d1;
+}

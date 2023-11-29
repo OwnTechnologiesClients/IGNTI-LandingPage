@@ -1,19 +1,22 @@
 import React from "react";
-import Banner from "../../components/banner/Banner";
+
 import Footer from "../../components/footer/Footer";
 import Goverment from "../../components/goverment/Goverment";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import "./Home.css";
+import Herosection from "../../components/herosection/Herosection";
+import Igt from "../../components/igt/Igt";
+import Form from "../../components/from/Form"
 
 const Home = () => {
   return (
     <div>
       <Header />
       <Navbar />
-      <Banner />
-
-      <div className="parent">
+      <Herosection />
+      <Igt />
+      {/* <div className="parent">
         <div className="square">
           <div className="card-parent">
             <h2>Course Include</h2>
@@ -165,10 +168,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>*/}
 
       <Goverment />
-
       <Footer />
     </div>
   );

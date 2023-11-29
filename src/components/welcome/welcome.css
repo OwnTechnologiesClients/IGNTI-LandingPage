@@ -1,0 +1,28 @@
+.welcome-contianer {
+  width: 80%;
+  height: auto;
+  border: 2px solid #ccc;
+}
+
+.welcome-head {
+  text-align: center;
+  color: #443bb9;
+  font-size: 1vw;
+  letter-spacing: 1px;
+}
+
+.welcome-section {
+  padding: 0vw 1vw 0vw 1vw;
+}
+
+.p{
+    font-size: 1.5vw;
+    letter-spacing: 1px;
+    color: black;
+    text-decoration: none;
+}
+
+.read-more {
+  text-align: center;
+  font-size: 1.5vw;
+}

@@ -1,0 +1,32 @@
+.sidebanner-container{
+    width: 20%;
+}
+
+.side-banner-head{
+    background-color: #335991;
+    height: 3.1vw;
+    margin-top: -1.7vw;
+}
+
+h5{
+    font-size: 1vw;
+    text-align: center;
+    color: #fff;
+    padding: 1vw;
+    font-weight: 800;
+}
+
+.side-banner-bottom-section{
+    background-color: #eceded;
+    padding: 1.2vw;
+}
+
+p{
+    font-size: 1.1vw;
+    color: #e4655a;
+    text-decoration: underline;
+}
+
+.side-banner-yt-slider{
+    margin-top: 0.5vw;
+}
