@@ -10,6 +10,7 @@ body {
 
 *{
   font-family: "poppins";
+  scroll-behavior: smooth;
 }
 
 code {

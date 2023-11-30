@@ -1,12 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Item from "../../components/item/Item.js";
 import "./Courses.css";
-import Banner from "../../components/banner/Banner";
-import Footer from "../../components/footer/Footer";
-import Herosection from "../../components/herosection/Herosection.jsx"
+import Herosection from "../../components/herosection/Herosection.jsx";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
-import Footers from "../../components/footers/Footers.jsx"
+import Footers from "../../components/footers/Footers.jsx";
 import { message } from "antd";
 import { SetLoading } from "../../redux/loaderSlice.js";
 import { useDispatch } from "react-redux";
@@ -98,10 +96,10 @@ export default function Courses() {
         method: "post",
         url: "https://igti-backend.onrender.com/api/courses/get-course",
         data: {
-          courseName: selectedCategory
-        }
+          courseName: selectedCategory,
+        },
       });
-      setData(response.data.data.semesters)
+      setData(response.data.data.semesters);
       dispatch(SetLoading(false));
       if (response.data.success) {
         message.success(response.data.message);
@@ -126,10 +124,9 @@ export default function Courses() {
     <div>
       <Header />
       <Navbar />
-     <Herosection />
+      <Herosection />
 
       <div className="app">
-
         <div className="filter-container">
           <h3>Filters</h3>
           <p>Course Name</p>
@@ -164,13 +161,13 @@ export default function Courses() {
           </div>
         </div>
 
-
         <div className="sport-list">
-
           {data.map((element, index) => (
             <Item {...element} key={index} />
           ))}
         </div>
+
+        
       </div>
 
       <Footers />

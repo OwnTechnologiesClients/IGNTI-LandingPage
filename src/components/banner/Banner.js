@@ -13,10 +13,10 @@ const Banner = () => {
       {/* --------------- header image ---------------------- */}
       <div className="banner-section">
         <div className="banner-text-section">
-          <h4>
+          <marquee>
             INDIRA GANDHI NATIONAL TRAINING INSTITUTE IS AN AUTONOMOUS
             INSTITUTION REGISTERED UNDER PUBLIC TRUST ACT 1982 GOVT. OF INDIA
-          </h4>
+          </marquee>
         </div>
 
         <Swiper

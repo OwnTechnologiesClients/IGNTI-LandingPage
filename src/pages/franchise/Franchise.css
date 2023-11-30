@@ -90,9 +90,11 @@ input::placeholder {
     font-weight: 400;
 }
 
-.query-button-parent button {
+.query-button-parents button {
     display: flex;
-    width: 22vw;
+    width: 23vw;
+    margin-top: 1vw;
+    margin-left: 0;
     text-align: center;
     align-items: center;
     justify-content: center;

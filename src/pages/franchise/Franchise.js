@@ -202,7 +202,7 @@ const Franchise = () => {
             />
 
             <div>
-              <div className="query-button-parent">
+              <div className="query-button-parents">
                 <button class="button">REQUEST INFORMATION</button>
               </div>
             </div>

@@ -27,8 +27,7 @@ const StudentZone = () => {
       <Header />
       <Navbar />
       <Herosection />
-      <div className="student-parent1">
-        <Tabs />
+
         <div className="student-section1">
           <div className="student-square1">
             <div className="square-header1">
@@ -41,14 +40,15 @@ const StudentZone = () => {
 
                 {/* ------------ User Id Input textfield -------------------- */}
                 <input
+                  style={{ width: "22vw" }}
                   type="text"
-                  className="form-control"
+                  className="form-controls"
                   name="title"
                   value={userId}
                   onChange={(e) => {
                     setUserId(e.target.value);
                   }}
-                  placeholder=""
+                  placeholder="Enter User ID"
                 />
               </div>
 
@@ -57,14 +57,15 @@ const StudentZone = () => {
 
                 {/* ------------ Password Input textfield -------------------- */}
                 <input
+                  style={{ width: "20vw" }}
                   type="text"
-                  className="form-control"
+                  className="form-controls"
                   name="title"
+                  placeholder="Enter Password"
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
-                  placeholder=""
                 />
               </div>
 
@@ -79,7 +80,7 @@ const StudentZone = () => {
             </div>
           </div>
         </div>
-      </div>
+
 
       <Footers />
     </div>

@@ -6,7 +6,10 @@ import Header from "../../../components/header/Header";
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../redux/loaderSlice";
 import axios from "axios";
+import Herosection from "../../../components/herosection/Herosection"
 import { message } from "antd";
+import Footers from "../../../components/footers/Footers"
+import Navbar from "../../../components/navbar/Navbar";
 import html2pdf from "html2pdf.js";
 
 const Result = () => {
@@ -135,6 +138,8 @@ const Result = () => {
     <div ref={resultSectionRef}>
       <div id="content-to-pdf">
         <Header />
+        <Navbar/>
+        <Herosection />
 
         <div className="result-section">
           <div className="result-square">
@@ -289,6 +294,7 @@ const Result = () => {
           </div>
         </div>
       </div>
+      <Footers />
     </div>
   );
 };

@@ -17,6 +17,7 @@ const Sidebanner = () => {
       <div className="side-banner-yt-slider">
         <iframe
           width="100%"
+          height="100%"
           src="https://www.youtube.com/embed/kqtD5dpn9C8?si=ym26FZ7E0SGLa358"
           title="YouTube video player"
           frameborder="0"

@@ -229,6 +229,7 @@ function SelectCourse() {
                   <p>Course:</p>
                   <div className="dropdowns">
                     <select
+                    style={{width: "25vw", height: "2.5vw"}}
                       name="category-lists"
                       id="category-lists"
                       value={selectedCategory}
@@ -248,6 +249,7 @@ function SelectCourse() {
 
                   <div className="dropdowns">
                     <select
+                    style={{width: "23.5vw", height: "2.5vw"}}
                       name="category-lists"
                       id="category-lists"
                       value={num}
@@ -267,6 +269,7 @@ function SelectCourse() {
 
                   <div className="dropdowns">
                     <input
+                    style={{width: "20vw", height: "2vw"}}
                       type="numbers"
                       value={enrollment}
                       onChange={(e) => setEnrollment(e.target.value)}
@@ -279,6 +282,7 @@ function SelectCourse() {
 
                   <div className="dropdowns">
                     <input
+                    style={{width: "19vw", height: "2vw"}}
                       type="texts"
                       value={pass}
                       onChange={(e) => setPass(e.target.value)}
