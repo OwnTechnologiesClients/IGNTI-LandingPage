@@ -6,6 +6,8 @@ import Navbar from '../../components/navbar/Navbar';
 import './ContactUs.css';
 import { useState } from "react";
 import Goverment from '../../components/goverment/Goverment';
+import Footers from '../../components/footers/Footers';
+import Herosection from '../../components/herosection/Herosection';
 
 
 
@@ -23,7 +25,7 @@ const ContactUs = () => {
         <div>
             <Header />
             <Navbar />
-            <Banner />
+            <Herosection />
 
 
             <div className='contact-section'>
@@ -122,7 +124,7 @@ const ContactUs = () => {
             </div>
 
             <Goverment/>
-            <Footer />
+            <Footers />
 
         </div>
     )

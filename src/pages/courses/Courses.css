@@ -22,14 +22,14 @@
 
 }
 
-.dropdown{
+.course-dropdown{
     margin-top: 0.5vw;
 }
-.dropdown select{
+.course-dropdown select{
     font-size: 0.9vw;
     font-weight: 400;
 }
-#category-list {
+.category-list {
     padding-right: 4vw;
     padding-left: 0.6vw;
     padding-top: 0.5vw;

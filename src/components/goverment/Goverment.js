@@ -1,5 +1,6 @@
 import React from "react";
 import "./Goverment.css";
+import { Link } from "react-router-dom";
 
 const Goverment = () => {
   const govData = [
@@ -31,7 +32,7 @@ const Goverment = () => {
         ))}
 
         <div className="gov-other-course">
-          <a href="#">For Other Courses</a>
+          <Link to="/courses">For Other Courses</Link>
         </div>
       </div>
     </div>

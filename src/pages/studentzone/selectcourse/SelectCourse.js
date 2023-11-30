@@ -7,6 +7,10 @@ import axios from "axios";
 import { message } from "antd";
 import Header from "../../../components/header/Header";
 import Navbar from "../../../components/navbar/Navbar";
+import Tabs from "../../../components/tabs/Tabs";
+import Herosection from "../../../components/herosection/Herosection";
+import Goverment from "../../../components/goverment/Goverment";
+import Footers from "../../../components/footers/Footers";
 
 function SelectCourse() {
   const dispatch = useDispatch();
@@ -211,85 +215,92 @@ function SelectCourse() {
     <div>
       <Header />
       <Navbar />
-      <div className="app">
-        <div className="student-section">
-          <div className="student-square">
-            <div className="square-header">
-              <h2>Login</h2>
-            </div>
-            <div className="student-card-parent">
-              <div className="userid-section">
-                <p>Course</p>
-                <div className="dropdown">
-                  <select
-                    name="category-list"
-                    id="category-list"
-                    value={selectedCategory}
-                    onChange={handleCategoryChange}
-                  >
-                    {courses.map((course) => {
-                      return <option value={`${course}`}>{course}</option>;
-                    })}
-                  </select>
+      <Herosection />
+      <div className="parent-app">
+        <Tabs />
+        <div className="apps">
+          <div className="student-sections">
+            <div className="student-squares">
+              <div className="square-headers">
+                <h2>Login</h2>
+              </div>
+              <div className="student-card-parents">
+                <div className="userid-sections">
+                  <p>Course:</p>
+                  <div className="dropdowns">
+                    <select
+                      name="category-lists"
+                      id="category-lists"
+                      value={selectedCategory}
+                      onChange={handleCategoryChange}
+                    >
+                      {courses.map((course) => {
+                        return <option value={`${course}`}>{course}</option>;
+                      })}
+                    </select>
+                  </div>
+
+                  {/* ------------ User Id Input textfield -------------------- */}
                 </div>
 
-                {/* ------------ User Id Input textfield -------------------- */}
-              </div>
+                <div className="userid-sections">
+                  <p>Semester:</p>
 
-              <div className="userid-section">
-                <p>Semester</p>
-
-                <div className="dropdown">
-                  <select
-                    name="category-list"
-                    id="category-list"
-                    value={num}
-                    onChange={handleSemesterNumber}
-                  >
-                    {arr.map((item, index) => {
-                      return (
-                        <option value={`${index + 1}`}>{index + 1}</option>
-                      );
-                    })}
-                  </select>
+                  <div className="dropdowns">
+                    <select
+                      name="category-lists"
+                      id="category-lists"
+                      value={num}
+                      onChange={handleSemesterNumber}
+                    >
+                      {arr.map((item, index) => {
+                        return (
+                          <option value={`${index + 1}`}>{index + 1}</option>
+                        );
+                      })}
+                    </select>
+                  </div>
                 </div>
-              </div>
 
-              <div className="userid-section">
-                <p>Enrollment No.</p>
+                <div className="userid-sections">
+                  <p>Enrollment No:</p>
 
-                <div className="dropdown">
-                  <input
-                    type="number"
-                    value={enrollment}
-                    onChange={(e) => setEnrollment(e.target.value)}
-                  ></input>
+                  <div className="dropdowns">
+                    <input
+                      type="numbers"
+                      value={enrollment}
+                      onChange={(e) => setEnrollment(e.target.value)}
+                    ></input>
+                  </div>
                 </div>
-              </div>
 
-              <div className="userid-section">
-                <p>Exam Password</p>
+                <div className="userid-sections">
+                  <p>Exam Password:</p>
 
-                <div className="dropdown">
-                  <input
-                    type="text"
-                    value={pass}
-                    onChange={(e) => setPass(e.target.value)}
-                  ></input>
+                  <div className="dropdowns">
+                    <input
+                      type="texts"
+                      value={pass}
+                      onChange={(e) => setPass(e.target.value)}
+                    ></input>
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <div className="course-button-parent">
-                  <button class="button" onClick={navigateToContacts}>
-                    Login
-                  </button>
+                <div>
+                  <div className="course-button-parents">
+                    <button class="buttons" onClick={navigateToContacts}>
+                      Login
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <Goverment />
+      <Footers />
     </div>
   );
 }

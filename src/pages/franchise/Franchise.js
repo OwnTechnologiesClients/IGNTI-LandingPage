@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../../components/banner/Banner";
-import Footer from "../../components/footer/Footer";
+import Footers from "../../components/footers/Footers";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import "./Franchise.css";
@@ -209,7 +209,7 @@ const Franchise = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footers />
     </div>
   );
 };

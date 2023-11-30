@@ -8,6 +8,7 @@ import "./Home.css";
 import Herosection from "../../components/herosection/Herosection";
 import Igt from "../../components/igt/Igt";
 import Form from "../../components/from/Form"
+import Footers from "../../components/footers/Footers";
 
 const Home = () => {
   return (
@@ -171,7 +172,7 @@ const Home = () => {
       </div>*/}
 
       <Goverment />
-      <Footer />
+   <Footers />
     </div>
   );
 };

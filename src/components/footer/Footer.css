@@ -1,4 +1,4 @@
-.footer-section {
+/* .footer-section {
   width: 100%;
 
   background-color: #4e6db9;
@@ -55,15 +55,15 @@
   width: 3vw;
   height: 3vw;
   /* background: white; */
-  text-align: center;
+  /* text-align: center;
   align-content: center;
   align-items: center;
   border-radius: 50%;
   margin-top: 1vw;
   margin-right: 1.5vw;
-}
+} */
 
-.footer-social-media-img-size img {
+/* .footer-social-media-img-size img {
   max-height: 50%;
   max-width: 50%;
 }
@@ -127,4 +127,4 @@
 .footer-right-center-verticle p {
   font-size: 1.1vw;
   color: white;
-}
+} */

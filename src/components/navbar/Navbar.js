@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <>
 
-            <nav>
+            <nav >
 
                 {/* --------------- Menu Links ---------------------- */}
                 {/* <div className='menu-link'>
