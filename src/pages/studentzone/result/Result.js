@@ -6,9 +6,8 @@ import Header from "../../../components/header/Header";
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../redux/loaderSlice";
 import axios from "axios";
-import Herosection from "../../../components/herosection/Herosection"
 import { message } from "antd";
-import Footers from "../../../components/footers/Footers"
+import Footers from "../../../components/footers/Footers";
 import Navbar from "../../../components/navbar/Navbar";
 import html2pdf from "html2pdf.js";
 
@@ -138,19 +137,15 @@ const Result = () => {
     <div ref={resultSectionRef}>
       <div id="content-to-pdf">
         <Header />
-        <Navbar/>
-        <Herosection />
+        <Navbar />
 
         <div className="result-section">
           <div className="result-square">
-            <div className="square-header">
+            {/*<div className="square-header">
               <h2>STUDENT DETAILS</h2>
-            </div>
+            </div> */}
             <div className="result-card-parent">
               <div className="border-1"></div>
-              <div className="result-user-information-section">
-                <p>{user.courseName}</p>
-              </div>
 
               <div className="student-information-section">
                 <div className="section-one">
@@ -170,6 +165,11 @@ const Result = () => {
                   </div>
 
                   <div className="student-info">
+                    <p1>Course: </p1>
+                    <p2>{user.courseName}</p2>
+                  </div>
+
+                  <div className="student-info">
                     <p1>Enroll No:</p1>
                     <p2>{user.enrollNo}</p2>
                   </div>
@@ -185,12 +185,12 @@ const Result = () => {
 
             {result[0].isDeclared ? (
               <div className="square-dashboard">
-                <h2>DASHBOARD</h2>
+                {/* <h2>DASHBOARD</h2> */}
 
                 <div className="result-fields">
                   <div className="sno-examname">
-                    <p1>SNo.</p1>
-                    <p1>Exam Name</p1>
+                    <p1>Serial Number</p1>
+                    <p1>Subjects</p1>
                   </div>
 
                   <div className="other-result-fields">
@@ -239,7 +239,33 @@ const Result = () => {
                     </div>
                   );
                 })}
+
                 <div className="result-border"></div>
+
+                {result[0].isDeclared ? (
+                  overallPercentage <= 30 ? (
+                    <div className="percentage-square-dashboard-fail">
+                      <p1>Result : Fail</p1>
+                      <p1>Percentage : {overallPercentage}%</p1>
+                      <p1>Grade : D</p1>
+                    </div>
+                  ) : (
+                    <div className="percentage-square-dashboard">
+                      <p1>Result : Pass</p1>
+                      <p1>Percentage : {overallPercentage}%</p1>
+
+                      {overallPercentage <= 30 ? (
+                        <p1>Grade : D</p1>
+                      ) : overallPercentage <= 50 ? (
+                        <p1>Grade : C</p1>
+                      ) : overallPercentage <= 80 ? (
+                        <p1>Grade : B</p1>
+                      ) : (
+                        <p1>Grade : A</p1>
+                      )}
+                    </div>
+                  )
+                ) : null}
               </div>
             ) : (
               <div>
@@ -250,47 +276,24 @@ const Result = () => {
               </div>
             )}
           </div>
-
-          {result[0].isDeclared ? (
-            overallPercentage <= 30 ? (
-              <div className="percentage-square-dashboard-fail">
-                <p1>Percentage : {overallPercentage}%</p1>
-
-                <p1>Grade : D</p1>
-
-                <p1>Result : Fail</p1>
-              </div>
-            ) : (
-              <div className="percentage-square-dashboard">
-                <p1>Percentage : {overallPercentage}%</p1>
-
-                {overallPercentage <= 30 ? (
-                  <p1>Grade : D</p1>
-                ) : overallPercentage <= 50 ? (
-                  <p1>Grade : C</p1>
-                ) : overallPercentage <= 80 ? (
-                  <p1>Grade : B</p1>
-                ) : (
-                  <p1>Grade : A</p1>
-                )}
-
-                <p1>Result : Pass</p1>
-              </div>
-            )
-          ) : null}
         </div>
 
-        <div className="print-section">
-          <div className="print-button" onClick={() => {
-            window.print();
-          }}>
-            <p>Print As PDF</p>
+        <div className="button-section">
+
+          <div className="print-section">
+            <div
+              className="print-button"
+              onClick={() => {
+                window.print();
+              }}
+            >
+              <p>Print</p>
+            </div>
           </div>
-        </div>
-
-        <div className="logout-section">
-          <div className="logout-button" onClick={logout}>
-            <p>LOGOUT</p>
+          <div className="logout-section">
+            <div className="logout-button" onClick={logout}>
+              <p>LOGOUT</p>
+            </div>
           </div>
         </div>
       </div>

@@ -70,7 +70,7 @@ const StudentZone = () => {
               </div>
 
               <div>
-                <div className="student-button-parent1">
+                <div className="student1-button-parent1">
                   <button class="button" onClick={navigateToContacts}>
                     {" "}
                     Login

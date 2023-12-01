@@ -9,7 +9,6 @@
   border-top: 4px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  background-color: #eceded;
   position: relative;
 }
 
@@ -24,10 +23,10 @@
 }
 
 .not-declared {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .percentage-square-dashboard-fail p1 {
@@ -44,16 +43,11 @@
 
 .result-square {
   width: 90%;
-  height: 60vw;
   margin-left: auto;
   margin-right: auto;
-  /* background: #FAFAFB; */
-  border-style: solid;
-  border-color: #ccc;
-  /* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.19); */
+  border: 3px solid #ccc;
   margin-bottom: 8vw;
   margin-top: 8vw;
-  border-radius: 10px;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -122,38 +116,36 @@
 }
 
 .section-two img {
-  width: 20vw;
-  height: 40vh;
+  width: 18vw;
+  height: 30vh;
   margin-right: 10vw;
-  margin-top: -3vw;
 }
 
 .student-info {
   display: flex;
   margin-top: 1vw;
+  line-height: 2vw;
 }
 
 .student-info p1 {
-  font-size: 1vw;
-  width: 30%;
+  font-size: 1.3vw;
+  font-weight: 700;
+  font-family: Verdana;
+  width: 35%;
 }
 
 .student-info p2 {
   margin-left: 4vw;
-  font-size: 1vw;
-  font-weight: bold;
+  font-size: 1.3vw;
+  font-family: Verdana;
+  font-weight: 700;
 }
 
 .square-dashboard {
-  width: 100%;
-  height: 4vw;
-  border-top: 4px;
-  background-color: #ff878b;
-  position: absolute;
-  margin-top: 5vw;
+
 }
 
-.square-dashboard h2 {
+/* .square-dashboard h2 {
   font-size: 1.2vw;
   color: white;
   font-family: "Poppins";
@@ -163,12 +155,13 @@
   position: absolute;
   top: 30%;
   margin-left: 2vw;
-}
+} */
 
 .result-fields {
   display: flex;
   justify-content: space-between;
   margin-top: 2vw;
+  border-top: 3px solid #ccc;
 }
 
 .sno-examname {
@@ -176,9 +169,10 @@
 }
 
 .sno-examname p1 {
-  font-size: 0.8vw;
-  font-family: "Poppins";
+  font-size: 1.2vw;
+  font-family: Verdana;
   font-weight: 900;
+  color: #818281;
   margin-top: 5vw;
   margin-left: 5vw;
 }
@@ -188,11 +182,13 @@
 }
 
 .other-result-fields p1 {
-  font-size: 0.8vw;
-  font-family: "Poppins";
+  font-size: 1.2vw;
+  font-family: Verdana;
   font-weight: 900;
   margin-top: 5vw;
-  margin-right: 5vw;
+  color: #818281;
+
+  margin-right: 4vw;
 }
 
 .result-border {
@@ -209,11 +205,12 @@
 }
 
 .marking p1 {
-  font-size: 0.8vw;
-  font-family: "Poppins";
+  font-size: 1vw;
+  font-family: Verdana;
   font-weight: 900;
   margin-top: 5vw;
-  margin-left: 5vw;
+  margin-left: 9.5vw;
+  color: #818281;
 }
 
 .result-fields-2 {
@@ -224,11 +221,12 @@
 
 .other-result-fields-2 p1 {
   width: 60%;
-  font-size: 0.8vw;
-  font-family: "Poppins";
+  font-size: 1vw;
+  font-family: Verdana;
   font-weight: 900;
   margin-top: 5vw;
-  margin-right: 7.5vw;
+  margin-right: 10vw;
+  color: #818281;
   position: relative;
 }
 
@@ -240,8 +238,6 @@
 .percentage-square-dashboard {
   width: 100%;
   height: 4vw;
-  margin-top: -3vw;
-  background-color: #e9f7e7;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -250,70 +246,60 @@
 .percentage-square-dashboard p1 {
   font-size: 0.8vw;
   color: black;
-  font-family: "Poppins";
+  font-family: Verdana;
   font-weight: 900;
   vertical-align: middle;
-
+  padding: 0.7vw;
+  border: 2px solid #cccccc;
   position: relative;
   margin-left: 8vw;
+  color: #686868;
   margin-right: 8vw;
 }
-
-.print-section {
-  width: 100%;
+.button-section{
+  margin-top: -2vw;
+  margin-bottom: 2vw;
+  display: flex;
+  gap: 5vw;
   align-items: center;
   justify-content: center;
-  display: flex;
 }
 
 .print-button {
-  width: 50vw;
-  height: 3.2vw;
   background-color: #2f4e71;
-  border-radius: 10vw;
-  margin-top: 8vw;
+  width: 10vw;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 3vw;
+
 }
 
 .print-button p {
-  width: 100%;
-  font-size: 1.2vw;
-  margin: auto;
-  display: flex;
+  text-decoration: none;
   color: white;
-  justify-content: center;
-  align-items: center;
-  padding-top: 0.9vw;
-  font-family: "Poppins";
-  font-weight: 900;
+  font-size: 1vw;
+  font-family: Verdana;
+
 }
 
-.logout-section {
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
 
 .logout-button {
-  width: 50vw;
-  height: 3.2vw;
-  background-color: #f46a6f;
-  border-radius: 10vw;
-  margin-top: 2vw;
-  margin-bottom: 2vw;
+
+  width: 10vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   cursor: pointer;
+  height: 3vw;
+  background-color: #686868;
+
 }
 
 .logout-button p {
-  width: 100%;
-  font-size: 1.2vw;
-  margin: auto;
-  display: flex;
+  text-decoration: none;
   color: white;
-  justify-content: center;
-  align-items: center;
-  padding-top: 0.9vw;
-  font-family: "Poppins";
-  font-weight: 900;
+  font-size: 1vw;
+  font-family: Verdana;
 }

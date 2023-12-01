@@ -1,5 +1,5 @@
 .sidebanner-container{
-    width: 20%;
+    width: 19.5%;
 }
 
 .side-banner-head{
@@ -29,4 +29,25 @@ p{
 
 .side-banner-yt-slider{
     margin-top: 0.5vw;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 1vw;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide iframe {
+
+    width: 98%;
+    height: 92%;
+
 }

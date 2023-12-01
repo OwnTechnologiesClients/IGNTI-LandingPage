@@ -36,7 +36,7 @@ textarea {
 }
 
 
-button {
+.btn {
   margin-left: 8vw;
   background-color: #00a3d4; 
   color: white;
@@ -46,6 +46,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.btn:hover {
   background-color: #45a049;
 }

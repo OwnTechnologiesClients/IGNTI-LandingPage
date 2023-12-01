@@ -13,6 +13,11 @@ import Goverment from "../../../components/goverment/Goverment";
 import Footers from "../../../components/footers/Footers";
 
 function SelectCourse() {
+  const handleReset = () => {
+    setNum("");
+    setEnrollment("");
+    setPass("");
+  };
   const dispatch = useDispatch();
 
   const [courses, setCourses] = useState([]);
@@ -21,7 +26,6 @@ function SelectCourse() {
   const [enrollment, setEnrollment] = useState("");
   const [pass, setPass] = useState("");
   const [sportList, setSportList] = useState([]);
-
   const [selectedCategory, setSelectedCategory] = useState();
 
   function getFilteredList() {
@@ -222,78 +226,148 @@ function SelectCourse() {
           <div className="student-sections">
             <div className="student-squares">
               <div className="square-headers">
-                <h2>Login</h2>
+                <h2>Student Login</h2>
               </div>
               <div className="student-card-parents">
                 <div className="userid-sections">
-                  <p>Course:</p>
-                  <div className="dropdowns">
-                    <select
-                    style={{width: "25vw", height: "2.5vw"}}
-                      name="category-lists"
-                      id="category-lists"
-                      value={selectedCategory}
-                      onChange={handleCategoryChange}
-                    >
-                      {courses.map((course) => {
-                        return <option value={`${course}`}>{course}</option>;
-                      })}
-                    </select>
+                  <div className="semsters">
+                    <p>Your Name</p>
+
+                    <div className="dropdowns">
+                      <input
+                        style={{
+                          width: "32vw",
+                          height: "2vw",
+                          marginLeft: "-1vw",
+                        }}
+                        type="texts"
+
+                      ></input>
+                    </div>
+                  </div>
+                </div>
+                <div className="course-semster">
+                  <div className="userid-sections">
+                    <div className="semsters">
+                      <p>Select Course:</p>
+                      <div className="dropdowns">
+                        <select
+                          style={{
+                            width: "13vw",
+                            height: "2.5vw",
+                            marginLeft: "-1vw",
+                          }}
+                          name="category-lists"
+                          id="category-lists"
+                          value={selectedCategory}
+                          onChange={handleCategoryChange}
+                        >
+                          {courses.map((course) => {
+                            return (
+                              <option value={`${course}`}>{course}</option>
+                            );
+                          })}
+                        </select>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* ------------ User Id Input textfield -------------------- */}
+                  <div className="userid-sections">
+                    <div className="semsters">
+                      <p>Select Semester:</p>{" "}
+                      <div className="dropdowns">
+                        <select
+                          style={{
+                            width: "13vw",
+                            height: "2.5vw",
+                            marginLeft: "-1vw",
+                          }}
+                          name="category-lists"
+                          id="category-lists"
+                          value={num}
+                          onChange={handleSemesterNumber}
+                        >
+                          {arr.map((item, index) => {
+                            return (
+                              <option value={`${index + 1}`}>
+                                {index + 1}
+                              </option>
+                            );
+                          })}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="userid-sections">
-                  <p>Semester:</p>
+                  <div className="semsters">
+                    <p>Enrollment No:</p>
 
-                  <div className="dropdowns">
-                    <select
-                    style={{width: "23.5vw", height: "2.5vw"}}
-                      name="category-lists"
-                      id="category-lists"
-                      value={num}
-                      onChange={handleSemesterNumber}
-                    >
-                      {arr.map((item, index) => {
-                        return (
-                          <option value={`${index + 1}`}>{index + 1}</option>
-                        );
-                      })}
-                    </select>
+                    <div className="dropdowns">
+                      <input
+                        style={{
+                          width: "32vw",
+                          height: "2vw",
+                          marginLeft: "-1vw",
+                        }}
+                        type="numbers"
+                        value={enrollment}
+                        onChange={(e) => setEnrollment(e.target.value)}
+                      ></input>
+                    </div>
                   </div>
                 </div>
 
                 <div className="userid-sections">
-                  <p>Enrollment No:</p>
+                  <div className="semsters">
+                    <p>Enter Date Of Birth:</p>
 
-                  <div className="dropdowns">
-                    <input
-                    style={{width: "20vw", height: "2vw"}}
-                      type="numbers"
-                      value={enrollment}
-                      onChange={(e) => setEnrollment(e.target.value)}
-                    ></input>
+                    <div className="dropdowns">
+                      <input
+                        style={{
+                          width: "32vw",
+                          height: "2vw",
+                          marginLeft: "-1vw",
+                          fontSize: "1vw",
+                        }}
+                        type="date"
+
+                      ></input>
+                    </div>
                   </div>
                 </div>
 
                 <div className="userid-sections">
-                  <p>Exam Password:</p>
+                  <div className="semsters">
+                    <p>Password:</p>
 
-                  <div className="dropdowns">
-                    <input
-                    style={{width: "19vw", height: "2vw"}}
-                      type="texts"
-                      value={pass}
-                      onChange={(e) => setPass(e.target.value)}
-                    ></input>
+                    <div className="dropdowns">
+                      <input
+                        style={{
+                          width: "32vw",
+                          height: "2vw",
+                          marginLeft: "-1vw",
+                        }}
+                        type="texts"
+                        value={pass}
+                        onChange={(e) => setPass(e.target.value)}
+                      ></input>
+                    </div>
                   </div>
                 </div>
 
                 <div>
-                  <div className="course-button-parents">
+                  <div className="course-button-parents-1">
                     <button class="buttons" onClick={navigateToContacts}>
-                      Login
+                      Submit
+                    </button>
+
+                    <button
+                      onClick={handleReset}
+                      style={{ backgroundColor: "#dd2b1c" }}
+                    >
+                      Reset
                     </button>
                   </div>
                 </div>

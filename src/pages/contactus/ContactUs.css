@@ -82,11 +82,11 @@ input::placeholder {
 }
 
 .query-button-parent-1 button {
-  display: flex;
-  width: 22vw;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1vw;
-  margin-left: 0vw;
+  background-color: #00a3d4; 
+  color: white;
+  width: 23vw;
+  margin-top: 1.2vw;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
 }

@@ -77,14 +77,31 @@
     font-weight: 400;
 
 }
-
-.course-button-parent button {
+.courses-buttons-parents{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2vw;
+}
+.courses-buttons-parents button {
   background-color: #00a3d4;
   color: white;
   margin-top: 2vw;
-  margin-left: 10vw;
   padding: 10px 15px;
+  width: 7vw;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+.courses-buttons-parents .reset{
+  background-color: red;
+  color: white;
+  margin-top: 2vw;
+  padding: 10px 15px;
+  width: 7vw;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} 

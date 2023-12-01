@@ -91,12 +91,13 @@ input::placeholder {
 }
 
 .query-button-parents button {
-    display: flex;
+    background-color: #00a3d4; 
+    color: white;
     width: 23vw;
-    margin-top: 1vw;
-    margin-left: 0;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+    margin-top: 1.2vw;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    
 
 }

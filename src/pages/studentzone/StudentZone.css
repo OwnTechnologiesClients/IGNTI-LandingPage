@@ -69,13 +69,18 @@
   font-weight: 400;
 }
 
-.student-button-parent1 button {
+.student1-button-parent1 button {
   display: flex;
   width: 10vw;
   margin-top: 4vw;
   margin-left: 12vw;
   justify-content: center;
   font-size: 0.9vw;
+  background-color: #00a3d4; 
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .userid-section1 {

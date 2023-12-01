@@ -14,7 +14,11 @@ import Footers from "../../../components/footers/Footers";
 
 function SelectCourse() {
   const dispatch = useDispatch();
-
+  const handleReset = () => {
+    setNum("");
+    setEnrollment("");
+    setPass("");
+  };
   const [courses, setCourses] = useState([]);
   const [arr, setArr] = useState([]);
   const [num, setNum] = useState("");
@@ -209,9 +213,13 @@ function SelectCourse() {
                 </div>
 
                 <div>
-                  <div className="course-button-parent">
+                  <div className="courses-buttons-parents">
                     <button class="button" onClick={navigateToContacts}>
-                      Check Result
+                      Submit
+                    </button>
+
+                    <button className="reset" onClick={handleReset}>
+                      Reset
                     </button>
                   </div>
                 </div>
