@@ -51,7 +51,7 @@ function TestQuestions() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/students/get-student-id-enroll",
+        url: "http://localhost:9000/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -61,7 +61,7 @@ function TestQuestions() {
         dispatch(SetLoading(true));
         const result = await axios({
           method: "post",
-          url: "https://igti-backend.onrender.com/api/resultSets/add-result-set",
+          url: "http://localhost:9000/api/resultSets/add-result-set",
           data: {
             courseName: courseName,
             semesterNumber: semesterNumber,
@@ -95,7 +95,7 @@ function TestQuestions() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/examSets/get-exams-set",
+        url: "http://localhost:9000/api/examSets/get-exams-set",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,
@@ -290,6 +290,54 @@ function TestQuestions() {
         </div>
 
         <div className="mutiple-choice-quesions">
+          <div className="button-test-parent">
+            {!isFullScreen && (
+              <div className="course-button-parent-1">
+                <button class="button-1" onClick={toggleFullScreen}>
+                  Your test start! Click here
+                </button>
+              </div>
+            )}
+
+            {isFullScreen && (
+              <div className="course-button-parent-1">
+                <button class="button-1" onClick={navigateToContacts}>
+                  Submit
+                </button>
+              </div>
+            )}
+
+            {!isFullScreen && (
+              <div className="course-button-parent-1">
+                <button
+                  class="button-1"
+                  onClick={() => {
+                    navigate(
+                      `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
+                    );
+                  }}
+                >
+                  Back
+                </button>
+              </div>
+            )}
+
+            {isFullScreen && (
+              <div className="course-button-parent">
+                <button
+                  class="button"
+                  onClick={() => {
+                    navigate(
+                      `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
+                    );
+                    toggleFullScreen();
+                  }}
+                >
+                  Back
+                </button>
+              </div>
+            )}
+          </div>
           {isFullScreen &&
             questions.map((question, questionIndex) => {
               return (
@@ -331,53 +379,6 @@ function TestQuestions() {
                 </div>
               );
             })}
-
-          {!isFullScreen && (
-            <div className="course-button-parent">
-              <button class="button" onClick={toggleFullScreen}>
-                Your test start! Click here
-              </button>
-            </div>
-          )}
-
-          {isFullScreen && (
-            <div className="course-button-parent">
-              <button class="button" onClick={navigateToContacts}>
-                Submit
-              </button>
-            </div>
-          )}
-
-          {!isFullScreen && (
-            <div className="course-button-parent">
-              <button
-                class="button"
-                onClick={() => {
-                  navigate(
-                    `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
-                  );
-                }}
-              >
-                Back
-              </button>
-            </div>
-          )}
-
-          {isFullScreen && (
-            <div className="course-button-parent">
-              <button
-                class="button"
-                onClick={() => {
-                  navigate(
-                    `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
-                  );
-                  toggleFullScreen();
-                }}
-              >
-                Back
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </div>

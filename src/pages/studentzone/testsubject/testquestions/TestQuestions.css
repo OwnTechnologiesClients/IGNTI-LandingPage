@@ -14,10 +14,10 @@
 }
 
 .question-box {
-    border: 5px solid black;
-    margin-top: 5vh;
-    padding-bottom: 5vh;
-    margin-left: 1vw;
+  border: 5px solid black;
+  margin-top: 5vh;
+  padding-bottom: 5vh;
+  margin-left: 1vw;
 }
 
 .quesions-numbers {
@@ -73,4 +73,16 @@
 
 .radio-button-form label {
   font-size: 1.2vw;
+}
+
+.button-test-parent {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  margin-left: 5vw;
+}
+
+
+.button-1 {
+  padding: 1vw;
 }

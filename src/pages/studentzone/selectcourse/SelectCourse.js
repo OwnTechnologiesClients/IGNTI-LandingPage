@@ -57,7 +57,7 @@ function SelectCourse() {
         dispatch(SetLoading(true));
         const response = await axios({
           method: "post",
-          url: "https://igti-backend.onrender.com/api/students/verify-student",
+          url: "http://localhost:9000/api/students/verify-student",
           data: {
             courseName: selectedCategory,
             enrollNo: enrollment,
@@ -67,7 +67,7 @@ function SelectCourse() {
         if (response.data.success) {
           const result = await axios({
             method: "post",
-            url: "https://igti-backend.onrender.com/api/courses/verify-password",
+            url: "http://localhost:9000/api/courses/verify-password",
             data: {
               courseName: selectedCategory,
               password: pass,
@@ -77,7 +77,7 @@ function SelectCourse() {
             dispatch(SetLoading(true));
             const response1 = await axios({
               method: "post",
-              url: "https://igti-backend.onrender.com/api/subjects/get-subject",
+              url: "http://localhost:9000/api/subjects/get-subject",
               data: {
                 courseName: selectedCategory,
                 semesterNumber: num,
@@ -89,7 +89,7 @@ function SelectCourse() {
               dispatch(SetLoading(true));
               const response2 = await axios({
                 method: "post",
-                url: "https://igti-backend.onrender.com/api/students/get-student-id-enroll",
+                url: "http://localhost:9000/api/students/get-student-id-enroll",
                 data: {
                   enroll: enrollment,
                 },
@@ -102,7 +102,7 @@ function SelectCourse() {
                     dispatch(SetLoading(true));
                     const result1 = await axios({
                       method: "post",
-                      url: "https://igti-backend.onrender.com/api/resultSets/get-result-set",
+                      url: "http://localhost:9000/api/resultSets/get-result-set",
                       data: {
                         courseName: selectedCategory,
                         semesterNumber: num,
@@ -157,7 +157,7 @@ function SelectCourse() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/name-Course-all",
+        url: "http://localhost:9000/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
@@ -178,7 +178,7 @@ function SelectCourse() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/get-course",
+        url: "http://localhost:9000/api/courses/get-course",
         data: {
           courseName: selectedCategory,
         },
