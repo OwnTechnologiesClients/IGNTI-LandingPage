@@ -6,6 +6,8 @@ import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import './Gallery.css';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
+import Footers from '../../components/footers/Footers';
+import Herosection from '../../components/herosection/Herosection';
 
 // const images = [
 //   "https://picsum.photos/2000/2000",
@@ -39,7 +41,7 @@ const Gallery = () => {
     <div>
       <Header />
       <Navbar />
-      <Banner />
+      <Herosection />
 
       {/* {data.img &&
         <div style={{
@@ -75,7 +77,7 @@ const Gallery = () => {
         </ResponsiveMasonry>
       </div>
 
-      <Footer />
+      <Footers />
     </div>
   )
 }

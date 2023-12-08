@@ -1,14 +1,17 @@
 .item-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 10px;
     border: 1px solid #F46A6F;
-    margin-top: 2vw;
+    margin-top: 5vw;
+    height: 10vw;
+    width: 10vw;
+    padding: 0.5vw 0.6vw 0vw 0.6vw;
+    box-shadow: 0 17px 8px #eceded;
 
   }
   .item-label {
-    font-size: 0.8vw;
+    text-decoration: underline;
+    font-size: 1.3vw;
+    font-weight: bold;
+    color: black;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 

@@ -1,139 +1,130 @@
-.footer-section{
-    height: 30vw;
-    width: 100%;
+/* .footer-section {
+  width: 100%;
 
-    background-color: #F46A6F;
-    position: relative;
+  background-color: #4e6db9;
+  position: relative;
 }
 
-.footer-left-section{
-    height: 30vw;
-    display: flex;
-    margin-left: 5vw;
-    
+.footer-left-section {
+  height: 30vw;
+  display: flex;
+  justify-content: space-between;
 }
-.footer-center-verticle{
-    width: 20vw;
-    padding: 2vw;
-    margin-top: 3.5vw;
-}
-
-
-.footer-left-section h1{
-    margin-top: 2vw;
-
-    font-size: 3vw;
-    color: white;
-}
-.footer-left-section p{
-    font-size: 1.1vw;
-    color: white;
+.footer-center-verticle {
+  width: 20vw;
+  padding: 2vw;
+  margin-top: 3.5vw;
 }
 
+.footer-left-section h1 {
+  margin-top: 2vw;
+
+  font-size: 1.5vw;
+  text-decoration: underline;
+  color: white;
+}
+.footer-left-section p {
+  font-size: 1.1vw;
+  color: white;
+}
 
 .footer-social-media {
-    display: flex;
-    margin-top: 1.2vw;
+  display: flex;
+  margin-top: 1.2vw;
 }
 
 .footer-social-media ul {
-    margin: 0;
-    position: relative;
-    top: 2.5vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  margin: 0;
+  position: relative;
+  top: 2.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .footer-social-media ul li {
-    text-align: right;
+  text-align: right;
 }
 
 .footer-social-media-parent {
-    display: flex;
+  display: flex;
 }
 
 .footer-social-media-circle {
-    display: flex;
-    width: 3vw;
-    height: 3vw;
-    background: #2F4E71;
-    text-align: center;
-    align-content: center;
-    align-items: center;
-    border-radius: 50%;
-    margin-top: 1vw;
-    margin-right: 1.5vw;
+  display: flex;
+  width: 3vw;
+  height: 3vw;
+  /* background: white; */
+  /* text-align: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-top: 1vw;
+  margin-right: 1.5vw;
+} */
 
+/* .footer-social-media-img-size img {
+  max-height: 50%;
+  max-width: 50%;
 }
 
-.footer-social-media-img-size img {
-    max-height: 50%;
-    max-width: 50%;
+.footer-middle-center-verticle {
+  width: 20vw;
+  padding: 3vw;
+  margin-top: 3vw;
 }
 
-
-.footer-middle-center-verticle{
-    width: 20vw;
-    padding: 3vw;
-    margin-top: 3vw;
+.footer-middle-section-list {
+  margin-top: 3.5vw;
+}
+.footer-middle-center-verticle h1 {
+  margin-top: 2vw;
+  font-size: 1.5vw;
+  color: white;
 }
 
-.footer-middle-section-list{
-    margin-top: 3.5vw;
-}
-.footer-middle-center-verticle h1{
-    margin-top: 2vw;
-    font-size: 1.5vw;
-    color: white;
-}
-
-.footer-middle-section p{
-    font-size: 1vw;
-    color: white;
+.footer-middle-section p {
+  font-size: 1vw;
+  color: white;
 }
 
 .footer-middle-list {
-    display: flex;
-    margin-top: -2vw;
+  display: flex;
+  margin-top: -2vw;
 }
 
 .footer-middle-list p {
-    text-transform: capitalize;
-    color: white;
-    font-size: 1.1vw;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    margin-left: 1vw;
-    margin-bottom: 1.5vw;
+  text-transform: capitalize;
+  color: white;
+  font-size: 1.1vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin-left: 1vw;
+  margin-bottom: 1.5vw;
 }
 
 .footer-middle-circle {
-    margin-top: 2.2vw;
-    display: flex;
-    width: 0.7vw;
-    height: 0.7vw;
-    background-color: black;
-    border-radius: 50%;
-    margin-top: 1.5vw;
-
+  margin-top: 2.2vw;
+  display: flex;
+  width: 0.7vw;
+  height: 0.7vw;
+  border-radius: 50%;
+  margin-top: 1.5vw;
 }
 
-
-
-.footer-right-center-verticle{
-    width: 20vw;
-    padding: 3vw;
-    margin-right: 5vw;
-    margin-top: 3vw;
+.footer-right-center-verticle {
+  width: 20vw;
+  padding: 3vw;
+  margin-right: 5vw;
+  margin-top: 3vw;
 }
 
-.footer-right-center-verticle h1{
-    margin-top: 2vw;
-    font-size: 1.5vw;
-    color: white;
+.footer-right-center-verticle h1 {
+  margin-top: 2vw;
+  font-size: 1.5vw;
+  color: white;
 }
-.footer-right-center-verticle p{
-    font-size: 1.1vw;
-    color: white;
-}
+.footer-right-center-verticle p {
+  font-size: 1.1vw;
+  color: white;
+} */

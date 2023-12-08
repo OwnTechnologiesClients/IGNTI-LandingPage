@@ -49,7 +49,7 @@ const Result = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/students/get-student-id-enroll",
+        url: "http://localhost:9000/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -72,7 +72,7 @@ const Result = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/resultSets/get-result-set-id",
+        url: "http://localhost:9000/api/resultSets/get-result-set-id",
         data: {
           studentId: user._id,
           semesterNumber: num,
@@ -135,157 +135,165 @@ const Result = () => {
     <div ref={resultSectionRef}>
       <div id="content-to-pdf">
         <Header />
+        <div className="result-container-parent">
+          <div className="result-section">
+            <div className="result-square">
+              {/*<div className="square-header">
+    <h2>STUDENT DETAILS</h2>
+  </div> */}
+              <div className="result-card-parent">
+                <div className="border-1"></div>
 
-        <div className="result-section">
-          <div className="result-square">
-            <div className="square-header">
-              <h2>STUDENT DETAILS</h2>
-            </div>
-            <div className="result-card-parent">
-              <div className="border-1"></div>
-              <div className="result-user-information-section">
-                <p>{user.courseName}</p>
+                <div className="student-information-section">
+                  <div className="section-one">
+                    <div className="student-info">
+                      <p1>Name: </p1>
+                      <p2>{user.studentName}</p2>
+                    </div>
+
+                    <div className="student-info">
+                      <p1>Father Name: </p1>
+                      <p2>{user.fatherName}</p2>
+                    </div>
+
+                    <div className="student-info">
+                      <p1>Date Of Birth: </p1>
+                      <p2>{user.dateOfBirth}</p2>
+                    </div>
+
+                    <div className="student-info">
+                      <p1>Course: </p1>
+                      <p2>{user.courseName}</p2>
+                    </div>
+
+                    <div className="student-info">
+                      <p1>Enroll No:</p1>
+                      <p2>{user.enrollNo}</p2>
+                    </div>
+                  </div>
+
+                  <div className="section-two">
+                    <img
+                      src={`http://localhost:9000/public/${user.imageFile}`}
+                    />
+                  </div>
+                </div>
               </div>
 
-              <div className="student-information-section">
-                <div className="section-one">
-                  <div className="student-info">
-                    <p1>Name: </p1>
-                    <p2>{user.studentName}</p2>
+              {result[0].isDeclared ? (
+                <div className="square-dashboard">
+                  {/* <h2>DASHBOARD</h2> */}
+
+                  <div className="result-fields">
+                    <div className="sno-examname">
+                      <p1>Serial Number</p1>
+                      <p1>Subjects</p1>
+                    </div>
+
+                    <div className="other-result-fields">
+                      <p1>Maximum Marks</p1>
+                      <p1>Obtained Marks</p1>
+                      <p1>Grade</p1>
+                    </div>
                   </div>
 
-                  <div className="student-info">
-                    <p1>Father Name: </p1>
-                    <p2>{user.fatherName}</p2>
-                  </div>
+                  {result[0].subjectResults.map((subjectResult, subIndex) => {
+                    return (
+                      <div>
+                        <div className="result-border">
+                          <div className="result-fields-2">
+                            <div className="marking">
+                              <p1>{subIndex + 1} &#41;</p1>
+                              <p1>{subjectResult.subjectName}</p1>
+                            </div>
 
-                  <div className="student-info">
-                    <p1>Date Of Birth: </p1>
-                    <p2>{user.dateOfBirth}</p2>
-                  </div>
+                            <div className="other-result-fields-2">
+                              <p1>{subjectResult.totalNumQuestions}</p1>
 
-                  <div className="student-info">
-                    <p1>Enroll No:</p1>
-                    <p2>{user.enrollNo}</p2>
-                  </div>
-                </div>
+                              <p1>{subjectResult.numCorrectAnswers}</p1>
 
-                <div className="section-two">
-                  <img
-                    src={`https://igti-backend.onrender.com/public/${user.imageFile}`}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {result[0].isDeclared ? (
-              <div className="square-dashboard">
-                <h2>DASHBOARD</h2>
-
-                <div className="result-fields">
-                  <div className="sno-examname">
-                    <p1>SNo.</p1>
-                    <p1>Exam Name</p1>
-                  </div>
-
-                  <div className="other-result-fields">
-                    <p1>Maximum Marks</p1>
-                    <p1>Obtained Marks</p1>
-                    <p1>Grade</p1>
-                  </div>
-                </div>
-
-                {result[0].subjectResults.map((subjectResult, subIndex) => {
-                  return (
-                    <div>
-                      <div className="result-border"></div>
-
-                      <div className="result-fields-2">
-                        <div className="marking">
-                          <p1>{subIndex + 1}</p1>
-                          <p1>{subjectResult.subjectName}</p1>
-                        </div>
-
-                        <div className="other-result-fields-2">
-                          <p1>{subjectResult.totalNumQuestions}</p1>
-
-                          <p1>{subjectResult.numCorrectAnswers}</p1>
-
-                          {(subjectResult.numCorrectAnswers /
-                            subjectResult.totalNumQuestions) *
-                            100 <=
-                          30 ? (
-                            <p1>D</p1>
-                          ) : (subjectResult.numCorrectAnswers /
-                              subjectResult.totalNumQuestions) *
-                              100 <=
-                            50 ? (
-                            <p1>C</p1>
-                          ) : (subjectResult.numCorrectAnswers /
-                              subjectResult.totalNumQuestions) *
-                              100 <=
-                            80 ? (
-                            <p1>B</p1>
-                          ) : (
-                            <p1>A</p1>
-                          )}
+                              {(subjectResult.numCorrectAnswers /
+                                subjectResult.totalNumQuestions) *
+                                100 <=
+                              30 ? (
+                                <p3>D</p3>
+                              ) : (subjectResult.numCorrectAnswers /
+                                  subjectResult.totalNumQuestions) *
+                                  100 <=
+                                50 ? (
+                                <p3>C</p3>
+                              ) : (subjectResult.numCorrectAnswers /
+                                  subjectResult.totalNumQuestions) *
+                                  100 <=
+                                80 ? (
+                                <p3>B</p3>
+                              ) : (
+                                <p3>A</p3>
+                              )}
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-                <div className="result-border"></div>
-              </div>
-            ) : (
-              <div>
-                <div className="result-border"></div>
-                <div className="not-declared">
-                  <h1>Result not declared yet!</h1>
+                    );
+                  })}
+
+                  <div className="result-border">
+                    {result[0].isDeclared ? (
+                      overallPercentage <= 30 ? (
+                        <div className="percentage-square-dashboard-fail">
+                          <p1>Result : Fail</p1>
+                          <p1>Percentage : {overallPercentage}%</p1>
+                          <p1>Grade : D</p1>
+                        </div>
+                      ) : (
+                        <div className="percentage-square-dashboard">
+                          <p1>Result : Pass</p1>
+                          <p1>Percentage : {overallPercentage}%</p1>
+
+                          {overallPercentage <= 30 ? (
+                            <p1>Grade : D</p1>
+                          ) : overallPercentage <= 50 ? (
+                            <p1>Grade : C</p1>
+                          ) : overallPercentage <= 80 ? (
+                            <p1>Grade : B</p1>
+                          ) : (
+                            <p1>Grade : A</p1>
+                          )}
+
+                        
+                        </div>
+                      )
+                    ) : null}
+                  </div>
                 </div>
-              </div>
-            )}
+              ) : (
+                <div>
+                  <div className="result-border">
+                    <div className="not-declared">
+                      <h1>Result not declared yet!</h1>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
-          {result[0].isDeclared ? (
-            overallPercentage <= 30 ? (
-              <div className="percentage-square-dashboard-fail">
-                <p1>Percentage : {overallPercentage}%</p1>
-
-                <p1>Grade : D</p1>
-
-                <p1>Result : Fail</p1>
+          <div className="button-section">
+            <div className="print-section">
+              <div
+                className="print-button"
+                onClick={() => {
+                  window.print();
+                }}
+              >
+                <p>Print</p>
               </div>
-            ) : (
-              <div className="percentage-square-dashboard">
-                <p1>Percentage : {overallPercentage}%</p1>
-
-                {overallPercentage <= 30 ? (
-                  <p1>Grade : D</p1>
-                ) : overallPercentage <= 50 ? (
-                  <p1>Grade : C</p1>
-                ) : overallPercentage <= 80 ? (
-                  <p1>Grade : B</p1>
-                ) : (
-                  <p1>Grade : A</p1>
-                )}
-
-                <p1>Result : Pass</p1>
+            </div>
+            <div className="logout-section">
+              <div className="logout-button" onClick={logout}>
+                <p>LOGOUT</p>
               </div>
-            )
-          ) : null}
-        </div>
-
-        <div className="print-section">
-          <div className="print-button" onClick={() => {
-            window.print();
-          }}>
-            <p>Print As PDF</p>
-          </div>
-        </div>
-
-        <div className="logout-section">
-          <div className="logout-button" onClick={logout}>
-            <p>LOGOUT</p>
+            </div>
           </div>
         </div>
       </div>

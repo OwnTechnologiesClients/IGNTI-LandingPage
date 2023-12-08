@@ -1,16 +1,122 @@
-import React from 'react'
+import React from "react";
+import "./Goverment.css";
+import { Link } from "react-router-dom";
 
 const Goverment = () => {
-    return (
-        <div className='gov-section'>
-            <img src="/img/gov-1.png" />
-            <img src="/img/gov-2.png" />
-            <img src="/img/gov-3.png" />
-            <img src="/img/gov-4.png" />
-            <img src="/img/gov-5.png" />
-            <img src="/img/gov-6.png" />
-        </div>
-    )
-}
+  return (
+    <div className="gov-container">
+      <div className="gov-border">
+        <div className="gov-card">
+          <div className="head-gov">
+            <p>ADCA</p>
+          </div>
 
-export default Goverment
+          <div className="gov-month">
+            <p>12 MONTHS</p>
+          </div>
+
+          <div className="gov-read-more">
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        <div className="gov-card">
+          <div className="head-gov">
+            <p>ADCA</p>
+          </div>
+
+          <div className="gov-month">
+            <p>12 MONTHS</p>
+          </div>
+
+          <div className="gov-read-more">
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        <div className="gov-card">
+          <div className="head-gov">
+            <p>ADCA</p>
+          </div>
+
+          <div className="gov-month">
+            <p>12 MONTHS</p>
+          </div>
+
+          <div className="gov-read-more">
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        <div className="gov-card">
+          <div className="head-gov">
+            <p>ADCA</p>
+          </div>
+
+          <div className="gov-month">
+            <p>12 MONTHS</p>
+          </div>
+
+          <div className="gov-read-more">
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        <div className="gov-card">
+          <div className="head-gov">
+            <p>ADCA</p>
+          </div>
+
+          <div className="gov-month">
+            <p>12 MONTHS</p>
+          </div>
+
+          <div className="gov-read-more">
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        <div className="gov-card">
+          <div className="head-gov">
+            <p>ADCA</p>
+          </div>
+
+          <div className="gov-month">
+            <p>12 MONTHS</p>
+          </div>
+
+          <div className="gov-read-more">
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        <div className="gov-card">
+          <div className="head-gov">
+            <p>ADCA</p>
+          </div>
+
+          <div className="gov-month">
+            <p>12 MONTHS</p>
+          </div>
+
+          <div className="gov-read-more">
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        <div className="gov-card">
+          <div className="head-gov">
+            <p>ADCA</p>
+          </div>
+
+          <div className="gov-month">
+            <p>12 MONTHS</p>
+          </div>
+
+          <div className="gov-read-more">
+            <a href="#">Read More</a>
+          </div>
+        </div>
+
+        <div className="gov-other-course">
+          <Link to="/courses">For Other Courses</Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Goverment;

@@ -21,22 +21,22 @@ li {
 
 .menu-parent {
     width: 100%;
-    height: 5vw;
-    background-color: #F46A6F;
+    height: 4vw;
+    background-color: #db2c1d;
     display: flex;
+
 
 }
 
 .menu {
-    width: 70%;
+    width: 90%;
     position: absolute;
-    margin-top: 1.5vw;
+    margin-top: 1vw;
     margin-left: 5vw;
 }
 
 .menu ul {
     width: 100%;
-    background-color: #F46A6F;
     display: flex;
     justify-content: space-evenly;
 
@@ -61,9 +61,12 @@ li {
     line-height: 2.2vw;
     padding: 0 1vw;
     display: block;
-    color: white;
+    text-transform: uppercase;
+
 
 }
+
+
 
 .menu ul li {
     float: left;
@@ -102,7 +105,7 @@ li {
 }
 
 .menu li ul li:hover>a {
-    color: #263342;
+    color: whitesmoke;
 
 }
 

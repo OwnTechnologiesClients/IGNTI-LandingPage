@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <>
 
-            <nav>
+            <nav >
 
                 {/* --------------- Menu Links ---------------------- */}
                 {/* <div className='menu-link'>
@@ -75,7 +75,7 @@ const Navbar = () => {
 
 
 
-                    <div className='social-media-parent'>
+                   {/* <div className='social-media-parent'>
                         <div className='social-media-circle'>
                             <div className='social-media-img-size'>
                                 <img src="/img/facebook.png" />
@@ -92,7 +92,7 @@ const Navbar = () => {
                                 <img src="/img/linkedin.png" />
                             </div>
                         </div>
-                    </div>
+                    </div>*/} 
                 </div>
 
                 {/* --------------- Social media section ---------------------- */}

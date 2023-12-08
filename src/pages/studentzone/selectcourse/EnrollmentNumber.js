@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./SelectCourse.css";
+import "./EnrollmentNumber.css";
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../redux/loaderSlice";
 import axios from "axios";
 import { message } from "antd";
 import Header from "../../../components/header/Header";
 import Navbar from "../../../components/navbar/Navbar";
+import Tabs from "../../../components/tabs/Tabs";
+import Herosection from "../../../components/herosection/Herosection";
+import Goverment from "../../../components/goverment/Goverment";
+import Footers from "../../../components/footers/Footers";
 
 function SelectCourse() {
   const dispatch = useDispatch();
-
+  const handleReset = () => {
+    setNum("");
+    setEnrollment("");
+    setPass("");
+  };
   const [courses, setCourses] = useState([]);
   const [arr, setArr] = useState([]);
   const [num, setNum] = useState("");
@@ -47,7 +55,7 @@ function SelectCourse() {
         dispatch(SetLoading(true));
         const response = await axios({
           method: "post",
-          url: "https://igti-backend.onrender.com/api/students/verify-student",
+          url: "http://localhost:9000/api/students/verify-student",
           data: {
             courseName: selectedCategory,
             enrollNo: enrollment,
@@ -59,14 +67,14 @@ function SelectCourse() {
           dispatch(SetLoading(true));
           const result = await axios({
             method: "post",
-            url: "https://igti-backend.onrender.com/api/resultSets/get-result-set-id",
+            url: "http://localhost:9000/api/resultSets/get-result-set-id",
             data: {
               studentId: response.data.data[0]._id,
               semesterNumber: num,
               courseName: selectedCategory,
             },
           });
-        //   console.log(result)
+          //   console.log(result)
           dispatch(SetLoading(false));
           if (result.data.success) {
             dispatch(SetLoading(true));
@@ -92,7 +100,7 @@ function SelectCourse() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/name-Course-all",
+        url: "http://localhost:9000/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
@@ -113,7 +121,7 @@ function SelectCourse() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/get-course",
+        url: "http://localhost:9000/api/courses/get-course",
         data: {
           courseName: selectedCategory,
         },
@@ -140,75 +148,89 @@ function SelectCourse() {
 
   return (
     <div>
-      <Header/>
-      <Navbar/>
-      <div className="app">
-        <div className="student-section">
-          <div className="student-square">
-            <div className="square-header">
-              <h2>Result</h2>
-            </div>
-            <div className="student-card-parent">
-              <div className="userid-section">
-                <p>Course</p>
-                <div className="dropdown">
-                  <select
-                    name="category-list"
-                    id="category-list"
-                    value={selectedCategory}
-                    onChange={handleCategoryChange}
-                  >
-                    {courses.map((course) => {
-                      return <option value={`${course}`}>{course}</option>;
-                    })}
-                  </select>
+      <Header />
+      <Navbar />
+      <Herosection />
+
+      <div className="parent-app">
+        <Tabs />
+        <div className="app">
+          <div className="student-section">
+            <div className="student-square">
+              <div className="square-header-11">
+                <h2>Check Results</h2>
+              </div>
+              <div className="student-card-parent">
+                <div className="userid-section">
+                  <p>Select Course :</p>
+                  <div className="dropdown">
+                    <select
+                      name="category-list"
+                      id="category-list"
+                      value={selectedCategory}
+                      onChange={handleCategoryChange}
+                    >
+                      {courses.map((course) => {
+                        return <option value={`${course}`}>{course}</option>;
+                      })}
+                    </select>
+                  </div>
+
+                  {/* ------------ User Id Input textfield -------------------- */}
                 </div>
 
-                {/* ------------ User Id Input textfield -------------------- */}
-              </div>
+                <div className="userid-section">
+                  <p>Semester</p>
 
-              <div className="userid-section">
-                <p>Semester</p>
-
-                <div className="dropdown">
-                  <select
-                    name="category-list"
-                    id="category-list"
-                    value={num}
-                    onChange={handleSemesterNumber}
-                  >
-                    {arr.map((item, index) => {
-                      return (
-                        <option value={`${index + 1}`}>{index + 1}</option>
-                      );
-                    })}
-                  </select>
+                  <div className="dropdown">
+                    <select
+                      name="category-list"
+                      id="category-list"
+                      value={num}
+                      onChange={handleSemesterNumber}
+                    >
+                      {arr.map((item, index) => {
+                        return (
+                          <option value={`${index + 1}`}>{index + 1}</option>
+                        );
+                      })}
+                    </select>
+                  </div>
                 </div>
-              </div>
 
-              <div className="userid-section">
-                <p>Enrollment No.</p>
+                <div className="userid-section">
+                  <p>Enter Enrollment No.</p>
 
-                <div className="dropdown">
-                  <input
-                    type="number"
-                    value={enrollment}
-                    onChange={(e) => setEnrollment(e.target.value)}
-                  ></input>
+                  <div className="dropdown">
+                    <input
+                      type="number"
+                      className="form-con"
+                      value={enrollment}
+                      placeholder="Please Enter Roll No."
+                      onChange={(e) => setEnrollment(e.target.value)}
+                    ></input>
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <div className="course-button-parent">
-                  <button class="button" onClick={navigateToContacts}>
-                    Check Result
-                  </button>
+                <div>
+                  <div className="courses-buttons-parents">
+                    <button class="button" onClick={navigateToContacts}>
+                      Submit
+                    </button>
+
+                    <button className="reset" onClick={handleReset}>
+                      Reset
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <Goverment />
+      <Footers />
     </div>
   );
 }

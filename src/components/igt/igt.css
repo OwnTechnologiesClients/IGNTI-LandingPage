@@ -1,0 +1,6 @@
+.iginit-container{
+    padding: 1vw;
+    display: flex;
+    gap: 1.5vw;
+    flex-direction: row;
+}

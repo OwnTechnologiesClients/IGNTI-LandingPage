@@ -7,8 +7,17 @@ import axios from "axios";
 import { message } from "antd";
 import Header from "../../../components/header/Header";
 import Navbar from "../../../components/navbar/Navbar";
+import Tabs from "../../../components/tabs/Tabs";
+import Herosection from "../../../components/herosection/Herosection";
+import Goverment from "../../../components/goverment/Goverment";
+import Footers from "../../../components/footers/Footers";
 
 function SelectCourse() {
+  const handleReset = () => {
+    setNum("");
+    setEnrollment("");
+    setPass("");
+  };
   const dispatch = useDispatch();
 
   const [courses, setCourses] = useState([]);
@@ -17,7 +26,6 @@ function SelectCourse() {
   const [enrollment, setEnrollment] = useState("");
   const [pass, setPass] = useState("");
   const [sportList, setSportList] = useState([]);
-
   const [selectedCategory, setSelectedCategory] = useState();
 
   function getFilteredList() {
@@ -49,7 +57,7 @@ function SelectCourse() {
         dispatch(SetLoading(true));
         const response = await axios({
           method: "post",
-          url: "https://igti-backend.onrender.com/api/students/verify-student",
+          url: "http://localhost:9000/api/students/verify-student",
           data: {
             courseName: selectedCategory,
             enrollNo: enrollment,
@@ -59,7 +67,7 @@ function SelectCourse() {
         if (response.data.success) {
           const result = await axios({
             method: "post",
-            url: "https://igti-backend.onrender.com/api/courses/verify-password",
+            url: "http://localhost:9000/api/courses/verify-password",
             data: {
               courseName: selectedCategory,
               password: pass,
@@ -69,7 +77,7 @@ function SelectCourse() {
             dispatch(SetLoading(true));
             const response1 = await axios({
               method: "post",
-              url: "https://igti-backend.onrender.com/api/subjects/get-subject",
+              url: "http://localhost:9000/api/subjects/get-subject",
               data: {
                 courseName: selectedCategory,
                 semesterNumber: num,
@@ -81,7 +89,7 @@ function SelectCourse() {
               dispatch(SetLoading(true));
               const response2 = await axios({
                 method: "post",
-                url: "https://igti-backend.onrender.com/api/students/get-student-id-enroll",
+                url: "http://localhost:9000/api/students/get-student-id-enroll",
                 data: {
                   enroll: enrollment,
                 },
@@ -94,7 +102,7 @@ function SelectCourse() {
                     dispatch(SetLoading(true));
                     const result1 = await axios({
                       method: "post",
-                      url: "https://igti-backend.onrender.com/api/resultSets/get-result-set",
+                      url: "http://localhost:9000/api/resultSets/get-result-set",
                       data: {
                         courseName: selectedCategory,
                         semesterNumber: num,
@@ -149,7 +157,7 @@ function SelectCourse() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/name-Course-all",
+        url: "http://localhost:9000/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
@@ -170,7 +178,7 @@ function SelectCourse() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/get-course",
+        url: "http://localhost:9000/api/courses/get-course",
         data: {
           courseName: selectedCategory,
         },
@@ -211,85 +219,166 @@ function SelectCourse() {
     <div>
       <Header />
       <Navbar />
-      <div className="app">
-        <div className="student-section">
-          <div className="student-square">
-            <div className="square-header">
-              <h2>Login</h2>
-            </div>
-            <div className="student-card-parent">
-              <div className="userid-section">
-                <p>Course</p>
-                <div className="dropdown">
-                  <select
-                    name="category-list"
-                    id="category-list"
-                    value={selectedCategory}
-                    onChange={handleCategoryChange}
-                  >
-                    {courses.map((course) => {
-                      return <option value={`${course}`}>{course}</option>;
-                    })}
-                  </select>
+      <Herosection />
+      <div className="parent-app">
+        <Tabs />
+        <div className="apps">
+          <div className="student-sections">
+            <div className="student-squares">
+              <div className="square-headers">
+                <h2>Student Login</h2>
+              </div>
+              <div className="student-card-parents">
+                <div className="userid-sections">
+                  <div className="semsters">
+                    <p>Your Name</p>
+
+                    <div className="dropdowns">
+                      <input
+                        style={{
+                          width: "32vw",
+                          height: "2vw",
+                          marginLeft: "-1vw",
+                        }}
+                        type="texts"
+
+                      ></input>
+                    </div>
+                  </div>
+                </div>
+                <div className="course-semster">
+                  <div className="userid-sections">
+                    <div className="semsters">
+                      <p>Select Course:</p>
+                      <div className="dropdowns">
+                        <select
+                          style={{
+                            width: "13vw",
+                            height: "2.5vw",
+                            marginLeft: "-1vw",
+                          }}
+                          name="category-lists"
+                          id="category-lists"
+                          value={selectedCategory}
+                          onChange={handleCategoryChange}
+                        >
+                          {courses.map((course) => {
+                            return (
+                              <option value={`${course}`}>{course}</option>
+                            );
+                          })}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="userid-sections">
+                    <div className="semsters">
+                      <p>Select Semester:</p>{" "}
+                      <div className="dropdowns">
+                        <select
+                          style={{
+                            width: "13vw",
+                            height: "2.5vw",
+                            marginLeft: "-1vw",
+                          }}
+                          name="category-lists"
+                          id="category-lists"
+                          value={num}
+                          onChange={handleSemesterNumber}
+                        >
+                          {arr.map((item, index) => {
+                            return (
+                              <option value={`${index + 1}`}>
+                                {index + 1}
+                              </option>
+                            );
+                          })}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* ------------ User Id Input textfield -------------------- */}
-              </div>
+                <div className="userid-sections">
+                  <div className="semsters">
+                    <p>Enrollment No:</p>
 
-              <div className="userid-section">
-                <p>Semester</p>
-
-                <div className="dropdown">
-                  <select
-                    name="category-list"
-                    id="category-list"
-                    value={num}
-                    onChange={handleSemesterNumber}
-                  >
-                    {arr.map((item, index) => {
-                      return (
-                        <option value={`${index + 1}`}>{index + 1}</option>
-                      );
-                    })}
-                  </select>
+                    <div className="dropdowns">
+                      <input
+                        style={{
+                          width: "32vw",
+                          height: "2vw",
+                          marginLeft: "-1vw",
+                        }}
+                        type="numbers"
+                        value={enrollment}
+                        onChange={(e) => setEnrollment(e.target.value)}
+                      ></input>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div className="userid-section">
-                <p>Enrollment No.</p>
+                <div className="userid-sections">
+                  <div className="semsters">
+                    <p>Enter Date Of Birth:</p>
 
-                <div className="dropdown">
-                  <input
-                    type="number"
-                    value={enrollment}
-                    onChange={(e) => setEnrollment(e.target.value)}
-                  ></input>
+                    <div className="dropdowns">
+                      <input
+                        style={{
+                          width: "32vw",
+                          height: "2vw",
+                          marginLeft: "-1vw",
+                          fontSize: "1vw",
+                        }}
+                        type="date"
+
+                      ></input>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div className="userid-section">
-                <p>Exam Password</p>
+                <div className="userid-sections">
+                  <div className="semsters">
+                    <p>Password:</p>
 
-                <div className="dropdown">
-                  <input
-                    type="text"
-                    value={pass}
-                    onChange={(e) => setPass(e.target.value)}
-                  ></input>
+                    <div className="dropdowns">
+                      <input
+                        style={{
+                          width: "32vw",
+                          height: "2vw",
+                          marginLeft: "-1vw",
+                        }}
+                        type="texts"
+                        value={pass}
+                        onChange={(e) => setPass(e.target.value)}
+                      ></input>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <div className="course-button-parent">
-                  <button class="button" onClick={navigateToContacts}>
-                    Login
-                  </button>
+                <div>
+                  <div className="course-button-parents-1">
+                    <button class="buttons" onClick={navigateToContacts}>
+                      Submit
+                    </button>
+
+                    <button
+                      onClick={handleReset}
+                      style={{ backgroundColor: "#dd2b1c" }}
+                    >
+                      Reset
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <Goverment />
+      <Footers />
     </div>
   );
 }

@@ -1,4 +1,25 @@
+.banner-section{
+    width: 80%;
+    height: 29vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+
+.banner-text-section {
+    background-color: #3c2b99;
+    font-size: 1vw;
+    height: 3.2vw;
+
+}
+marquee{
+    font-size: 1.2vw;
+    text-align: center;
+    color: #fff;
+    margin-top: 1vw;
+}
 .banner img {
+   
     width: 100%;
     height: 30vw;
     margin-left: auto;
@@ -14,18 +35,18 @@
 
 .swiper-slide {
     text-align: center;
-    font-size: 18px;
+    font-size: 1vw;
     background: #fff;
-
-    /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .swiper-slide img {
+    border: 1px solid #ccc;
+    padding: 0.6vw;
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 98%;
+    height: 92%;
     object-fit: cover;
 }
