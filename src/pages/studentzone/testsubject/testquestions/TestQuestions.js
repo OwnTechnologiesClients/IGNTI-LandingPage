@@ -106,6 +106,7 @@ function TestQuestions() {
       if (response.data.success) {
         message.success(response.data.message);
         setQuestions(response.data.data);
+        console.log(response.data);
       } else {
         throw new Error(response.data.message);
       }
@@ -264,121 +265,126 @@ function TestQuestions() {
       </div>
 
       <div id="google_translate_element"></div>
+      <div className="parent-div">
 
-      <div className="quesion-section">
-        <div className="quesions-numbers">
-          {questions.map((q, qIndex) => {
-            return selectedOption[qIndex] > 0 ? (
-              <a
-                className="color-green"
-                href={`#question${qIndex + 1}`}
-                key={qIndex + 1}
-                onClick={() => scrollToQuestion(qIndex + 1)}
-              >
-                {qIndex + 1}
-              </a>
-            ) : (
-              <a
-                href={`#question${qIndex + 1}`}
-                key={qIndex + 1}
-                onClick={() => scrollToQuestion(qIndex + 1)}
-              >
-                {qIndex + 1}
-              </a>
-            );
-          })}
-        </div>
-
-        <div className="mutiple-choice-quesions">
-          <div className="button-test-parent">
-            {!isFullScreen && (
-              <div className="course-button-parent-1">
-                <button class="button-1" onClick={toggleFullScreen}>
-                  Your test start! Click here
-                </button>
-              </div>
-            )}
-
-            {isFullScreen && (
-              <div className="course-button-parent-1">
-                <button class="button-1" onClick={navigateToContacts}>
-                  Submit
-                </button>
-              </div>
-            )}
-
-            {!isFullScreen && (
-              <div className="course-button-parent-1">
-                <button
-                  class="button-1"
-                  onClick={() => {
-                    navigate(
-                      `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
-                    );
-                  }}
-                >
-                  Back
-                </button>
-              </div>
-            )}
-
-            {isFullScreen && (
-              <div className="course-button-parent">
-                <button
-                  class="button"
-                  onClick={() => {
-                    navigate(
-                      `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
-                    );
-                    toggleFullScreen();
-                  }}
-                >
-                  Back
-                </button>
-              </div>
-            )}
-          </div>
-          {isFullScreen &&
-            questions.map((question, questionIndex) => {
-              return (
-                <div
-                  className="question-box"
-                  id={`question${questionIndex + 1}`}
-                  key={questionIndex + 1}
-                >
-                  <p>
-                    {questionIndex + 1}. {question.questionText}
-                  </p>
-                  <div className="radio-button-form">
-                    {question.options.map((option, optionIndex) => {
-                      return (
-                        <div>
-                          <label>
-                            <input
-                              type="radio"
-                              value={optionIndex}
-                              checked={
-                                selectedOption[questionIndex] ===
-                                optionIndex + 1
-                              }
-                              onChange={(event) =>
-                                onValueChange(
-                                  event,
-                                  questionIndex,
-                                  optionIndex + 1
-                                )
-                              }
-                            />
-                            <span>{option.optionText}</span>
-                          </label>
-                          <br />
-                        </div>
-                      );
-                    })}
-                  </div>
+        <div className="quesion-section">
+          <div className="mutiple-choice-quesions">
+            <div className="button-test-parent">
+              {!isFullScreen && (
+                <div className="course-button-parent-1">
+                  <button class="button-1" onClick={toggleFullScreen}>
+                    Your test start! Click here
+                  </button>
                 </div>
-              );
-            })}
+              )}
+
+              {isFullScreen && (
+                <div className="course-button-parent-1">
+                  <button class="button-1" onClick={navigateToContacts}>
+                    Submit
+                  </button>
+                </div>
+              )}
+
+              {!isFullScreen && (
+                <div className="course-button-parent-1">
+                  <button
+                    className="button-1"
+                    onClick={() => {
+                      navigate(
+                        `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
+                      );
+                    }}
+                  >
+                    Back
+                  </button>
+                </div>
+              )}
+
+              {isFullScreen && (
+                <div className="course-button-parent">
+                  <button
+                    class="button"
+                    onClick={() => {
+                      navigate(
+                        `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
+                      );
+                      toggleFullScreen();
+                    }}
+                  >
+                    Back
+                  </button>
+                </div>
+              )}
+            </div>
+            {isFullScreen &&
+              questions.map((question, questionIndex) => {
+                return (
+                  <div
+                    className="question-box"
+                    id={`question${questionIndex + 1}`}
+                    key={questionIndex + 1}
+                  >
+                    <p>
+                      {questionIndex + 1}. {question.questionText}
+                    </p>
+                    <div className="radio-button-form">
+                      {question.options.map((option, optionIndex) => {
+                        return (
+                          <div>
+                            <label className="label">
+                              <input
+                                type="radio"
+                                value={optionIndex}
+                                checked={
+                                  selectedOption[questionIndex] ===
+                                  optionIndex + 1
+                                }
+                                onChange={(event) =>
+                                  onValueChange(
+                                    event,
+                                    questionIndex,
+                                    optionIndex + 1
+                                  )
+                                }
+                              />
+                              <span>{option.optionText}</span>
+                            </label>
+                            <br />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+          <div className="quesions-numbers">
+            <h1>Question Status </h1>
+            <div className="Grid-qn-numbers">
+              {questions.map((q, qIndex) => {
+                return selectedOption[qIndex] > 0 ? (
+                  <a
+                    className="color-green qn-number-box"
+                    href={`#question${qIndex + 1}`}
+                    key={qIndex + 1}
+                    onClick={() => scrollToQuestion(qIndex + 1)}
+                  >
+                    {qIndex + 1}
+                  </a>
+                ) : (
+                  <a
+                    className="qn-number-box"
+                    href={`#question${qIndex + 1}`}
+                    key={qIndex + 1}
+                    onClick={() => scrollToQuestion(qIndex + 1)}
+                  >
+                    {qIndex + 1}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>
