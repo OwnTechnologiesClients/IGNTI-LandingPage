@@ -12,18 +12,20 @@
 .quesion-section {
   display: flex;
 }
+.parent-div{
+  margin-top: 2vw;
+}
 
 .question-box {
-  border: 5px solid black;
+  border: 4px solid black;
   width:50vw;
   margin-top: 5vh;
   padding-bottom: 5vh;
-  margin-left: 1vw;
+  margin-left: 3vw;
 }
 
 .quesions-numbers {
   height: auto;
-  margin-top: 0.8vw;
   position: fixed;
   right: 2vw;
 }
@@ -33,7 +35,13 @@
   color:#fff;
   width: 2vw;
 }
-
+.quesions-numbers  h1{
+  text-align: center;
+  padding: 0.6vw;
+  font-size: 2vw;
+  color: #fff;
+  background-color: #7163bc;
+}
 .quesions-numbers .Grid-qn-numbers {
   background-color: #e5e7eb;
   display: grid;
@@ -41,8 +49,8 @@
   width:fit-content;
 }
 .quesions-numbers .qn-number-box {
-  width:2vw;
-  height:2vw;
+  width:5vw;
+  height:3vw;
   border:0.1vw solid black;
 }
 .quesions-numbers a {
@@ -54,20 +62,21 @@
 }
 
 .mutiple-choice-quesions {
-  width: 100%;
+  /* width: 100%;
   height: 90vh;
-
   margin-top: 1vw;
   margin-left: 9vw;
-  padding-left: 10px;
+  padding-left: 10px; */
 }
 
 .mutiple-choice-quesions p {
-  font-size: 1.5vw;
+  font-size: 1.6vw;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
-  margin-left: 5vw;
+  margin-left: 3vw;
+  color: black;
   margin-top: 2vw;
+  text-decoration: none;
 }
 
 .radio-button-form {
@@ -77,11 +86,12 @@
 .radio-button-form span {
   display: inline-block;
   margin-left: 1vw;
-  margin-top: 1.5vw;
 }
 
 .radio-button-form label {
   font-size: 1.2vw;
+  display: block;
+
 }
 
 .button-test-parent {
