@@ -106,6 +106,7 @@ function TestQuestions() {
       if (response.data.success) {
         message.success(response.data.message);
         setQuestions(response.data.data);
+        console.log(response.data )
       } else {
         throw new Error(response.data.message);
       }
@@ -266,29 +267,6 @@ function TestQuestions() {
       <div id="google_translate_element"></div>
 
       <div className="quesion-section">
-        <div className="quesions-numbers">
-          {questions.map((q, qIndex) => {
-            return selectedOption[qIndex] > 0 ? (
-              <a
-                className="color-green"
-                href={`#question${qIndex + 1}`}
-                key={qIndex + 1}
-                onClick={() => scrollToQuestion(qIndex + 1)}
-              >
-                {qIndex + 1}
-              </a>
-            ) : (
-              <a
-                href={`#question${qIndex + 1}`}
-                key={qIndex + 1}
-                onClick={() => scrollToQuestion(qIndex + 1)}
-              >
-                {qIndex + 1}
-              </a>
-            );
-          })}
-        </div>
-
         <div className="mutiple-choice-quesions">
           <div className="button-test-parent">
             {!isFullScreen && (
@@ -310,7 +288,7 @@ function TestQuestions() {
             {!isFullScreen && (
               <div className="course-button-parent-1">
                 <button
-                  class="button-1"
+                  className="button-1"
                   onClick={() => {
                     navigate(
                       `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
@@ -350,6 +328,7 @@ function TestQuestions() {
                     {questionIndex + 1}. {question.questionText}
                   </p>
                   <div className="radio-button-form">
+                
                     {question.options.map((option, optionIndex) => {
                       return (
                         <div>
@@ -379,6 +358,33 @@ function TestQuestions() {
                 </div>
               );
             })}
+        </div>
+        <div className="quesions-numbers">
+          <div className="Grid-qn-numbers">
+              {questions.map((q, qIndex) => {
+                return selectedOption[qIndex] > 0 ? (
+                  <a
+                    className="color-green qn-number-box"
+                    href={`#question${qIndex + 1}`}
+                    key={qIndex + 1}
+                    onClick={() => scrollToQuestion(qIndex + 1)}
+                  >
+                    {qIndex + 1}
+                  </a>
+                ) : (
+                  <a
+                  className="qn-number-box"
+                    href={`#question${qIndex + 1}`}
+                    key={qIndex + 1}
+                    onClick={() => scrollToQuestion(qIndex + 1)}
+                  >
+                    {qIndex + 1}
+                  </a>
+                );
+              })}
+          
+          </div>
+         
         </div>
       </div>
     </div>

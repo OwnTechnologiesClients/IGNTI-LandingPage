@@ -15,6 +15,7 @@
 
 .question-box {
   border: 5px solid black;
+  width:50vw;
   margin-top: 5vh;
   padding-bottom: 5vh;
   margin-left: 1vw;
@@ -22,26 +23,34 @@
 
 .quesions-numbers {
   height: auto;
-  width: 10%;
-  background-color: #e5e7eb;
   margin-top: 0.8vw;
   position: fixed;
-  left: 4px;
+  right: 2vw;
 }
 
 .quesions-numbers .color-green {
   background: green;
-  width: 20px;
+  color:#fff;
+  width: 2vw;
 }
 
+.quesions-numbers .Grid-qn-numbers {
+  background-color: #e5e7eb;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width:fit-content;
+}
+.quesions-numbers .qn-number-box {
+  width:2vw;
+  height:2vw;
+  border:0.1vw solid black;
+}
 .quesions-numbers a {
-  font-size: 1.2vw;
+  font-size: 1vw;
   font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  margin: auto;
   display: flex;
   justify-content: center;
-  margin-top: 2vw;
+  align-items:center;
 }
 
 .mutiple-choice-quesions {
@@ -81,7 +90,6 @@
   gap: 1vw;
   margin-left: 5vw;
 }
-
 
 .button-1 {
   padding: 1vw;
