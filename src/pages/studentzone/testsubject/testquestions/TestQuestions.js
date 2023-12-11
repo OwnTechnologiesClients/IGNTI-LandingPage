@@ -260,28 +260,46 @@ function TestQuestions() {
         </div>
         <div className="question-time-profile">
           <p>Question {questions.length}</p>
-          <p>{formattedTime}</p>
+          <p> <span>Time left:</span>   {formattedTime}</p>
         </div>
       </div>
 
       <div id="google_translate_element"></div>
       <div className="parent-div">
-
         <div className="quesion-section">
+          <div className="quesions-numbers">
+            <h1>Question Status </h1>
+            <div className="Grid-qn-numbers">
+              {questions.map((q, qIndex) => {
+                return selectedOption[qIndex] > 0 ? (
+                  <a
+                    className="color-green qn-number-box"
+                    href={`#question${qIndex + 1}`}
+                    key={qIndex + 1}
+                    onClick={() => scrollToQuestion(qIndex + 1)}
+                  >
+                    {qIndex + 1}
+                  </a>
+                ) : (
+                  <a
+                    className="qn-number-box"
+                    href={`#question${qIndex + 1}`}
+                    key={qIndex + 1}
+                    onClick={() => scrollToQuestion(qIndex + 1)}
+                  >
+                    {qIndex + 1}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="mutiple-choice-quesions">
             <div className="button-test-parent">
               {!isFullScreen && (
                 <div className="course-button-parent-1">
                   <button class="button-1" onClick={toggleFullScreen}>
                     Your test start! Click here
-                  </button>
-                </div>
-              )}
-
-              {isFullScreen && (
-                <div className="course-button-parent-1">
-                  <button class="button-1" onClick={navigateToContacts}>
-                    Submit
                   </button>
                 </div>
               )}
@@ -300,23 +318,8 @@ function TestQuestions() {
                   </button>
                 </div>
               )}
-
-              {isFullScreen && (
-                <div className="course-button-parent">
-                  <button
-                    class="button"
-                    onClick={() => {
-                      navigate(
-                        `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
-                      );
-                      toggleFullScreen();
-                    }}
-                  >
-                    Back
-                  </button>
-                </div>
-              )}
             </div>
+
             {isFullScreen &&
               questions.map((question, questionIndex) => {
                 return (
@@ -348,6 +351,7 @@ function TestQuestions() {
                                   )
                                 }
                               />
+                      {console.log(option.optionText)}
                               <span>{option.optionText}</span>
                             </label>
                             <br />
@@ -358,31 +362,31 @@ function TestQuestions() {
                   </div>
                 );
               })}
-          </div>
-          <div className="quesions-numbers">
-            <h1>Question Status </h1>
-            <div className="Grid-qn-numbers">
-              {questions.map((q, qIndex) => {
-                return selectedOption[qIndex] > 0 ? (
-                  <a
-                    className="color-green qn-number-box"
-                    href={`#question${qIndex + 1}`}
-                    key={qIndex + 1}
-                    onClick={() => scrollToQuestion(qIndex + 1)}
+
+            <div className="button-test-parent-2">
+              {isFullScreen && (
+                <div className="course-button-parent-1">
+                  <button class="button-2" onClick={navigateToContacts}>
+                    Submit
+                  </button>
+                </div>
+              )}
+
+              {isFullScreen && (
+                <div className="course-button-parent">
+                  <button
+                    class="button-2"
+                    onClick={() => {
+                      navigate(
+                        `/test-subjects/${courseName}/${semesterNumber}/${enrollment}`
+                      );
+                      toggleFullScreen();
+                    }}
                   >
-                    {qIndex + 1}
-                  </a>
-                ) : (
-                  <a
-                    className="qn-number-box"
-                    href={`#question${qIndex + 1}`}
-                    key={qIndex + 1}
-                    onClick={() => scrollToQuestion(qIndex + 1)}
-                  >
-                    {qIndex + 1}
-                  </a>
-                );
-              })}
+                    Back
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

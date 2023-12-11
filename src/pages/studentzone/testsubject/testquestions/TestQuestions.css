@@ -1,7 +1,7 @@
 .test-subject-section {
   width: 100%;
   height: 5vw;
-  background: #f46a6f;
+  background-color: #7163bc;
   position: relative;
 }
 .test-subject-parent {
@@ -17,17 +17,17 @@
 }
 
 .question-box {
-  border: 4px solid black;
-  width:50vw;
-  margin-top: 5vh;
-  padding-bottom: 5vh;
-  margin-left: 3vw;
+    /* border: 0px solid black; */
+    width: 50vw;
+    /* margin-top: 5vh; */
+    /* padding-bottom: 5vh; */
+    margin-left: 3vw;
 }
 
 .quesions-numbers {
   height: auto;
   position: fixed;
-  right: 2vw;
+  right: 6vw;
 }
 
 .quesions-numbers .color-green {
@@ -86,6 +86,8 @@
 .radio-button-form span {
   display: inline-block;
   margin-left: 1vw;
+  color: black;
+  font-size: 1.2vw;
 }
 
 .radio-button-form label {
@@ -102,5 +104,32 @@
 }
 
 .button-1 {
-  padding: 1vw;
+  padding: 0.5vw 3vw;
+  border: 0.4vw solid #c5c5c5;
+  color: red;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1vw;
+  font-weight: 600;
 }
+
+.button-test-parent-2{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: 3vw;
+  margin-bottom: 6vw;
+  margin-left: 40vw;
+}
+.button-2 {
+  padding: 0.5vw 3vw;
+  border: 0.4vw solid #c5c5c5;
+  color: red;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+
