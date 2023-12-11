@@ -39,11 +39,11 @@
     justify-content: end;
     font-size: 1vw;
     color: black;
-    text-decoration: underline;
+  text-decoration: none;
 }
 
 .gov-other-course a{
-    text-decoration: underline;
+  text-decoration: none;
     font-size: 1.5vw;
 
 }

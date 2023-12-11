@@ -1,16 +1,22 @@
 .item-container {
     border: 1px solid #F46A6F;
     margin-top: 5vw;
-    height: 10vw;
-    width: 10vw;
+    height: 12vw;
+    width: 12vw;
     padding: 0.5vw 0.6vw 0vw 0.6vw;
     box-shadow: 0 17px 8px #eceded;
 
   }
   .item-label {
-    text-decoration: underline;
+    font-size: 1.4vw;
+    font-weight: 600;
+    margin-bottom: 0.5vw;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+
+  }
+  .item-labels {
     font-size: 1.3vw;
-    font-weight: bold;
     color: black;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;

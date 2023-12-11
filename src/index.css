@@ -11,6 +11,8 @@ body {
 *{
   font-family: "poppins";
   scroll-behavior: smooth;
+  text-decoration: none;
+  
 }
 
 code {

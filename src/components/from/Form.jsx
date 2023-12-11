@@ -82,7 +82,6 @@ const EnquiryForm = () => {
             Name:
             <input
               className="inputs"
-              style={{ width: "25.7vw", borderRadius: "0" }}
               type="text"
               value={name}
               onChange={handleNameChange}
@@ -115,7 +114,6 @@ const EnquiryForm = () => {
           <label>
             Course:
             <input
-              style={{ width: "25.7vw", borderRadius: "0" }}
               className="inputs"
               type="text"
               value={course}

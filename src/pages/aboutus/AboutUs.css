@@ -77,13 +77,12 @@
 }
 
 input[type=text] {
-    width: 22vw;
-    height: 2.7vw;
+
     padding-left: 1vw;
     box-sizing: border-box;
-    border-radius: 4px;
     border: 2px #B9BAC8;
     margin-top: 1vw;
+
 }
 
 input,

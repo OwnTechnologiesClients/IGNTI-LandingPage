@@ -246,15 +246,17 @@ function TestSubjects() {
         </div>
         <div className="question-time-profile">
           <p>Question {total}</p>
-          <p>{formattedTime}</p>
+          <p><span>Time left:</span>   {formattedTime}</p>
         </div>
       </div>
 
-      <div className="subject-section-label">
+     {/* <div className="subject-section-label">
         <p>SUBJECT</p>
         <p>TYPE</p>
+        <p>NO OF QUESTION</p>
         <p>ACTION</p>
       </div>
+       */}
 
       {subjects.map((subject) => {
         const isSubjectSubmitted = submittedSubjects.includes(subject.subjectName.subjectName);
@@ -278,8 +280,8 @@ function TestSubjects() {
         );
       })}
 
-      <div className="submit-button">
-        <button className="button" onClick={toggleWarning}>
+      <div className="submit-button-exam">
+        <button className="button-exam" onClick={toggleWarning}>
           Submit Exam
         </button>
         {showWarning && (
