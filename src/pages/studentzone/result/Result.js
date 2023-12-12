@@ -15,7 +15,7 @@ const Result = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    navigate("/student");
+    navigate("/enrollment-number");
   };
 
   let [user, setUser] = useState();
