@@ -19,8 +19,6 @@
 .percentage-square-dashboard-fail {
   width: 100%;
   height: 4vw;
-  margin-top: -3vw;
-  background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +32,7 @@
 }
 
 .percentage-square-dashboard-fail p1 {
-  font-size: 0.8vw;
+  font-size: 1vw;
   color: black;
   font-family: "Poppins";
   font-weight: 900;

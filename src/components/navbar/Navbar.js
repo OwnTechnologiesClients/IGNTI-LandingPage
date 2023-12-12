@@ -60,7 +60,7 @@ const Navbar = () => {
                             <li>
                                 <NavLink to='/gallery'>Gallery</NavLink>
                             </li>
-                            <li><NavLink to='/'>Student Zone ↓</NavLink>
+                            <li><NavLink to='/select-course'>Student Zone ↓</NavLink>
                                 <ul>
                                     <li>
                                         <NavLink to='/select-course'>For Exam</NavLink>
