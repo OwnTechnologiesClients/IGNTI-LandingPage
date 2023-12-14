@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import { Routes, Route } from "react-router-dom";
 
 import Courses from "./pages/courses/Courses";
+import RigsterTab from "./pages/rigstertab/Rigstertab";
 import Franchise from "./pages/franchise/Franchise";
 import ContactUs from "./pages/contactus/ContactUs";
 import AboutUs from "./pages/aboutus/AboutUs";
@@ -17,6 +18,7 @@ import ExamSubmitSuccess from "./pages/studentzone/examPublishSuccess/ExamSubmit
 import Declaration from "./pages/studentzone/selectcourse/Declaration";
 import EnrollmentNumber from "./pages/studentzone/selectcourse/EnrollmentNumber";
 import Spinner from "./load/Spinner";
+import EnquiryForm from "./components/from/Form";
 import { useSelector } from "react-redux";
 
 const App = () => {
@@ -24,7 +26,7 @@ const App = () => {
   return (
     <div>
       {/* <div id="google_translate_element"></div> */}
-      
+
       {loading && <Spinner />}
 
       <Routes>
@@ -37,6 +39,8 @@ const App = () => {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/student" element={<StudentZone />} />
         <Route path="/select-course" element={<SelectCourse />} />
+        <Route path="/form" element={<EnquiryForm />} />
+        <Route path="/rigstertab" element={<RigsterTab />} />
         <Route
           path="/declaration/:courseName/:semesterNumber/:enrollment"
           element={<Declaration />}

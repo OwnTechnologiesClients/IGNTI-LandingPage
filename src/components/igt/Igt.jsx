@@ -6,7 +6,7 @@ import Welcome from "../welcome/Welcome";
 const Igt = () => {
   return (
     <div className="iginit-container">
-      <Tabs />
+      <Tabs  />
       <Welcome />
     </div>
   );

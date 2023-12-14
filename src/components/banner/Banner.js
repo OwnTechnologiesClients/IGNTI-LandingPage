@@ -8,15 +8,28 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const Banner = () => {
+  const [isPaused, setPaused] = useState(false);
+
+  const handleMouseOver = () => {
+    setPaused(true);
+  };
+
+  const handleMouseOut = () => {
+    setPaused(false);
+  };
   return (
     <>
       {/* --------------- header image ---------------------- */}
       <div className="banner-section">
-        <div className="banner-text-section">
-          <marquee>
+        <div
+          className="banner-text-section"
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          <div className={`marquee ${isPaused ? "paused" : ""}`}>
             INDIRA GANDHI NATIONAL TRAINING INSTITUTE IS AN AUTONOMOUS
             INSTITUTION REGISTERED UNDER PUBLIC TRUST ACT 1982 GOVT. OF INDIA
-          </marquee>
+          </div>
         </div>
 
         <Swiper

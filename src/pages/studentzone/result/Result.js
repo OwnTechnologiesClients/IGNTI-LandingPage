@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "./Result.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../../components/header/Header";
+import Footers from "../../../components/footers/Footers"
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../../redux/loaderSlice";
 import axios from "axios";
@@ -296,6 +297,7 @@ const Result = () => {
             </div>
           </div>
         </div>
+        <Footers />
       </div>
     </div>
   );
