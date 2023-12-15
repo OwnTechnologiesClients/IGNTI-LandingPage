@@ -16,29 +16,32 @@ h5 {
   font-weight: 800;
 }
 
-.side-banner-bottom-sections {
+.rigster-side-banner {
   background-color: #eceded;
   padding: 1.2vw;
+  height: 10vw;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
 }
 
-.marqueets {
-  font-size: 1.5vw;
+.moving-text {
+  font-size: 1.2vw;
   color: #e4655a;
   text-decoration: none;
   margin-top: 0.5vw;
   position: relative;
-  animation: marquee 10s reverse infinite;
-  top: 0%;
+  animation: move 5s reverse infinite;
+  top: 100%;
 
 }
 
-.pausedts {
+.stop {
   animation-play-state: paused;
 }
 
-@keyframes marquee {
+@keyframes move {
   0% {
     top: 100%;
   }

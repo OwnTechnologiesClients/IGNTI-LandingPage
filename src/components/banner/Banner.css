@@ -20,8 +20,8 @@
   color: #fff;
   margin-top: .5vw;
   animation: marquee 10s reverse infinite;
-  position: absolute;
-  right: 0;
+  position: relative;
+  right: 100%;
 }
 .paused {
   animation-play-state: paused;
@@ -32,7 +32,7 @@
   }
 
   100% {
-    right: -100%;
+    right: 0%;
    
   }
 }

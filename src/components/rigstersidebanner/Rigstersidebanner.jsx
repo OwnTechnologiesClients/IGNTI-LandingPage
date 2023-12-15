@@ -24,18 +24,18 @@ const Rigstersidebanner = () => {
       </div>
 
       <div
-        className="side-banner-bottom-sections"
+        className="rigster-side-banner"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
-        <div className={`marqueets ${isPaused ? "pausedts" : ""}`}>
-          Exam Date Confirm.
+        <div className={`moving-text ${isPaused ? "stop" : ""}`}>
+        <strong>1.</strong>  Exam Date Confirm.
         </div>
-        <div className={`marqueets ${isPaused ? "pausedts" : ""}`}>
-          Previous session result coming soon.
+        <div className={`moving-text ${isPaused ? "stop" : ""}`}>
+        <strong>2.</strong>  Previous session result coming soon.
         </div>
-        <div className={`marqueets ${isPaused ? "pausedts" : ""}`}>
-          Check new courses
+        <div className={`moving-text ${isPaused ? "stop" : ""}`}>
+        <strong>3.</strong>  Check new courses
         </div>
       </div>
 

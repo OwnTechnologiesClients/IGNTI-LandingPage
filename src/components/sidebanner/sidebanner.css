@@ -20,26 +20,26 @@ h5 {
   background-color: #eceded;
   overflow: hidden;
   height: 12.5vw;
-
-  display: flex;
   padding: 0.6vw 0.9vw;
+  display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .marqueest {
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   color: #e4655a;
   text-decoration: none;
   margin-top: 0.5vw;
   position: relative;
-  animation: marquee 10s reverse infinite;
-  bottom: 0%;
+  animation: stoped 5s reverse infinite;
+  top: 100%;
 }
 
 .pauseds {
   animation-play-state: paused;
 }
-@keyframes marquee {
+@keyframes stoped {
   0% {
     top: 100%;
   }
