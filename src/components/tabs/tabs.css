@@ -5,6 +5,7 @@
 .tab-head p{
   padding: 0.8vw;
   color: #fff;
+  width: 18vw;
   display: flex;
   font-size: 1.2vw;
   cursor: pointer;

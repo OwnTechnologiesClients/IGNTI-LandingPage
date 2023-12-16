@@ -1,13 +1,13 @@
 import React from "react";
-import "./sidebanner.css";
-import { useState } from "react";
+import "./rigstersidebanner.css";
 import "swiper/css";
+import { useState } from "react";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-const Sidebanner = () => {
+const Rigstersidebanner = () => {
   const [isPaused, setPaused] = useState(false);
 
   const handleMouseOver = () => {
@@ -18,28 +18,28 @@ const Sidebanner = () => {
     setPaused(false);
   };
   return (
-    <div className="sidebanner-container">
-      <div className="side-banner-head">
+    <div className="sidebanner-containers">
+      <div className="side-banner-heads">
         <h5>News & Updates</h5>
       </div>
 
       <div
-        className="side-banner-bottom-sections--1"
+        className="rigster-side-banner"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
-        <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
-          <strong>1.</strong> Exam Date Confirm.
+        <div className={`moving-text ${isPaused ? "stop" : ""}`}>
+        <strong>1.</strong>  Exam Date Confirm.
         </div>
-        <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
-          <strong>2.</strong> Previous session result coming soon.
+        <div className={`moving-text ${isPaused ? "stop" : ""}`}>
+        <strong>2.</strong>  Previous session result coming soon.
         </div>
-        <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
-          <strong>3.</strong> Check new courses
+        <div className={`moving-text ${isPaused ? "stop" : ""}`}>
+        <strong>3.</strong>  Check new courses
         </div>
       </div>
 
-      <div className="side-banner-yt-slider">
+      <div className="side-banner-yt-sliders">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -95,4 +95,4 @@ const Sidebanner = () => {
   );
 };
 
-export default Sidebanner;
+export default Rigstersidebanner;

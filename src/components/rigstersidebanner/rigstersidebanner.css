@@ -1,8 +1,8 @@
-.sidebanner-container {
-  width: 19.5%;
+.sidebanner-containers {
+  width: 49%;
 }
 
-.side-banner-head {
+.side-banner-heads {
   background-color: #335991;
   height: 3.1vw;
   margin-top: -1.7vw;
@@ -16,30 +16,32 @@ h5 {
   font-weight: 800;
 }
 
-.side-banner-bottom-sections--1 {
+.rigster-side-banner {
   background-color: #eceded;
-  overflow: hidden;
-  height: 12.5vw;
-  padding: 0.6vw 0.9vw;
+  padding: 1.2vw;
+  height: 10vw;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 
-.marqueest {
+.moving-text {
   font-size: 1.2vw;
   color: #e4655a;
   text-decoration: none;
   margin-top: 0.5vw;
   position: relative;
-  animation: stoped 5s reverse infinite;
+  animation: move 5s reverse infinite;
   top: 100%;
+
 }
 
-.pauseds {
+.stop {
   animation-play-state: paused;
 }
-@keyframes stoped {
+
+@keyframes move {
   0% {
     top: 100%;
   }
@@ -49,7 +51,7 @@ h5 {
   }
 }
 
-.side-banner-yt-slider {
+.side-banner-yt-sliders {
   margin-top: 0.5vw;
 }
 

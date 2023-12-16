@@ -37,8 +37,9 @@
   font-family: "Poppins";
   font-weight: 900;
   vertical-align: middle;
-
   position: relative;
+  border: 2px solid #ccc;
+  padding: 0.2vw 1.2vw;
   margin-left: 8vw;
   margin-right: 8vw;
 }
