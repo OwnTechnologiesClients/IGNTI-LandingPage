@@ -12,7 +12,12 @@ const Item = ({ semesterNumber, subjects }) => (
     </div> */}
     <div className="item-label">Semester - {semesterNumber}</div>
     {subjects.map((subject, index) => {
-      return <div className="item-label">  {index+1}.  {subject.subjectName}</div>;
+      return (
+        <div className="item-labels">
+          {" "}
+          {index + 1}. {subject.subjectName}
+        </div>
+      );
     })}
   </div>
 );

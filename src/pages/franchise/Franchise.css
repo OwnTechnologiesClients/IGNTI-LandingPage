@@ -90,11 +90,14 @@ input::placeholder {
     font-weight: 400;
 }
 
-.query-button-parent button {
-    display: flex;
-    width: 22vw;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+.query-button-parents button {
+    background-color: #00a3d4; 
+    color: white;
+    width: 23vw;
+    margin-top: 1.2vw;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    
 
 }

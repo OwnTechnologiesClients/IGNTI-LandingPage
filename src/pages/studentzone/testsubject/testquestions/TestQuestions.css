@@ -1,7 +1,7 @@
 .test-subject-section {
   width: 100%;
   height: 5vw;
-  background: #f46a6f;
+  background-color: #7163bc;
   position: relative;
 }
 .test-subject-parent {
@@ -12,53 +12,71 @@
 .quesion-section {
   display: flex;
 }
+.parent-div{
+  margin-top: 2vw;
+}
 
 .question-box {
-    border: 5px solid black;
-    margin-top: 5vh;
-    padding-bottom: 5vh;
-    margin-left: 1vw;
+    /* border: 0px solid black; */
+    width: 50vw;
+    /* margin-top: 5vh; */
+    /* padding-bottom: 5vh; */
+    margin-left: 3vw;
 }
 
 .quesions-numbers {
   height: auto;
-  width: 10%;
-  background-color: #e5e7eb;
-  margin-top: 0.8vw;
   position: fixed;
-  left: 4px;
+  right: 6vw;
 }
 
 .quesions-numbers .color-green {
   background: green;
-  width: 20px;
+  color:#fff;
+  width: 2vw;
 }
-
+.quesions-numbers  h1{
+  text-align: center;
+  padding: 0.6vw;
+  font-size: 2vw;
+  color: #fff;
+  background-color: #7163bc;
+}
+.quesions-numbers .Grid-qn-numbers {
+  background-color: #e5e7eb;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width:fit-content;
+}
+.quesions-numbers .qn-number-box {
+  width:5vw;
+  height:3vw;
+  border:0.1vw solid black;
+}
 .quesions-numbers a {
-  font-size: 1.2vw;
+  font-size: 1vw;
   font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  margin: auto;
   display: flex;
   justify-content: center;
-  margin-top: 2vw;
+  align-items:center;
 }
 
 .mutiple-choice-quesions {
-  width: 100%;
+  /* width: 100%;
   height: 90vh;
-
   margin-top: 1vw;
   margin-left: 9vw;
-  padding-left: 10px;
+  padding-left: 10px; */
 }
 
 .mutiple-choice-quesions p {
-  font-size: 1.5vw;
+  font-size: 1.6vw;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
-  margin-left: 5vw;
+  margin-left: 3vw;
+  color: black;
   margin-top: 2vw;
+  text-decoration: none;
 }
 
 .radio-button-form {
@@ -68,9 +86,50 @@
 .radio-button-form span {
   display: inline-block;
   margin-left: 1vw;
-  margin-top: 1.5vw;
+  color: black;
+  font-size: 1.2vw;
 }
 
 .radio-button-form label {
   font-size: 1.2vw;
+  display: block;
+
 }
+
+.button-test-parent {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  margin-left: 5vw;
+}
+
+.button-1 {
+  padding: 0.5vw 3vw;
+  border: 0.4vw solid #c5c5c5;
+  color: red;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+.button-test-parent-2{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: 3vw;
+  margin-bottom: 6vw;
+  margin-left: 40vw;
+}
+.button-2 {
+  padding: 0.5vw 3vw;
+  border: 0.4vw solid #c5c5c5;
+  color: red;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+

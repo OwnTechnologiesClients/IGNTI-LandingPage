@@ -34,7 +34,7 @@ function TestSubjects() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/students/get-student-id-enroll",
+        url: "http://localhost:9000/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -44,7 +44,7 @@ function TestSubjects() {
         dispatch(SetLoading(true));
         const result = await axios({
           method: "post",
-          url: "https://igti-backend.onrender.com/api/resultSets/get-result-set",
+          url: "http://localhost:9000/api/resultSets/get-result-set",
           data: {
             courseName: courseName,
             semesterNumber: semesterNumber,
@@ -96,7 +96,7 @@ function TestSubjects() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/students/get-student-id-enroll",
+        url: "http://localhost:9000/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -107,7 +107,7 @@ function TestSubjects() {
           dispatch(SetLoading(true));
           const result = await axios({
             method: "post",
-            url: "https://igti-backend.onrender.com/api/resultSets/get-result-set",
+            url: "http://localhost:9000/api/resultSets/get-result-set",
             data: {
               courseName: courseName,
               semesterNumber: semesterNumber,
@@ -157,7 +157,7 @@ function TestSubjects() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/subjects/get-subject",
+        url: "http://localhost:9000/api/subjects/get-subject",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,
@@ -246,15 +246,17 @@ function TestSubjects() {
         </div>
         <div className="question-time-profile">
           <p>Question {total}</p>
-          <p>{formattedTime}</p>
+          <p><span>Time left:</span>   {formattedTime}</p>
         </div>
       </div>
 
-      <div className="subject-section-label">
+     {/* <div className="subject-section-label">
         <p>SUBJECT</p>
         <p>TYPE</p>
+        <p>NO OF QUESTION</p>
         <p>ACTION</p>
       </div>
+       */}
 
       {subjects.map((subject) => {
         const isSubjectSubmitted = submittedSubjects.includes(subject.subjectName.subjectName);
@@ -278,8 +280,8 @@ function TestSubjects() {
         );
       })}
 
-      <div className="submit-button">
-        <button className="button" onClick={toggleWarning}>
+      <div className="submit-button-exam">
+        <button className="button-exam" onClick={toggleWarning}>
           Submit Exam
         </button>
         {showWarning && (

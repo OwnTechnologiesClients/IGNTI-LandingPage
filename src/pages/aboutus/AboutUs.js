@@ -5,6 +5,8 @@ import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import './AboutUs.css';
 import Goverment from '../../components/goverment/Goverment';
+import Herosection from '../../components/herosection/Herosection';
+import Footers from '../../components/footers/Footers';
 
 
 
@@ -17,7 +19,7 @@ const AboutUs = () => {
         <div>
             <Header />
             <Navbar />
-            <Banner />
+            <Herosection />
 
 
             <div className='about-section'>
@@ -110,7 +112,7 @@ const AboutUs = () => {
             </div>
 
             <Goverment />
-            <Footer />
+            <Footers />
 
         </div>
     )
