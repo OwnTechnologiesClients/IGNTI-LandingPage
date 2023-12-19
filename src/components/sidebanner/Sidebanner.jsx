@@ -1,14 +1,17 @@
 import React from "react";
 import "./sidebanner.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { message } from "antd";
+import axios from "axios";
 
 const Sidebanner = () => {
   const [isPaused, setPaused] = useState(false);
+  const [notifications, setNotifications] = useState([]);
 
   const handleMouseOver = () => {
     setPaused(true);
@@ -17,6 +20,27 @@ const Sidebanner = () => {
   const handleMouseOut = () => {
     setPaused(false);
   };
+
+  const getData = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:9000/api/notification/get-notification"
+      );
+      if (response.data.success) {
+        message.success(response.data.message);
+        setNotifications(response.data.notifications);
+      } else {
+        throw new Error(response.data.message);
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="sidebanner-container">
       <div className="side-banner-head">
@@ -28,15 +52,14 @@ const Sidebanner = () => {
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
-        <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
-          <strong>1.</strong> Exam Date Confirm.
-        </div>
-        <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
-          <strong>2.</strong> Previous session result coming soon.
-        </div>
-        <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
-          <strong>3.</strong> Check new courses
-        </div>
+        {notifications?.map((notificationData, notificationIndex) => {
+          return (
+            <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
+              <strong>{notificationIndex}.</strong>{" "}
+              {notificationData.notification}
+            </div>
+          );
+        })}
       </div>
 
       <div className="side-banner-yt-slider">

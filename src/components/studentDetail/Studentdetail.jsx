@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./studentdetail.css";
 
 
-const studentdetail = () => {
+const Studentdetail = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   function handleCategoryChange(event) {
@@ -95,4 +95,4 @@ const studentdetail = () => {
   );
 };
 
-export default studentdetail;
+export default Studentdetail;
