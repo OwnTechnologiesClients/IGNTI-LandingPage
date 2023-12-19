@@ -1,5 +1,6 @@
 .about-section {
     display: flex;
+    padding: 1.5vw;
 }
 
 .about-parent {
@@ -10,7 +11,11 @@
 }
 
 .about-parent h2 {
-    font-size: 1.7vw;
+    color: red;
+    text-align: center;
+    font-weight: 800;
+    font-size: 2vw;
+    font-family: verdana;
 }
 
 .space {
@@ -26,15 +31,19 @@
 .about-content p {
     text-transform: capitalize;
     color: rgba(0, 0, 3, 0.8);
-    font-size: 1vw;
+    font-size: 1.5vw;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
 
 
 }
 .about-content h3{
+   
     font-size: 1.2vw;
 }
+
+
+
 
 .about-query-square {
     display: inline-block;

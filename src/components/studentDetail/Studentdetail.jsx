@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import "./studentdetail.css";
 
-
 const Studentdetail = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
   }
-  
-  
+
   return (
     <div className="student-section-1">
       <div className="student-head">
@@ -37,20 +35,20 @@ const Studentdetail = () => {
             />
 
             <div className="add-course-dropdowns">
-                <select
-                  name="category-list"
-                  id="category-listss"
-                  value={selectedCategory}
-                  onChange={handleCategoryChange}
-                >
-                  <option disabled value="">
-                    Select Course
-                  </option>
-                  {courses.map((course, index) => {
-                    return <option value={course}>{course}</option>;
-                  })}
-                </select>
-              </div>
+              <select
+                name="category-list"
+                id="category-listss"
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+              >
+                <option disabled value="">
+                  Select Course
+                </option>
+                {courses.map((course, index) => {
+                  return <option value={course}>{course}</option>;
+                })}
+              </select>
+            </div>
           </div>
 
           <input
@@ -69,11 +67,11 @@ const Studentdetail = () => {
             placeholder=" Address"
           />
 
-          <div className="date-course">
-            <input type="text" className="form-control-1" placeholder="State" />
+          <div className="date-courses">
+            <input type="texts" className="form-control-1" placeholder="State" />
 
             <input
-              type="number"
+              type="numberss"
               className="form-control-1"
               placeholder="Enter Pincode"
             />
@@ -89,7 +87,7 @@ const Studentdetail = () => {
       </div>
 
       <div className="buttons-submitt">
-      <button className="btns">Submit</button>
+        <button className="btns">Submit</button>
       </div>
     </div>
   );

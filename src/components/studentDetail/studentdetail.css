@@ -93,7 +93,36 @@
 .date-course {
   display: flex;
   flex-direction: row;
-  gap: 3vw;
+  gap: 3.5vw;
+}
+
+.date-courses {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2.5vw;
+}
+
+.form-control-1[type="texts"] {
+  width: 25vw;
+  height: 2.7vw;
+  padding-left: 1vw;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 1vw;
+  border: 2px #b9bac8;
+}
+
+.form-control-1[type="numberss"] {
+  width: 30vw;
+  height: 2.7vw;
+  padding-left: 1vw;
+  box-sizing: border-box;
+  border-radius: 4px;
+  left: -0.9vw;
+  position: relative;
+  border: 2px #b9bac8;
+  margin-top: 1vw;
 }
 
 .buttons-submitt {
