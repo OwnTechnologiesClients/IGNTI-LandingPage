@@ -29,6 +29,7 @@ const Sidebanner = () => {
       );
       if (response.data.success) {
         // message.success(response.data.message);
+        console.log(response.data)
         setNotifications(response.data.notifications);
         setYoutube(response.data.youtubeLinks);
       } else {
@@ -57,7 +58,7 @@ const Sidebanner = () => {
         {notifications?.map((notificationData, notificationIndex) => {
           return (
             <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
-              <strong>{notificationIndex}.</strong>{" "}
+              <strong>{notificationIndex+1}.</strong>{" "}
               {notificationData.notification}
             </div>
           );

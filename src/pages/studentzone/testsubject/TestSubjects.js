@@ -165,7 +165,7 @@ function TestSubjects() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         // setSubjects(response.data.data.subjects);
         setSubjects(response.data.data1);
       } else {

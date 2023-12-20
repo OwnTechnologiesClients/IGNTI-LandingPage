@@ -104,7 +104,7 @@ function TestQuestions() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setQuestions(response.data.data);
         console.log(response.data);
       } else {

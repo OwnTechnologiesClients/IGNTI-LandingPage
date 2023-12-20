@@ -57,7 +57,7 @@ const Result = () => {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setUser(response.data.data);
       } else {
         throw new Error(response.data.message);

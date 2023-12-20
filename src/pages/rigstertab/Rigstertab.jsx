@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Rigstersidebanner from "../../components/rigstersidebanner/Rigstersidebanner";
 import Tabs from "../../components/tabs/Tabs";
 import Footers from "../../components/footers/Footers";
-import Studentdetail from "../../components/studentDetail/Studentdetail"
+import Studentdetail from "../../components/studentDetail/Studentdetail";
 import "./rigstertab.css";
 import { useState } from "react";
 const Rigstertab = () => {

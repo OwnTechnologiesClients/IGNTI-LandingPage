@@ -17,8 +17,6 @@ export default function Courses() {
 
   const [selectedCategory, setSelectedCategory] = useState();
 
-
-
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
   }
@@ -32,7 +30,6 @@ export default function Courses() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        // message.success(response.data.message);
         setCourses(response.data.data);
         setSelectedCategory(response.data.data[0]);
       } else {
@@ -57,18 +54,52 @@ export default function Courses() {
       setData(response.data.data.semesters);
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
       } else {
         throw new Error(response.data.message);
       }
     } catch (error) {
       dispatch(SetLoading(false));
-      // message.error(error.message);
+    }
+  };
+
+  const getAllCourse = async () => {
+    try {
+      dispatch(SetLoading(true));
+      const promises = courses.map(async (courseName) => {
+        const response = await axios({
+          method: "post",
+          url: "http://localhost:9000/api/courses/get-course",
+          data: {
+            courseName: courseName,
+          },
+        });
+
+        if (response.data.success) {
+          return response.data.data.semesters;
+        } else {
+          throw new Error(response.data.message);
+        }
+      });
+
+      const results = await Promise.all(promises);
+
+      const allSemesters = [].concat(...results);
+
+      setData(allSemesters);
+      dispatch(SetLoading(false));
+    } catch (error) {
+      dispatch(SetLoading(false));
+      message.error(error.message);
     }
   };
 
   useEffect(() => {
-    getCourse();
+    if (selectedCategory === "all") {
+      getAllCourse();
+    } else {
+      getCourse();
+    }
   }, [selectedCategory]);
 
   useEffect(() => {
@@ -92,6 +123,7 @@ export default function Courses() {
               value={selectedCategory}
               onChange={handleCategoryChange}
             >
+              <option value="all">All</option>
               {courses.map((course) => {
                 return <option value={`${course}`}>{course}</option>;
               })}

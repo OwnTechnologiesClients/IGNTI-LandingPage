@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 import { SetLoading } from "../../redux/loaderSlice";
 
 const Studentdetail = () => {
-  
   const [courses, setCourses] = useState([]);
   const [firstname, setFirstname] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
@@ -63,7 +62,7 @@ const Studentdetail = () => {
 
       dispatch(SetLoading(true));
       const result = await axios.post(
-        "https://igti-backend.onrender.com/api/students/register",
+        "http://localhost:9000/api/students/register",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -71,7 +70,7 @@ const Studentdetail = () => {
       );
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/students/get-student-id",
+        url: "http://localhost:9000/api/students/get-student-id",
         data: {
           email: emailAddress,
         },
@@ -79,7 +78,6 @@ const Studentdetail = () => {
       dispatch(SetLoading(false));
       if (result.data.success && response.data.success) {
         message.success(result.data.message);
-        navigate(`/profile-preview/${response.data.data._id}`);
       } else {
         throw new Error(result.data.message);
       }
@@ -102,10 +100,9 @@ const Studentdetail = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend.onrender.com/api/courses/name-Course-all",
+        url: "http://localhost:9000/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
-      console.log(response.data.data);
       if (response.data.success) {
         setCourses(response.data.data);
       } else {
@@ -118,9 +115,6 @@ const Studentdetail = () => {
   };
 
   useEffect(() => {
-    if (!localStorage.getItem("adminToken")) {
-      navigate("/");
-    }
     getAllCoursesName();
   }, []);
 
@@ -257,7 +251,9 @@ const Studentdetail = () => {
       </div>
 
       <div className="buttons-submitt">
-        <button className="btns" onClick={addStudentButton}>Submit</button>
+        <button className="btns" onClick={addStudentButton}>
+          Submit
+        </button>
       </div>
     </div>
   );
