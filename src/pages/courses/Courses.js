@@ -114,7 +114,7 @@ export default function Courses() {
 
       <div className="app">
         <div className="filter-container">
-          <h3>Filters</h3>
+          <h3>Filters Course</h3>
           <p>Course Name</p>
           <div className="course-dropdown">
             <select
