@@ -58,7 +58,7 @@ const Navbar = () => {
                 <NavLink to="/gallery">Gallery</NavLink>
               </li>
               <li>
-                <NavLink to="/rigstertab">Rigster Tab</NavLink>
+                <NavLink to="/rigstertab">Register Student</NavLink>
               </li>
               <li>
                 <NavLink to="/select-course">Student Zone ↓</NavLink>

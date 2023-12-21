@@ -27,8 +27,7 @@ const Banner = () => {
           onMouseOut={handleMouseOut}
         >
           <div className={`marquee ${isPaused ? "paused" : ""}`}>
-            INDIRA GANDHI NATIONAL TRAINING INSTITUTE IS AN AUTONOMOUS
-            INSTITUTION REGISTERED UNDER PUBLIC TRUST ACT 1982 GOVT. OF INDIA
+            IGNTI IS AN AUTONOMOUS INSTITUTION REGISTERED UNDER PUBLIC TRUST ACT 1982 GOVT. OF INDIA
           </div>
         </div>
 

@@ -25,7 +25,7 @@ const Rigstersidebanner = () => {
   const getData = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:9000/api/notification/get-notification"
+        "https://igti-backend-5bgl.onrender.com/api/notification/get-notification"
       );
       if (response.data.success) {
         setNotifications(response.data.notifications);
@@ -56,7 +56,7 @@ const Rigstersidebanner = () => {
         {notifications?.map((notificationData, notificationIndex) => {
           return (
             <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
-              <strong>{notificationIndex+1}.</strong>{" "}
+              <strong>{notificationIndex + 1}.</strong>{" "}
               {notificationData.notification}
             </div>
           );

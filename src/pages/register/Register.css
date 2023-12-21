@@ -1,0 +1,43 @@
+.banner-text-sectiont {
+  background-color: #3c2b99;
+  font-size: 1vw;
+  width: 100%;
+  height: 3.2vw;
+  position: relative;
+  overflow: hidden;
+}
+.marqueet {
+  font-size: 1.2vw;
+  text-align: center;
+  color: #fff;
+  margin-top: 0.5vw;
+  animation: marquee 8s reverse infinite;
+  position: absolute;
+  right: 20%;
+}
+.pausedt {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  0% {
+    right: 20%;
+  }
+
+  100% {
+    right: -80%;
+  }
+}
+
+.rigster-container{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.rigster-left{
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    padding: 2vw;
+    width: 40%;
+}

@@ -50,7 +50,7 @@ const Result = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/students/get-student-id-enroll",
+        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -73,7 +73,7 @@ const Result = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/resultSets/get-result-set-id",
+        url: "https://igti-backend-5bgl.onrender.com/api/resultSets/get-result-set-id",
         data: {
           studentId: user._id,
           semesterNumber: num,
@@ -175,7 +175,7 @@ const Result = () => {
 
                   <div className="section-two">
                     <img
-                      src={`http://localhost:9000/public/${user.imageFile}`}
+                      src={`https://igti-backend-5bgl.onrender.com/public/${user.imageFile}`}
                     />
                   </div>
                 </div>
@@ -216,16 +216,16 @@ const Result = () => {
                               {(subjectResult.numCorrectAnswers /
                                 subjectResult.totalNumQuestions) *
                                 100 <=
-                              30 ? (
+                                30 ? (
                                 <p3>D</p3>
                               ) : (subjectResult.numCorrectAnswers /
-                                  subjectResult.totalNumQuestions) *
-                                  100 <=
+                                subjectResult.totalNumQuestions) *
+                                100 <=
                                 50 ? (
                                 <p3>C</p3>
                               ) : (subjectResult.numCorrectAnswers /
-                                  subjectResult.totalNumQuestions) *
-                                  100 <=
+                                subjectResult.totalNumQuestions) *
+                                100 <=
                                 80 ? (
                                 <p3>B</p3>
                               ) : (
@@ -261,7 +261,7 @@ const Result = () => {
                             <p1>Grade : A</p1>
                           )}
 
-                        
+
                         </div>
                       )
                     ) : null}

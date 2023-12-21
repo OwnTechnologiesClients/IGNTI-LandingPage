@@ -62,7 +62,7 @@ const Studentdetail = () => {
 
       dispatch(SetLoading(true));
       const result = await axios.post(
-        "http://localhost:9000/api/students/register",
+        "https://igti-backend-5bgl.onrender.com/api/students/register",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -70,7 +70,7 @@ const Studentdetail = () => {
       );
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/students/get-student-id",
+        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-id",
         data: {
           email: emailAddress,
         },
@@ -100,7 +100,7 @@ const Studentdetail = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/courses/name-Course-all",
+        url: "https://igti-backend-5bgl.onrender.com/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       if (response.data.success) {

@@ -34,7 +34,7 @@ function TestSubjects() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/students/get-student-id-enroll",
+        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -44,7 +44,7 @@ function TestSubjects() {
         dispatch(SetLoading(true));
         const result = await axios({
           method: "post",
-          url: "http://localhost:9000/api/resultSets/get-result-set",
+          url: "https://igti-backend-5bgl.onrender.com/api/resultSets/get-result-set",
           data: {
             courseName: courseName,
             semesterNumber: semesterNumber,
@@ -96,7 +96,7 @@ function TestSubjects() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/students/get-student-id-enroll",
+        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -107,7 +107,7 @@ function TestSubjects() {
           dispatch(SetLoading(true));
           const result = await axios({
             method: "post",
-            url: "http://localhost:9000/api/resultSets/get-result-set",
+            url: "https://igti-backend-5bgl.onrender.com/api/resultSets/get-result-set",
             data: {
               courseName: courseName,
               semesterNumber: semesterNumber,
@@ -157,7 +157,7 @@ function TestSubjects() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/subjects/get-subject",
+        url: "https://igti-backend-5bgl.onrender.com/api/subjects/get-subject",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,
@@ -219,9 +219,8 @@ function TestSubjects() {
     };
   }, []);
 
-  const formattedTime = `${Math.floor(remainingTime / 60)} mins ${
-    remainingTime % 60
-  } secs`;
+  const formattedTime = `${Math.floor(remainingTime / 60)} mins ${remainingTime % 60
+    } secs`;
 
   let total = 0;
   subjects.map((subject) => {
@@ -250,7 +249,7 @@ function TestSubjects() {
         </div>
       </div>
 
-     {/* <div className="subject-section-label">
+      {/* <div className="subject-section-label">
         <p>SUBJECT</p>
         <p>TYPE</p>
         <p>NO OF QUESTION</p>
