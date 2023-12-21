@@ -172,7 +172,7 @@ function SelectCourse() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setArr(response.data.data.semesters);
         setNum(response.data.data.semesters[0].semesterNumber);
       }
