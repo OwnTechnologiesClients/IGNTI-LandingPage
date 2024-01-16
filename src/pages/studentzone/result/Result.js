@@ -50,7 +50,7 @@ const Result = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-id-enroll",
+        url: "https://backend.ignti.com/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -73,7 +73,7 @@ const Result = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend-5bgl.onrender.com/api/resultSets/get-result-set-id",
+        url: "https://backend.ignti.com/api/resultSets/get-result-set-id",
         data: {
           studentId: user._id,
           semesterNumber: num,
@@ -175,7 +175,7 @@ const Result = () => {
 
                   <div className="section-two">
                     <img
-                      src={`https://igti-backend-5bgl.onrender.com/public/${user.imageFile}`}
+                      src={`https://backend.ignti.com/public/${user.imageFile}`}
                     />
                   </div>
                 </div>

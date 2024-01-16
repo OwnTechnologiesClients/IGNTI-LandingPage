@@ -51,7 +51,7 @@ function TestQuestions() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend-5bgl.onrender.com/api/students/get-student-id-enroll",
+        url: "https://backend.ignti.com/api/students/get-student-id-enroll",
         data: {
           enroll: enrollment,
         },
@@ -61,7 +61,7 @@ function TestQuestions() {
         dispatch(SetLoading(true));
         const result = await axios({
           method: "post",
-          url: "https://igti-backend-5bgl.onrender.com/api/resultSets/add-result-set",
+          url: "https://backend.ignti.com/api/resultSets/add-result-set",
           data: {
             courseName: courseName,
             semesterNumber: semesterNumber,
@@ -95,7 +95,7 @@ function TestQuestions() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://igti-backend-5bgl.onrender.com/api/examSets/get-exams-set",
+        url: "https://backend.ignti.com/api/examSets/get-exams-set",
         data: {
           courseName: courseName,
           semesterNumber: semesterNumber,
