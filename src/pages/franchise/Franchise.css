@@ -122,8 +122,12 @@ input::placeholder {
     gap: 1vw;
     flex-direction: column;
   }
+
+  .query-card-parent h2 {
+    font-size: 3vw;
+  }
   .query-card-parent p {
-    font-size: 1.8vw;
+    font-size: 2vw;
   }
   .query-button-parents button {
     font-size: 2vw;

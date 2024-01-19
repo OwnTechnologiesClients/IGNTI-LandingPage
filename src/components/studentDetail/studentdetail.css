@@ -189,6 +189,7 @@
     .form-control-1[type="file"] {
       width: 85vw;
       height: 6.6vw;
+      padding-top: 1.5vw;
       padding-left: 1vw;
 
     }
