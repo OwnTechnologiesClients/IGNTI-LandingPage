@@ -48,3 +48,51 @@ textarea {
 .btn:hover {
   background-color: #45a049;
 }
+
+
+@media screen and (max-width: 768px) {
+  .enquiry-form{
+    padding: 2vw;
+    margin-left: 12vw;
+    width: 50%;
+    border: 1px;
+  }
+
+  
+.enquiry-form h1 {
+  font-size: 3.5vw;
+  margin-top: -1vw;
+  font-weight: 200;
+  letter-spacing: 1px;
+
+}
+
+label {
+  color: #ffffff;
+  font-size: 3vw;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.inputs,
+textarea {
+  height: 5vw;
+  padding: 7px;
+  font-size: 1vw;
+  border: none;
+  background-color: #eceded;
+  box-sizing: border-box;
+}
+
+
+.btn {
+  margin-left: 13vw;
+  width: 21vw;
+ 
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+}

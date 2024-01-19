@@ -109,3 +109,13 @@ input::placeholder {
     justify-content: center;
 
 }
+
+@media screen and (max-width: 768px) {
+    .about-parent h2{
+        font-size: 3vw;
+    }
+
+    .about-content p {
+        font-size: 2vw;
+    }
+}

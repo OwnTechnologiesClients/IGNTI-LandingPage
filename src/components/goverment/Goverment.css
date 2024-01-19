@@ -1,49 +1,75 @@
-.gov-container{
-    padding: 2vw;
-
+.gov-container {
+  padding: 2vw;
 }
-.gov-border{
-    display: flex;
-    gap: 3vw;
-    flex-wrap: wrap;
-    padding: 2vw;
-    border: 2px solid #ccc;
+.gov-border {
+  display: flex;
+  gap: 3vw;
+  flex-wrap: wrap;
+  padding: 2vw;
+  border: 2px solid #ccc;
 }
-.gov-card{
-    width: 10vw;
-    padding: 0.5vw 0.6vw 0vw 0.6vw;
-    box-shadow: 0 17px 8px #eceded;
-
+.gov-card {
+  width: 10vw;
+  padding: 0.5vw 0.6vw 0vw 0.6vw;
+  box-shadow: 0 17px 8px #eceded;
 }
 
-.head-gov p{
-    display: flex;
-    color: red;
-    font-weight: bolder;
-    justify-content: center;
-    font-size: 2vw;
-
+.head-gov p {
+  display: flex;
+  color: red;
+  font-weight: bolder;
+  justify-content: center;
+  font-size: 2vw;
 }
-
 
 .gov-month p {
-    color: black;
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 1.5vw;
+  color: black;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.5vw;
 }
 
-.gov-read-more a{
-    display: flex;
-    justify-content: end;
-    font-size: 1vw;
-    color: black;
+.gov-read-more a {
+  display: flex;
+  justify-content: end;
+  font-size: 1vw;
+  color: black;
   text-decoration: none;
 }
 
-.gov-other-course a{
+.gov-other-course a {
   text-decoration: none;
-    font-size: 1.5vw;
+  font-size: 1.5vw;
+}
 
+@media screen and (max-width: 768px) {
+  .gov-container {
+    padding: 1vw;
+  }
+  .gov-border {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw;
+  }
+
+  .gov-card {
+    width: 45%;
+    height: 20vw;
+  }
+  .head-gov {
+    font-size: 3.5vw;
+  }
+
+  .gov-month p {
+    font-size: 2.4vw;
+  }
+
+  .gov-read-more a {
+    font-size: 2.5vw;
+  }
+
+  .gov-other-course a {
+    display: none;
+  }
 }

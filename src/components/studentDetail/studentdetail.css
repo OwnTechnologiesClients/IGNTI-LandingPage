@@ -157,3 +157,74 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+@media screen and (max-width: 768px) {
+    .student-section-1{
+      width: 100%;
+    }
+
+    .student-container{
+      height: 70vw;
+      margin-top: 4vw;
+    }
+
+    .form-control-1[type="text"] {
+      width: 85vw;
+      height: 5vw;
+      padding-left: 1vw;
+
+    }
+    .form-control-1[type="number"] {
+      width: 85vw;
+      height: 5vw;
+      padding-left: 1vw;
+
+    }
+    .form-control-1[type="email"] {
+      width: 85vw;
+      height: 5vw;
+      padding-left: 1vw;
+
+    }
+    .form-control-1[type="file"] {
+      width: 85vw;
+      height: 6.6vw;
+      padding-left: 1vw;
+
+    }
+    .form-control-1[type="texts"] {
+      width: 48%;
+      height: 5vw;
+      padding-left: 1vw;
+
+    }
+    .form-control-1[type="numberss"] {
+      width: 45%;
+      height: 5vw;
+      padding-left: 1vw;
+
+    }
+    .form-control-1[type="date"] {
+      width: 47%;
+      height: 5vw;
+      padding-left: 1vw;
+
+    }
+
+    .student-head h2{
+      font-size: 3vw;
+    }
+
+    .buttons-submitt{
+margin-left: 35vw;
+    }
+
+    .form-control-1, .form-control-1::placeholder{
+      font-size: 2vw;
+    }
+
+    #category-listss {
+      width: 113%;
+
+    }
+}

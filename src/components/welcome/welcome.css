@@ -26,3 +26,21 @@
   text-align: center;
   font-size: 1.5vw;
 }
+
+
+@media screen and (max-width: 768px) {
+  .welcome-contianer{
+    width: 100%;
+  }
+
+  .welcome-head{
+    font-size: 2vw;
+  }
+  .welcome-section {
+    padding: 0vw 2vw 0vw 2vw;
+  }
+
+  .p{
+    font-size: 2vw;
+  }
+}

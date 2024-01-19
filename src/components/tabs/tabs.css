@@ -2,7 +2,7 @@
   width: 20%;
 }
 
-.tab-head p{
+.tab-head p {
   padding: 0.8vw;
   color: #fff;
   width: 18vw;
@@ -11,4 +11,18 @@
   cursor: pointer;
   text-decoration: none;
   background-color: #7b96d1;
+}
+
+@media screen and (max-width: 768px) {
+  .tabs-container {
+    width: 100%;
+  }
+
+  .tab-head p{
+    height: 4vw;
+    font-size: 2.2vw;
+    width: 98%;
+  }
+
+  
 }

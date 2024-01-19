@@ -154,7 +154,7 @@ function SelectCourse() {
 
       <div className="parent-app">
         <Tabs />
-        <div className="app">
+        <div className="apps">
           <div className="student-section">
             <div className="student-square">
               <div className="square-header-11">
@@ -165,6 +165,8 @@ function SelectCourse() {
                   <p>Select Course :</p>
                   <div className="dropdown">
                     <select
+                    className="from-controls-123"
+                    type="texts"
                       name="category-list"
                       id="category-list"
                       value={selectedCategory}
@@ -188,6 +190,8 @@ function SelectCourse() {
                       id="category-list"
                       value={num}
                       onChange={handleSemesterNumber}
+                      className="from-controls-123"
+                      type="texts"
                     >
                       {arr.map((item, index) => {
                         return (
@@ -203,8 +207,8 @@ function SelectCourse() {
 
                   <div className="dropdown">
                     <input
-                      type="number"
-                      className="form-con"
+                      type="numbersss"
+                      className="from-controls-123"
                       value={enrollment}
                       placeholder="Please Enter Roll No."
                       onChange={(e) => setEnrollment(e.target.value)}

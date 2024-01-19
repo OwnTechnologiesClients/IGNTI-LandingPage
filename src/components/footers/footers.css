@@ -86,3 +86,80 @@
   text-align: end;
   font-size: 1vw;
 }
+
+@media screen and (max-width: 768px) {
+  .fotter-container {
+    padding: 0.1vw 3vw;
+    background-color: #4e6db9;
+  }
+  
+  .fotter-parent {
+    display: flex;
+flex-direction: column;
+  }
+  
+  .fotter-touch h1 {
+    font-size: 4.5vw;
+    letter-spacing: 5px;
+  }
+  
+  .fotter-touchs h1 {
+    font-size: 4.5vw;
+    letter-spacing: 5px;
+    text-align: start;
+  }
+  
+  .fotter-div-2 {
+    margin-top: 3vw;
+  }
+  
+  .fotter-icon {
+    margin-top: 4.5vw;
+  }
+  
+  .footer-social-media-parent {
+    display: flex;
+    margin-bottom: 2vw;
+  }
+  
+  .footer-social-media-circle {
+    display: flex;
+    width: 11vw;
+    height: 11vw;
+    margin-top: 1vw;
+    margin-right: 3vw;
+  }
+  
+  .footer-social-media-img-size img {
+    max-height: 50%;
+    max-width: 50%;
+  }
+  
+  .fotter-point p {
+    color: white;
+    letter-spacing: 3px;
+    font-size: 3vw;
+  }
+  
+  .bottom-fotter p {
+    font-size: 2vw;
+  }
+  
+  .fotter-3-text {
+    margin-top: 4vw;
+  }
+  
+  .fotter-home p {
+    text-align: start;
+    line-height: 8px;
+    font-size: 3vw;
+    font-weight: 100;
+  }
+  
+  .fotter-home-1 p {
+    line-height: 8px;
+    text-align: start;
+    font-size: 3vw;
+    font-weight: 100;
+  }
+}

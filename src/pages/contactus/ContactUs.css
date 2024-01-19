@@ -90,3 +90,58 @@ input::placeholder {
   padding: 10px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .contact-section{
+    padding: 3vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-parent{
+    width: 100%;
+  }
+
+  .contact-parent h2{
+    font-size: 3vw;
+  }
+
+  .contact-parent p  {
+    font-size: 3vw;
+  }
+
+  .contact-query-square{
+    width: 90vw;
+    height: 60vw;
+  }
+
+  .contact-query-card-parent{
+    display: flex;
+    gap: 1vw;
+    flex-direction: column;
+  }
+
+  .contact-query-card-parent h2{
+    font-size: 3vw;
+  }
+
+  .contact-query-card-parent p {
+    font-size: 2.5vw;
+  }
+  .contact-query-card-parent input[type="text"] {
+    width: 86vw;
+    height: 5vw;
+  
+  }
+
+  .query-button-parent-1 button {
+
+    width: 40vw;
+    font-size: 2vw;
+    margin-left: 22vw;
+    margin-top: 3vw;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+}

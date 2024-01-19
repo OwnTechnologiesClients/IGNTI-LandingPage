@@ -8,7 +8,7 @@
   margin-top: -1.7vw;
 }
 
-h5 {
+.side-banner-heads h5 {
   font-size: 1vw;
   text-align: center;
   color: #fff;
@@ -72,4 +72,28 @@ h5 {
 .swiper-slide iframe {
   width: 98%;
   height: 92%;
+}
+
+
+@media screen and (max-width: 768px) {
+  .sidebanner-containers{
+    width: 100%;
+  }
+
+  .side-banner-heads{
+    height: 5vw;
+  }
+
+  .side-banner-heads h5{
+    font-size: 2.8vw;
+  }
+  .moving-text{
+    font-size: 2vw;
+  }
+
+  .rigster-side-banner{
+    height: 16vw;
+  }
+
+ 
 }

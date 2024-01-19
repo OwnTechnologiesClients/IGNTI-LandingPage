@@ -132,7 +132,7 @@ const Franchise = () => {
             {/* ------------ First name Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={firstname}
               onChange={(e) => {
@@ -144,7 +144,7 @@ const Franchise = () => {
             {/* ------------ emailAddress Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={emailAddress}
               onChange={(e) => {
@@ -156,7 +156,7 @@ const Franchise = () => {
             {/* ------------ contact Number Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={contactNumber}
               onChange={(e) => {
@@ -168,7 +168,7 @@ const Franchise = () => {
             {/* ------------ City Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={city}
               onChange={(e) => {
@@ -180,7 +180,7 @@ const Franchise = () => {
             {/* ------------ Pincode Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={pincode}
               onChange={(e) => {
@@ -192,7 +192,7 @@ const Franchise = () => {
             {/* ------------ Address Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={address}
               onChange={(e) => {

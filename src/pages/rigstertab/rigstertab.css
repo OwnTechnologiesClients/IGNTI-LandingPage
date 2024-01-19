@@ -41,3 +41,24 @@
     padding: 2vw;
     width: 40%;
 }
+
+.rigster-right{
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .rigster-container{
+    flex-direction: column;
+    flex-direction: column-reverse;
+  }
+
+  .rigster-left{
+    width: 95%;
+  }
+
+.rigster-right{
+  padding: 0vw 3vw;
+}
+
+
+}
