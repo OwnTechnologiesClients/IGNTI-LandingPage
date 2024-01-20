@@ -87,6 +87,51 @@
   font-size: 1vw;
 }
 
+.social-media {
+  grid-column: 4/5;
+  display: flex;
+  margin-top: 1.2vw;
+}
+
+.social-media ul {
+  margin: 0;
+  position: relative;
+  top: 2.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.social-media ul li {
+  text-align: right;
+}
+
+.social-media-parent {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5vw;
+}
+
+.social-media-circle {
+  display: flex;
+  width: 3vw;
+  height: 3vw;
+  background: #2F4E71;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 1.2vw;
+  margin-top: 1vw;
+}
+
+.social-media-img-size img {
+  max-height: 50%;
+  max-width: 50%;
+
+}
+
 @media screen and (max-width: 768px) {
   .fotter-container {
     padding: 0.1vw 3vw;
