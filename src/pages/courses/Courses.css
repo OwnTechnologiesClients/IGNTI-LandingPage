@@ -1,13 +1,13 @@
 .app {
     font-family: sans-serif;
-    height: 80vh;
+    height: 30vh;
     display: flex;
     gap: 20px;
 }
 
 .filter-container {
     margin-left: 2vw;
-    margin-top: 4vw;
+    margin-top: 1vw;
     gap: 10px;
 }
 .filter-container h3{
@@ -38,17 +38,18 @@
 }
 
 .sport-list {
-    margin-top: 3vw;
+    
     box-sizing: border-box;
-    margin-left: 4vw;
-    width: 80%;
+    margin-left: 2vw;
+    width: 95%;
     gap: 20px;
     display: flex;
     flex-wrap: wrap;
-    height: 60vh;
+    height: 70vh;
     overflow-y: scroll;
     border: 1px dotted black;
     padding: 2vw;
+    margin-bottom: 5vw;
 }
 
 @media screen and (max-width: 768px) {

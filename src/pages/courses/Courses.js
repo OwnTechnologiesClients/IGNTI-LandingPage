@@ -131,12 +131,13 @@ export default function Courses() {
           </div>
         </div>
 
-        <div className="sport-list">
+       
+      </div>
+      <div className="sport-list">
           {data.map((element, index) => (
             <Item {...element} key={index} />
           ))}
         </div>
-      </div>
 
       <Footers />
     </div>

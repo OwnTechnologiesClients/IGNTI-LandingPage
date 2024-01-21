@@ -53,8 +53,8 @@ textarea {
 @media screen and (max-width: 768px) {
   .enquiry-form{
     padding: 2vw;
-    margin-left: 12vw;
-    width: 50%;
+    margin-left: 2vw;
+    width: 70%;
     border: 1px;
   }
 
@@ -77,9 +77,9 @@ label {
 
 .inputs,
 textarea {
-  height: 5vw;
-  padding: 7px;
-  font-size: 1vw;
+  height: 8vw;
+  
+  font-size: 3vw;
   border: none;
   background-color: #eceded;
   box-sizing: border-box;
@@ -87,8 +87,8 @@ textarea {
 
 
 .btn {
-  margin-left: 13vw;
-  width: 21vw;
+  margin-left: 18vw;
+  width: 35vw;
  
 }
 

@@ -25,7 +25,7 @@ const Sidebanner = () => {
   const getData = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:9000/api/notification/get-notification"
+        "https://backend.ignti.com/api/notification/get-notification"
       );
       if (response.data.success) {
         // message.success(response.data.message);

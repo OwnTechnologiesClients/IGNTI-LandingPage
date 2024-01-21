@@ -16,7 +16,7 @@ const Goverment = () => {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "http://localhost:9000/api/courses/name-Course-all",
+        url: "https://backend.ignti.com/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       // console.log(response.data);
