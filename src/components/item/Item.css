@@ -1,48 +1,33 @@
 .item-container {
-    border: 1px solid #F46A6F;
-    margin-top: 5vw;
-    height: 12vw;
-    width: 12vw;
-    padding: 0.5vw 0.6vw 0vw 0.6vw;
-    box-shadow: 0 17px 8px #eceded;
+  border: 1px solid #F46A6F;
+  margin-top: 5vw;
+  width: 12vw;
+  height: 18vw;
+  padding: 0.5vw 0.6vw 0vw 0.6vw;
+  box-shadow: 0 17px 8px #eceded;
+  overflow-y: scroll;
 
-  }
-  .item-label {
-    font-size: 1.4vw;
-    font-weight: 600;
-    margin-bottom: 0.5vw;
-    color: black;
-    font-family: 'Poppins', sans-serif;
 
-  }
-  .item-labels {
-    font-size: 1.3vw;
-    color: black;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+}
+.item-label {
+  font-size: 1.2vw;
+  font-weight: 600;
+  margin-bottom: 1vw;
+  color: black;
+  font-family: 'Poppins', sans-serif;
 
-  }
-  .item-heading{
-    font-size: 1vw;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-  }
+}
+.item-labels {
+  font-size: 1vw;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin-bottom: 1vw;
 
-  @media screen and (max-width: 768px) {
-    .item-container{
 
-      margin-top: 8vw;
-      height: 14vw;
-      width: 14vw;
-      padding: 1vw 0.6vw 0vw 0.6vw;
-
-    }
-
-    .item-label{
-      font-size: 2vw;
-    }
-
-    .item-labels{
-      font-size: 2vw;
-    }
-  }
+}
+.item-heading{
+  font-size: 1vw;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}

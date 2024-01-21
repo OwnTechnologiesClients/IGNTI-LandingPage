@@ -18,14 +18,20 @@ const Tabs = () => {
         <Link to="/contactus">
           <p>Admission Form</p>
         </Link>
-        <Link to="/form">
+        {/* <Link to="/form">
           <p>Enquiry Form</p>
-        </Link>
+        </Link> */}
         <Link to="/gallery">
           <p >Gallery</p>
         </Link>
         <Link to="/enrollment-number">
           <p>Result</p>
+        </Link>
+        <Link to="/select-course">
+          <p>Exam</p>
+        </Link>
+        <Link to="/rigstertab">
+          <p>Register Student</p>
         </Link>
       </div>
     </div>

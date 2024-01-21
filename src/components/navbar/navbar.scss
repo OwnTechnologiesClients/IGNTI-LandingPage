@@ -126,11 +126,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;500&family=Poppins:wght@300&display=swap");
 
 .nav-bar {
-  height: 4vw;
+  height: 3.5vw;
   background-color: #db2c1d;
-  padding: 0 6vw;
   position: sticky;
   top: 0;
+  bottom: 0;
   z-index: 200;
 
   .menu-icon {
@@ -154,26 +154,32 @@
     .join {
       color: white;
       text-decoration: none;
-      font-size: 1.3vw;
-      font-weight: bold;
-
+      font-size: 1.1vw;
+      font-weight: bolder;
+      line-height: 2.2vw;
+      padding: 0 1vw;
+      display: block;
+      margin-top: 0.7vw;
       text-transform: uppercase;
 
+
       &:hover {
-        color: #000;
-        border-radius: 2rem;
-        display: inline-block;
+        background: black;
+        transform-origin: left;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+        border-radius: 3vw;
       }
 
       &.active {
-    
-        color: #000;
+        color: whitesmoke;
         border-radius: 2rem;
         display: inline-block;
       }
     }
 
-    
+
   }
 
   &.menu-open {
@@ -183,20 +189,23 @@
 
     .tabs {
       display: none;
+
       .menu-items,
       .join {
         font-size: 4vw;
         font-weight: 600;
-        margin-bottom: 7px;
+        margin-bottom: 7;
         font-family: "Poppins", sans-serif;
         margin-right: 20px;
+        padding: 0 1vw;
 
         &:hover {
-          color: black;
+          color: whitesmoke;
         }
+        
       }
 
-     
+
     }
   }
 
@@ -207,17 +216,29 @@
 
   .dropdown-btn {
     background-color: #db2c1d;
-    padding: 10px;
+    
     border: none;
     cursor: pointer;
     color: white;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     font-weight: bold;
     text-transform: uppercase;
+    margin-top: 0.7vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.3vw;
+    padding-bottom: 0.3vw;
+
   }
 
-  .dropdown-btn:hover{
-    color: #000;
+  .dropdown-btn:hover {
+    background: black;
+    transform-origin: left;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 3vw;
+    
   }
 
   .dropdown-content {
@@ -251,9 +272,11 @@
 
     .menu-icon {
       display: block;
+
       img {
         margin-top: 3px;
-        height: 7vw;
+        height: 6vw;
+        padding-left: 2vw;
       }
     }
 
@@ -281,13 +304,13 @@
         padding: 1rem 1.4rem;
         z-index: 1;
 
-        .menu-items{
-            margin-bottom: 20px;
+        .menu-items {
+          margin-bottom: 20px;
         }
       }
     }
 
- 
+
     .dropdown-btn {
       background-color: #db2c1d;
       border: none;

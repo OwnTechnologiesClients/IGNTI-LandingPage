@@ -39,6 +39,7 @@ h5 {
 .pauseds {
   animation-play-state: paused;
 }
+
 @keyframes stoped {
   0% {
     top: 100%;
@@ -82,14 +83,26 @@ h5 {
     height: 5vw;
   }
 
- .side-banner-head h5{
-  font-size: 2.2vw;
-  font-weight: 200;
- }
+  .side-banner-head h5 {
+    font-size: 2.2vw;
+    font-weight: 200;
+  }
 
- .side-banner-bottom-sections--1 {
+  .side-banner-bottom-sections--1 {
 
-  height: 23.5vw;
+    height: 23.5vw;
 
-}
+  }
+
+  .marqueest {
+    font-size: 2vw;
+    font-weight: bold;
+    color: #e4655a;
+    text-decoration: none;
+    margin-top: 0.5vw;
+    position: relative;
+    animation: stoped 5s reverse infinite;
+    top: 100%;
+  }
+
 }

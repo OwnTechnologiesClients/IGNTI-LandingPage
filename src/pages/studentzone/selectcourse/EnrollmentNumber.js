@@ -104,7 +104,7 @@ function SelectCourse() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setCourses(response.data.data);
         setSelectedCategory(response.data.data[0]);
       } else {
@@ -128,7 +128,7 @@ function SelectCourse() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setArr(response.data.data.semesters);
         setNum(response.data.data.semesters[0].semesterNumber);
       }
@@ -165,8 +165,8 @@ function SelectCourse() {
                   <p>Select Course :</p>
                   <div className="dropdown">
                     <select
-                    className="from-controls-123"
-                    type="texts"
+                      className="from-controls-123"
+                      type="texts"
                       name="category-list"
                       id="category-list"
                       value={selectedCategory}

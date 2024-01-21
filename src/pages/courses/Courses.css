@@ -11,12 +11,12 @@
     gap: 10px;
 }
 .filter-container h3{
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-family: 'Poppins';
     font-weight: 700;
 }
 .filter-container p{
-    font-size: 1.2vw;
+    font-size: 1vw;
     text-decoration: none;
     font-family: 'Poppins';
     font-weight: 700;
@@ -31,7 +31,7 @@
     font-weight: 700;
 }
 .category-list {
-    padding-right: 3vw;
+    padding-right: 7vw;
     padding-left: 0.6vw;
     padding-top: 0.5vw;
     padding-bottom: 0.5vw;
@@ -39,18 +39,24 @@
 
 .sport-list {
     margin-top: 3vw;
+    box-sizing: border-box;
     margin-left: 4vw;
-    width: 50%;
+    width: 80%;
     gap: 20px;
     display: flex;
-    height: 50vh;
+    flex-wrap: wrap;
+    height: 60vh;
+    overflow-y: scroll;
+    border: 1px dotted black;
+    padding: 2vw;
 }
 
 @media screen and (max-width: 768px) {
-    .filter-container {
-        margin-left: 2vw;
-        margin-top: 4vw;
-        gap: 10px;
+    .app {
+        font-family: sans-serif;
+        
+        gap: 20px;
+        display: grid;
     }
     .filter-container h3{
         font-size: 4vw;
@@ -58,29 +64,24 @@
         font-weight: 700;
     }
     .filter-container p{
-        font-size: 2.2vw;
+        font-size: 3vw;
         text-decoration: none;
         font-family: 'Poppins';
         font-weight: 700;
     
     }
-    
-    .course-dropdown{
-        margin-top: 1vw;
-    }
-    .course-dropdown select{
-        font-size: 1.2;
-        font-weight: 700;
-    }
-    .category-list {
-        padding-right: 3vw;
-        padding-left: 0.6vw;
-        padding-top: 0.5vw;
-        padding-bottom: 0.5vw;
-    }
-    
+
     .sport-list {
-        width: 65%;
-        gap: 8px;
+        margin-top: 3vw;
+        box-sizing: border-box;
+        margin-left: 4vw;
+        width: 80%;
+        gap: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        height: 40vh;
+        overflow-y: scroll;
+        border: 1px dotted black;
+        padding: 2vw;
     }
 }

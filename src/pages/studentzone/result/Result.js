@@ -57,7 +57,7 @@ const Result = () => {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setUser(response.data.data);
       } else {
         throw new Error(response.data.message);
@@ -216,16 +216,16 @@ const Result = () => {
                               {(subjectResult.numCorrectAnswers /
                                 subjectResult.totalNumQuestions) *
                                 100 <=
-                              30 ? (
+                                30 ? (
                                 <p3>D</p3>
                               ) : (subjectResult.numCorrectAnswers /
-                                  subjectResult.totalNumQuestions) *
-                                  100 <=
+                                subjectResult.totalNumQuestions) *
+                                100 <=
                                 50 ? (
                                 <p3>C</p3>
                               ) : (subjectResult.numCorrectAnswers /
-                                  subjectResult.totalNumQuestions) *
-                                  100 <=
+                                subjectResult.totalNumQuestions) *
+                                100 <=
                                 80 ? (
                                 <p3>B</p3>
                               ) : (
@@ -261,7 +261,7 @@ const Result = () => {
                             <p1>Grade : A</p1>
                           )}
 
-                        
+
                         </div>
                       )
                     ) : null}

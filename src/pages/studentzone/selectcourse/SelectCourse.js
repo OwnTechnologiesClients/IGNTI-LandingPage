@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SelectCourse.css";
 import { useDispatch } from "react-redux";
@@ -25,17 +25,7 @@ function SelectCourse() {
   const [num, setNum] = useState("");
   const [enrollment, setEnrollment] = useState("");
   const [pass, setPass] = useState("");
-  const [sportList, setSportList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState();
-
-  function getFilteredList() {
-    if (!selectedCategory) {
-      return sportList;
-    }
-    return sportList.filter((item) => item.category === selectedCategory);
-  }
-
-  //   var filteredList = useMemo(getFilteredList, [selectedCategory, sportList]);
 
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
@@ -85,7 +75,6 @@ function SelectCourse() {
             });
             dispatch(SetLoading(false));
             if (response1.data.success) {
-              // setSubjects(response.data.data1);
               dispatch(SetLoading(true));
               const response2 = await axios({
                 method: "post",
@@ -96,7 +85,6 @@ function SelectCourse() {
               });
               dispatch(SetLoading(false));
               if (response2.data.success) {
-                // console.log(response2.data.data);
                 if (response2.data.data.authorized) {
                   const promises = response1.data.data1.map(async (subject) => {
                     dispatch(SetLoading(true));
@@ -161,7 +149,6 @@ function SelectCourse() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        // message.success(response.data.message);
         setCourses(response.data.data);
         setSelectedCategory(response.data.data[0]);
       } else {
@@ -185,7 +172,7 @@ function SelectCourse() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setArr(response.data.data.semesters);
         setNum(response.data.data.semesters[0].semesterNumber);
       }
@@ -209,7 +196,6 @@ function SelectCourse() {
       window.history.pushState(null, null, window.location.href);
     };
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.onpopstate = null;
     };
@@ -242,7 +228,6 @@ function SelectCourse() {
                         //   marginLeft: "-1vw",
                         // }}
                         type="texts"
-
                       ></input>
                     </div>
                   </div>
@@ -253,12 +238,12 @@ function SelectCourse() {
                       <p>Select Course</p>
                       <div className="dropdowns">
                         <select
-                        className="from-controls-12"
-                        type="textss"
+                          className="from-controls-12"
+                          type="textss"
                           // style={{
                           //   width: "13vw",
                           //   height: "2.5vw",
-                       
+
                           // }}
                           name="category-lists"
                           id="category-lists"
@@ -280,8 +265,8 @@ function SelectCourse() {
                       <p>Select Semester</p>{" "}
                       <div className="dropdowns">
                         <select
-                   className="from-controls-12"
-                   type="textss"
+                          className="from-controls-12"
+                          type="textss"
                           // style={{
                           //   width: "13vw",
                           //   height: "2.5vw",
@@ -310,7 +295,7 @@ function SelectCourse() {
 
                     <div className="dropdowns">
                       <input
-                      className="from-controls-12"
+                        className="from-controls-12"
                         // style={{
                         //   width: "32vw",
                         //   height: "2vw",
@@ -338,7 +323,6 @@ function SelectCourse() {
                         //   fontSize: "1vw",
                         // }}
                         type="date"
-
                       ></input>
                     </div>
                   </div>
@@ -350,7 +334,7 @@ function SelectCourse() {
 
                     <div className="dropdowns">
                       <input
-                              className="from-controls-12"
+                        className="from-controls-12"
                         // style={{
                         //   width: "32vw",
                         //   height: "2vw",

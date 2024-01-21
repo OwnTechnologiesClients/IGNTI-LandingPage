@@ -165,7 +165,7 @@ function TestSubjects() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         // setSubjects(response.data.data.subjects);
         setSubjects(response.data.data1);
       } else {
@@ -219,9 +219,8 @@ function TestSubjects() {
     };
   }, []);
 
-  const formattedTime = `${Math.floor(remainingTime / 60)} mins ${
-    remainingTime % 60
-  } secs`;
+  const formattedTime = `${Math.floor(remainingTime / 60)} mins ${remainingTime % 60
+    } secs`;
 
   let total = 0;
   subjects.map((subject) => {
@@ -250,7 +249,7 @@ function TestSubjects() {
         </div>
       </div>
 
-     {/* <div className="subject-section-label">
+      {/* <div className="subject-section-label">
         <p>SUBJECT</p>
         <p>TYPE</p>
         <p>NO OF QUESTION</p>

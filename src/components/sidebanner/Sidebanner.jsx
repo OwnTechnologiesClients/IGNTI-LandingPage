@@ -12,6 +12,7 @@ import axios from "axios";
 const Sidebanner = () => {
   const [isPaused, setPaused] = useState(false);
   const [notifications, setNotifications] = useState([]);
+  const [youtube, setYoutube] = useState([]);
 
   const handleMouseOver = () => {
     setPaused(true);
@@ -27,8 +28,10 @@ const Sidebanner = () => {
         "http://localhost:9000/api/notification/get-notification"
       );
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
+        console.log(response.data)
         setNotifications(response.data.notifications);
+        setYoutube(response.data.youtubeLinks);
       } else {
         throw new Error(response.data.message);
       }
@@ -55,7 +58,7 @@ const Sidebanner = () => {
         {notifications?.map((notificationData, notificationIndex) => {
           return (
             <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
-              <strong>{notificationIndex}.</strong>{" "}
+              <strong>{notificationIndex + 1}.</strong>{" "}
               {notificationData.notification}
             </div>
           );
@@ -77,7 +80,22 @@ const Sidebanner = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
+          {youtube.map((youtubeData, youtubeIndex) => {
+            return (
+              <SwiperSlide>
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={youtubeData.youtubeLink}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </SwiperSlide>
+            );
+          })}
+          {/* <SwiperSlide>
             <iframe
               width="100%"
               height="100%"
@@ -111,7 +129,7 @@ const Sidebanner = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe>
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </div>
     </div>

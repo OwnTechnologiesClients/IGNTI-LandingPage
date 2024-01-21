@@ -95,8 +95,8 @@ const Footers = () => {
       </div>
 
       <div className="bottom-fotter">
-        <p>Indira Gandhi National Training Institute All Rights Reserved</p>
-        <p>© 2023 All Rights Reserved. Created with ❤️ by OwnTechnologies</p>
+        
+        <p>Indira Gandhi National Training Institute © 2024 All Rights Reserved. Created with ❤️ by <a className="footer-a" href="https://owntechnologies.com/">OwnTechnologies</a></p>
       </div>
     </div>
   );

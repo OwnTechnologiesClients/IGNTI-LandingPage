@@ -131,6 +131,10 @@
   max-width: 50%;
 
 }
+.footer-a{
+  color: black;
+  font-weight: bold;
+}
 
 @media screen and (max-width: 768px) {
   .fotter-container {

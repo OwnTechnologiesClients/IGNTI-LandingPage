@@ -104,7 +104,7 @@ function TestQuestions() {
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
-        message.success(response.data.message);
+        // message.success(response.data.message);
         setQuestions(response.data.data);
         console.log(response.data);
       } else {
@@ -133,9 +133,8 @@ function TestQuestions() {
     };
   }, []);
 
-  const formattedTime = `${Math.floor(remainingTime / 60)} : ${
-    remainingTime % 60
-  } `;
+  const formattedTime = `${Math.floor(remainingTime / 60)} : ${remainingTime % 60
+    } `;
 
   // const a = Math.floor(remainingTime / 60);
   // const b = remainingTime % 60;
@@ -351,7 +350,7 @@ function TestQuestions() {
                                   )
                                 }
                               />
-                      {console.log(option.optionText)}
+                              {console.log(option.optionText)}
                               <span>{option.optionText}</span>
                             </label>
                             <br />
