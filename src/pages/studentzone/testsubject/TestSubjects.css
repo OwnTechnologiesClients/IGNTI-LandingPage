@@ -36,11 +36,20 @@
   justify-content: space-between;
 }
 .subject-section h3 {
+  width: 50%;
+  font-size: 1.2vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-weight: bolder;
+}
+.subject-section h4 {
+  width: 20%;
   font-size: 1.2vw;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
 }
 .subject-section p {
+  width: 20%;
   font-size: 1.2vw;
   font-weight: 700;
   text-decoration: none;
@@ -49,12 +58,13 @@
 }
 
 .subject-section button {
+
+  width: 20%;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  width: 7vw;
   height: 2.4vw;
   font-size: 1.3vw;
   font-weight: 600;
@@ -75,7 +85,7 @@
 }
 
 .test-subject-square {
-  width: 30vw;
+  width: 60vw;
   height: 3.2vw;
   background-color: white;
   border-radius: 10vw;
@@ -85,7 +95,7 @@
 
 .test-subject-square p {
   width: 100%;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   font-weight: 700;
   color: black;
   text-decoration: none;

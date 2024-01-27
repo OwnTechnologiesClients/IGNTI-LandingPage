@@ -57,10 +57,11 @@
 
   .gov-card {
     width: 45%;
-    height: 20vw;
+    height: 25vw;
   }
   .head-gov p{
-    font-size: 3vw;
+    padding: 1vw;
+    font-size: 2vw;
   }
 
   .gov-month p {

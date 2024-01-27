@@ -24,6 +24,8 @@
 }
 
 .course-dropdown{
+    
+    width: 20vw;
     margin-top: 1vw;
 }
 .course-dropdown select{
@@ -55,10 +57,16 @@
 @media screen and (max-width: 768px) {
     .app {
         font-family: sans-serif;
-        
         gap: 20px;
         display: grid;
+        height: 35vw;
     }
+    .course-dropdown select{
+        width: 80vw;
+        font-size: 1.2;
+        font-weight: 700;
+    }
+    
     .filter-container h3{
         font-size: 4vw;
         font-family: 'Poppins';
@@ -73,14 +81,14 @@
     }
 
     .sport-list {
-        margin-top: 3vw;
         box-sizing: border-box;
         margin-left: 4vw;
-        width: 80%;
+        width: 92%;
+        height: 50vh;
         gap: 20px;
         display: flex;
         flex-wrap: wrap;
-        height: 40vh;
+        
         overflow-y: scroll;
         border: 1px dotted black;
         padding: 2vw;

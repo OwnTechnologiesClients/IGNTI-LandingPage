@@ -32,3 +32,42 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
 }
+
+
+@media screen and (max-width: 768px) {
+  .item-container {
+    border: 1px solid #F46A6F;
+    margin-top: 2vw;
+    width: 80vw;
+    height: 40vw;
+    padding: 0.5vw 0.6vw 0vw 0.6vw;
+    box-shadow: 0 17px 8px #eceded;
+    overflow-y: scroll;
+  
+  
+  }
+
+  .item-label {
+    font-size: 3vw;
+    font-weight: 600;
+    margin-bottom: 1vw;
+    color: red;
+    font-family: 'Poppins', sans-serif;
+    
+  
+  }
+  .item-labels {
+    font-size: 3vw;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-bottom: 1vw;
+  
+  
+  }
+  .item-heading{
+    font-size: 1vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+}
