@@ -265,7 +265,7 @@ function TestSubjects() {
 
             <p>Multiple Choice</p>
 
-            <h3>Question {subject.questionLength}</h3>
+            <h4>Question {subject.questionLength}</h4>
 
             <button
               className={`button ${isSubjectSubmitted ? "green-button" : ""}`}

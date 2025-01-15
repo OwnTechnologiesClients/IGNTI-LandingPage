@@ -221,11 +221,12 @@ function SelectCourse() {
 
                     <div className="dropdowns">
                       <input
-                        style={{
-                          width: "32vw",
-                          height: "2vw",
-                          marginLeft: "-1vw",
-                        }}
+                        className="from-controls-12"
+                        // style={{
+                        //   width: "32vw",
+                        //   height: "2vw",
+                        //   marginLeft: "-1vw",
+                        // }}
                         type="texts"
                       ></input>
                     </div>
@@ -234,14 +235,16 @@ function SelectCourse() {
                 <div className="course-semster">
                   <div className="userid-sections">
                     <div className="semsters">
-                      <p>Select Course:</p>
+                      <p>Select Course</p>
                       <div className="dropdowns">
                         <select
-                          style={{
-                            width: "13vw",
-                            height: "2.5vw",
-                            marginLeft: "-1vw",
-                          }}
+                          className="from-controls-12"
+                          type="textss"
+                          // style={{
+                          //   width: "13vw",
+                          //   height: "2.5vw",
+
+                          // }}
                           name="category-lists"
                           id="category-lists"
                           value={selectedCategory}
@@ -259,14 +262,15 @@ function SelectCourse() {
 
                   <div className="userid-sections">
                     <div className="semsters">
-                      <p>Select Semester:</p>{" "}
+                      <p>Select Semester</p>{" "}
                       <div className="dropdowns">
                         <select
-                          style={{
-                            width: "13vw",
-                            height: "2.5vw",
-                            marginLeft: "-1vw",
-                          }}
+                          className="from-controls-12"
+                          type="textss"
+                          // style={{
+                          //   width: "13vw",
+                          //   height: "2.5vw",
+                          // }}
                           name="category-lists"
                           id="category-lists"
                           value={num}
@@ -291,11 +295,12 @@ function SelectCourse() {
 
                     <div className="dropdowns">
                       <input
-                        style={{
-                          width: "32vw",
-                          height: "2vw",
-                          marginLeft: "-1vw",
-                        }}
+                        className="from-controls-12"
+                        // style={{
+                        //   width: "32vw",
+                        //   height: "2vw",
+                        //   marginLeft: "-1vw",
+                        // }}
                         type="numbers"
                         value={enrollment}
                         onChange={(e) => setEnrollment(e.target.value)}
@@ -310,12 +315,13 @@ function SelectCourse() {
 
                     <div className="dropdowns">
                       <input
-                        style={{
-                          width: "32vw",
-                          height: "2vw",
-                          marginLeft: "-1vw",
-                          fontSize: "1vw",
-                        }}
+                        className="from-controls-12"
+                        // style={{
+                        //   width: "32vw",
+                        //   height: "2vw",
+                        //   marginLeft: "-1vw",
+                        //   fontSize: "1vw",
+                        // }}
                         type="date"
                       ></input>
                     </div>
@@ -328,11 +334,12 @@ function SelectCourse() {
 
                     <div className="dropdowns">
                       <input
-                        style={{
-                          width: "32vw",
-                          height: "2vw",
-                          marginLeft: "-1vw",
-                        }}
+                        className="from-controls-12"
+                        // style={{
+                        //   width: "32vw",
+                        //   height: "2vw",
+                        //   marginLeft: "-1vw",
+                        // }}
                         type="texts"
                         value={pass}
                         onChange={(e) => setPass(e.target.value)}

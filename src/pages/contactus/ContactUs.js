@@ -1,6 +1,4 @@
 import React from "react";
-import Banner from "../../components/banner/Banner";
-import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import "./ContactUs.css";
@@ -89,7 +87,7 @@ const ContactUs = () => {
             {/* ------------ First name Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={firstname}
               onChange={(e) => {
@@ -101,7 +99,7 @@ const ContactUs = () => {
             {/* ------------ emailAddress Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={emailAddress}
               onChange={(e) => {
@@ -113,7 +111,7 @@ const ContactUs = () => {
             {/* ------------ contact Number Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={contactNumber}
               onChange={(e) => {
@@ -125,7 +123,7 @@ const ContactUs = () => {
             {/* ------------ Address Input textfield -------------------- */}
             <input
               type="text"
-              className="form-control"
+              className="form-controlss"
               name="title"
               value={address}
               onChange={(e) => {

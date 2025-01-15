@@ -1,5 +1,6 @@
 import React from "react";
 import "./footers.css";
+import { Link } from "react-router-dom";
 const Footers = () => {
   return (
     <div className="fotter-container">
@@ -47,13 +48,17 @@ const Footers = () => {
             </div>
           </div>
         </div>
-        <div className="fotter-div-2">
+        <div className="fotter-div-3">
+
           <div className="fotter-point">
-            <p>IMPORTANT LINKS</p>
-            <p>RESULT</p>
-            <p>EXAM</p>
-            <p>DOWNLOADS</p>
-            <p>FORMS</p>
+            <div className="fotter-touchs">
+              <h1>IMPORTANT LINKS</h1>
+            </div>
+            <Link to="/enrollment-number"> <p>RESULT</p></Link>
+            <Link to="/select-course"><p>EXAM</p></Link>
+            <Link to="/"><p>DOWNLOADS</p></Link>
+            <Link to="/register"><p>FORMS</p></Link>
+            <Link to="/courses"><p>COURSES</p></Link>
           </div>
         </div>
         <div className="fotter-div-3">
@@ -76,7 +81,7 @@ const Footers = () => {
             </div>
 
             <div className="fotter-home-1" style={{ marginTop: "4vw" }}>
-              <p> 
+              <p>
                 {/*  <img style={{ height: "1.3vw" }} src="/img/phone-call.png" />{" "}*/}
                 91-99102006384, 011 4263 4184
               </p>
@@ -94,7 +99,8 @@ const Footers = () => {
       </div>
 
       <div className="bottom-fotter">
-        <p>Indira Gandhi National Training Institute All Rights Reserved</p>
+
+        <p>Indira Gandhi National Training Institute © 2024 All Rights Reserved. Created with ❤️ by <a className="footer-a" href="https://owntechnologies.com/">OwnTechnologies</a></p>
       </div>
     </div>
   );

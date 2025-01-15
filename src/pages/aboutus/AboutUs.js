@@ -1,30 +1,21 @@
-import React from 'react'
-import Banner from '../../components/banner/Banner';
-import Footer from '../../components/footer/Footer';
-import Header from '../../components/header/Header';
-import Navbar from '../../components/navbar/Navbar';
-import './AboutUs.css';
-import Goverment from '../../components/goverment/Goverment';
-import Herosection from '../../components/herosection/Herosection';
-import Footers from '../../components/footers/Footers';
-
-
-
+import React from "react";
+import Header from "../../components/header/Header";
+import Navbar from "../../components/navbar/Navbar";
+import "./AboutUs.css";
+import Goverment from "../../components/goverment/Goverment";
+import Herosection from "../../components/herosection/Herosection";
+import Footers from "../../components/footers/Footers";
 
 const AboutUs = () => {
+  return (
+    <div>
+      <Header />
+      <Navbar />
+      <Herosection />
 
-
-
-    return (
-        <div>
-            <Header />
-            <Navbar />
-            <Herosection />
-
-
-            <div className='about-section'>
-                <div className='about-parent'>
-                    <h2>About Us</h2>
+      <div className="about-section">
+        <div className="about-parent">
+          <h2>About Us</h2>
 
                     <div className="about-content">
                         <p>
@@ -55,20 +46,13 @@ const AboutUs = () => {
 
                 </div>
 
-                <div className='space'>
+        <div className="space"></div>
+      </div>
 
-                </div>
+      <Goverment />
+      <Footers />
+    </div>
+  );
+};
 
-
-
-
-            </div>
-
-            <Goverment />
-            <Footers />
-
-        </div>
-    )
-}
-
-export default AboutUs
+export default AboutUs;

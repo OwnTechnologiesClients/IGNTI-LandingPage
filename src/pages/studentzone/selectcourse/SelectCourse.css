@@ -12,13 +12,12 @@
 }
 
 .student-squares {
-   width: 38vw;
+  width: 38vw;
   height: 44vw;
   background: #eceded;
   margin-top: 8vw;
   align-items: center;
   justify-content: center;
-
 }
 
 .square-headers {
@@ -40,7 +39,7 @@
   margin: 0;
   position: absolute;
   top: 30%;
-  margin-left:  13vw;
+  margin-left: 13vw;
 }
 
 .student-card-parents {
@@ -63,14 +62,14 @@
   font-weight: 900;
 }
 
-.course-semster{
-    display: flex;
-    gap: 7vw;
+.course-semster {
+  display: flex;
+  gap: 1vw;
 }
 
-.semsters{
-    display: flex;
-    flex-direction: column;
+.semsters {
+  display: flex;
+  flex-direction: column;
 }
 
 .form-controls {
@@ -107,6 +106,7 @@
 .userid-sections p {
   text-decoration: none;
   font-weight: 500;
+  margin-left: 15px;
   margin-top: 8px;
   font-size: 1.5vw;
   margin-bottom: 0;
@@ -121,12 +121,12 @@
   font-weight: 400;
 }
 
-.course-button-parents-1{
-    display: flex;
-    flex-direction: row;
-    gap: 4vw;
-    padding: 0vw 2vw 0vw 0vw;
-    justify-content: center;
+.course-button-parents-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 4vw;
+  padding: 0vw 2vw 0vw 0vw;
+  justify-content: center;
 }
 
 .course-button-parents-1 button {
@@ -141,4 +141,96 @@
   border: none;
   border-radius: 5px;
   padding: 10px;
+}
+.from-controls-12[type="texts"] {
+  width: 33vw;
+  height: 2.7vw;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px black;
+}
+.from-controls-12[type="numbers"] {
+  width: 33vw;
+  height: 2.7vw;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px black;
+}
+.from-controls-12[type="date"] {
+  width: 33vw;
+  height: 2.7vw;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px black;
+}
+.from-controls-12[type="textss"] {
+  width: 15.2vw;
+  height: 2.7vw;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px black;
+}
+
+@media screen and (max-width: 768px) {
+  .parent-app {
+    flex-direction: column;
+    gap: 0;
+  }
+  .student-squares {
+    width: 100%;
+    height: 90vw;
+  }
+  .square-headers {
+    height: 7vw;
+  }
+  .square-headers h2 {
+    font-size: 3vw;
+    margin-left: 36vw;
+  }
+
+  .userid-sections p {
+    margin-left: 4px;
+    font-size: 3.8vw;
+  }
+
+  .course-button-parents-1 {
+    margin-top: 3vw;
+  }
+
+  .course-button-parents-1 button {
+    width: 17vw;
+    font-size: 3vw;
+  }
+  .from-controls-12[type="texts"] {
+    width: 85vw;
+    height: 5vw;
+  }
+
+  .from-controls-12[type="date"] {
+    width: 85vw;
+    height: 5vw;
+  }
+
+  .from-controls-12, input::placeholder {
+    font-size: 2.8vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+  .from-controls-12[type="numbers"] {
+    width: 85vw;
+    height: 5vw;
+  }
+  .from-controls-12[type="textss"] {
+    width: 41.2vw;
+    height: 5vw;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px black;
+  }
+
+  .dropdowns select {
+    font-size: 3vw;
+    font-weight: 400;
+  }
 }

@@ -30,17 +30,17 @@ const Home = () => {
         style={{
           overlay: {
             zIndex: 1000,
-            background: "none", 
+            background: "none",
             pointerEvents: "none"
- 
+
           },
           content: {
-            position: "relative", 
+            position: "relative",
             padding: 0,
-            border: "none", 
-            background: "none", 
+            border: "none",
+            background: "none",
             pointerEvents: "auto"
-           
+
           },
         }}
       >

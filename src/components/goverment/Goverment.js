@@ -51,7 +51,7 @@ const Goverment = () => {
               </div>
 
               <div className="gov-read-more">
-                <a href="#">Read More</a>
+                <a href="/courses">Read More</a>
               </div>
             </div>
           );

@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 import { useDispatch } from "react-redux";
 import { SetLoading } from "../../redux/loaderSlice";
-
 const Studentdetail = () => {
   const [courses, setCourses] = useState([]);
   const [firstname, setFirstname] = useState("");
@@ -226,7 +225,7 @@ const Studentdetail = () => {
             />
 
             <input
-              type="number"
+              type="numberss"
               className="form-control-1"
               value={pincode}
               onChange={(e) => {

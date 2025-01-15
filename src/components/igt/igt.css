@@ -4,3 +4,11 @@
     gap: 1.5vw;
     flex-direction: row;
 }
+
+@media screen and (max-width: 768px) {
+ .iginit-container{
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+ }
+}

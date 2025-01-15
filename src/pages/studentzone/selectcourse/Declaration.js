@@ -55,7 +55,7 @@ function SelectCourse() {
 
       <div className="instruction-button-parent">
         <button class="instruction-button" onClick={navigateToContacts}>
-          Submit Test
+          Start Test
         </button>
       </div>
     </div>

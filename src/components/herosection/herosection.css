@@ -4,3 +4,11 @@
     gap: 1.5vw;
     flex-direction: row;
 }
+
+@media screen and (max-width: 768px) {
+    .banner-container {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+  }

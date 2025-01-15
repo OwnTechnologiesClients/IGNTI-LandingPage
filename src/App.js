@@ -40,7 +40,7 @@ const App = () => {
         <Route path="/student" element={<StudentZone />} />
         <Route path="/select-course" element={<SelectCourse />} />
         <Route path="/form" element={<EnquiryForm />} />
-        <Route path="/rigstertab" element={<RigsterTab />} />
+        <Route path="register" element={<RigsterTab />} />
         <Route
           path="/declaration/:courseName/:semesterNumber/:enrollment"
           element={<Declaration />}

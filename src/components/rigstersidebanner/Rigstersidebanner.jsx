@@ -55,7 +55,7 @@ const Rigstersidebanner = () => {
       >
         {notifications?.map((notificationData, notificationIndex) => {
           return (
-            <div className={`marqueest ${isPaused ? "pauseds" : ""}`}>
+            <div className={`marqueest ${isPaused ? "pauseds" : ""}`} >
               <strong>{notificationIndex + 1}.</strong>{" "}
               {notificationData.notification}
             </div>
