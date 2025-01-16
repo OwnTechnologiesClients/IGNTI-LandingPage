@@ -25,7 +25,7 @@ const Rigstersidebanner = () => {
   const getData = async () => {
     try {
       const response = await axios.post(
-        "https://backend.ignti.com/api/notification/get-notification"
+        "https://backend.ignti.in/api/notification/get-notification"
       );
       if (response.data.success) {
         setNotifications(response.data.notifications);

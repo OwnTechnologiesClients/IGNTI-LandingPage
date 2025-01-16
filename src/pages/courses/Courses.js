@@ -26,7 +26,7 @@ export default function Courses() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://backend.ignti.com/api/courses/name-Course-all",
+        url: "https://backend.ignti.in/api/courses/name-Course-all",
       });
       dispatch(SetLoading(false));
       if (response.data.success) {
@@ -46,7 +46,7 @@ export default function Courses() {
       dispatch(SetLoading(true));
       const response = await axios({
         method: "post",
-        url: "https://backend.ignti.com/api/courses/get-course",
+        url: "https://backend.ignti.in/api/courses/get-course",
         data: {
           courseName: selectedCategory,
         },
@@ -69,7 +69,7 @@ export default function Courses() {
       const promises = courses.map(async (courseName) => {
         const response = await axios({
           method: "post",
-          url: "https://backend.ignti.com/api/courses/get-course",
+          url: "https://backend.ignti.in/api/courses/get-course",
           data: {
             courseName: courseName,
           },
@@ -131,13 +131,13 @@ export default function Courses() {
           </div>
         </div>
 
-       
+
       </div>
       <div className="sport-list">
-          {data.map((element, index) => (
-            <Item {...element} key={index} />
-          ))}
-        </div>
+        {data.map((element, index) => (
+          <Item {...element} key={index} />
+        ))}
+      </div>
 
       <Footers />
     </div>
